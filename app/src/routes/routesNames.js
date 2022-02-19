@@ -3,4 +3,5 @@ export const ROUTES = {
   USERS: '/users',
   USER: '/users/:name',
   POST: '/post',
+  LOGIN: '/login',
 }
