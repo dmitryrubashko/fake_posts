@@ -1,8 +1,18 @@
+import styled from 'styled-components'
+
+const H1 = styled.div`
+  text-align: center;
+  font-size: 64px;
+  margin-bottom: 20px;
+  color: rgb(52, 40, 51);
+  font-family: 'Texturina', serif;
+`;
+
 const PostPageLayout = () => {
   return (
-    <div>
-
-    </div>
+    <H1>
+      Post Page
+    </H1>
   );
 };
 

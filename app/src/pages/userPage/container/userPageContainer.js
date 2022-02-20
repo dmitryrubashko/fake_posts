@@ -1,9 +1,13 @@
+import UserPageLayout from "../components/userPageComponent";
+
 const UserPageContainer = () => {
   return (
-    <div>
+    <UserPageLayout
 
-    </div>
+    />
   );
 };
 
 export default UserPageContainer;
+
+

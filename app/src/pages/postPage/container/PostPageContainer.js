@@ -1,8 +1,10 @@
+import PostPageLayout from "../components/postPageComponent";
+
 const PostPageContainer = () => {
   return (
-    <div>
+    <PostPageLayout
 
-    </div>
+    />
   );
 };
 

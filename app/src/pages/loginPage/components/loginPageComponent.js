@@ -13,7 +13,7 @@ const Form = styled.form`
 `;
 
 const Button = styled.button`
-  background: #b6a27f;
+  background: #be9c58;
   border: 3px solid rgba(12, 28, 72, 0.83);
   border-radius: 5px;
   color: rgba(12, 28, 72, 0.83);
