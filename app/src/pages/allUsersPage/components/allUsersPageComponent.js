@@ -60,8 +60,7 @@ const AllUsersPageLayout = ({users, handleGoToDetails}) => {
                     <div>Username : {username}</div>
                     <Button onClick={() => handleGoToDetails(id)}>Visit Page</Button>
                 </Div>;
-            })
-            }
+            })}
         </Layout>
     </Wrapper>
   );

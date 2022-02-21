@@ -1,5 +1,7 @@
 import {useState, useEffect, createContext, useContext} from 'react';
 
+import {useLocation} from 'react-router-dom';
+
 import axios from "axios";
 
 import UserPageLayout from "../components/userPageComponent";
@@ -10,7 +12,8 @@ const baseURL = 'https://jsonplaceholder.typicode.com/users';
 
 const UserPageContainer = () => {
 
-  const [user, setUser] = useState([]);
+  const [users, setUser] = useState([]);
+
 
   useEffect(() => {
     axios.get(baseURL).then((response) => {
@@ -19,7 +22,7 @@ const UserPageContainer = () => {
   }, []);
 
   return (
-      <userContext.Provider value={user}>
+      <userContext.Provider value={users}>
         <Layout/>
       </userContext.Provider>
   );
@@ -27,15 +30,21 @@ const UserPageContainer = () => {
 
 const Layout = () => {
 
-  const user = useContext(userContext);
+  const users = useContext(userContext);
+
+  const location = useLocation();
+  const split = location.pathname.split('/');
+  const id = split[split.length-1];
 
   return (
       <UserPageLayout
-          user={user}
+          users={users}
+          id={id}
       />
   )
 }
 
 export default UserPageContainer;
+
 
 

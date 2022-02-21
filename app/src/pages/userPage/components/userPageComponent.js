@@ -26,32 +26,32 @@ const Layout = styled.div`
   justify-content: space-around;
 `;
 
-const UserPageLayout = ({user}) => {
+const UserPageLayout = ({users, id}) => {
 
   return (
       <>
           <H1>
-              {user[0]?.name}'s Page
+              {users[id-1]?.name}'s Page
           </H1>
           <Layout>
               <Div >
-                  <div>Id : {user[0]?.id}</div>
-                  <div>Name : {user[0]?.name}</div>
-                  <div>Username : {user[0]?.username}</div>
-                  <div>Email : {user[0]?.email}</div>
+                  <div>Id : {users[id-1]?.id}</div>
+                  <div>Name : {users[id-1]?.name}</div>
+                  <div>Username : {users[id-1]?.username}</div>
+                  <div>Email : {users[id-1]?.email}</div>
                   Address :
-                  <div>Street : {user[0]?.address.street}</div>
-                  <div>Suite : {user[0]?.address.suite}</div>
-                  <div>City : {user[0]?.address.city}</div>
-                  <div>Zipcode : {user[0]?.address.zipcode}</div>
-                  <div>Geo.lat : {user[0]?.address.geo.lat}</div>
-                  <div>Geo.lng : {user[0]?.address.geo.lng}</div>
-                  <div>Phone : {user[0]?.phone}</div>
-                  <div>Website : {user[0]?.website}</div>
+                  <div>Street : {users[id-1]?.address.street}</div>
+                  <div>Suite : {users[id-1]?.address.suite}</div>
+                  <div>City : {users[id-1]?.address.city}</div>
+                  <div>Zipcode : {users[id-1]?.address.zipcode}</div>
+                  <div>Geo.lat : {users[id-1]?.address.geo.lat}</div>
+                  <div>Geo.lng : {users[id-1]?.address.geo.lng}</div>
+                  <div>Phone : {users[id-1]?.phone}</div>
+                  <div>Website : {users[id-1]?.website}</div>
                   Company :
-                  <div>Name : {user[0]?.company.name}</div>
-                  <div>CatchPhrase : {user[0]?.company.catchPhrase}</div>
-                  <div>Bs : {user[0]?.company.bs}</div>
+                  <div>Name : {users[id-1]?.company.name}</div>
+                  <div>CatchPhrase : {users[id-1]?.company.catchPhrase}</div>
+                  <div>Bs : {users[id-1]?.company.bs}</div>
               </Div>
           </Layout>
       </>
