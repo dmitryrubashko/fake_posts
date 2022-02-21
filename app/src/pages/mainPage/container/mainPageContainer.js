@@ -1,32 +1,4 @@
-// import {useState, useEffect} from "react";
-//
-// import axios from 'axios';
-//
-// import MainPageLayout from "../components/mainPageComponent";
-//
-// const MainPageContainer = () => {
-//
-//   const [posts, setPosts] = useState([]);
-//   const baseURL = 'https://jsonplaceholder.typicode.com/posts';
-//
-//   useEffect(() => {
-//     axios.get(baseURL).then((response) => {
-//       setPosts(response.data);
-//     });
-//   }, []);
-//
-//   return (
-//     <MainPageLayout
-//       posts={posts}
-//     />
-//   );
-// };
-//
-// export default MainPageContainer;
-
-import {useState, useEffect, createContext, useContext, useCallback} from 'react';
-
-import {useHistory} from 'react-router-dom';
+import {useState, useEffect, createContext, useContext} from 'react';
 
 import axios from "axios";
 
@@ -55,7 +27,7 @@ const MainPageContainer = () => {
 
 const Layout = () => {
 
-  const posts = useContext(postsContext)
+  const posts = useContext(postsContext);
 
   return (
     <MainPageLayout

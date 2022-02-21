@@ -26,33 +26,41 @@ const Layout = styled.div`
   justify-content: space-around;
 `;
 
-const UserPageLayout = ({users, id}) => {
+const UserPageLayout = ({users, posts, id}) => {
 
   return (
       <>
           <H1>
-              {users[id-1]?.name}'s Page
+              {users.users[id-1]?.name}'s Page
           </H1>
           <Layout>
               <Div >
-                  <div>Id : {users[id-1]?.id}</div>
-                  <div>Name : {users[id-1]?.name}</div>
-                  <div>Username : {users[id-1]?.username}</div>
-                  <div>Email : {users[id-1]?.email}</div>
+                  <div>UserId : {users.users[id-1]?.id}</div>
+                  <div>Name : {users.users[id-1]?.name}</div>
+                  <div>Username : {users.users[id-1]?.username}</div>
+                  <div>Email : {users.users[id-1]?.email}</div>
                   Address :
-                  <div>Street : {users[id-1]?.address.street}</div>
-                  <div>Suite : {users[id-1]?.address.suite}</div>
-                  <div>City : {users[id-1]?.address.city}</div>
-                  <div>Zipcode : {users[id-1]?.address.zipcode}</div>
-                  <div>Geo.lat : {users[id-1]?.address.geo.lat}</div>
-                  <div>Geo.lng : {users[id-1]?.address.geo.lng}</div>
-                  <div>Phone : {users[id-1]?.phone}</div>
-                  <div>Website : {users[id-1]?.website}</div>
+                  <div>Street : {users.users[id-1]?.address?.street}</div>
+                  <div>Suite : {users.users[id-1]?.address?.suite}</div>
+                  <div>City : {users.users[id-1]?.address?.city}</div>
+                  <div>Zipcode : {users.users[id-1]?.address?.zipcode}</div>
+                  <div>Geo.lat : {users.users[id-1]?.address?.geo?.lat}</div>
+                  <div>Geo.lng : {users.users[id-1]?.address?.geo?.lng}</div>
+                  <div>Phone : {users.users[id-1]?.phone}</div>
+                  <div>Website : {users.users[id-1]?.website}</div>
                   Company :
-                  <div>Name : {users[id-1]?.company.name}</div>
-                  <div>CatchPhrase : {users[id-1]?.company.catchPhrase}</div>
-                  <div>Bs : {users[id-1]?.company.bs}</div>
+                  <div>Name : {users.users[id-1]?.company?.name}</div>
+                  <div>CatchPhrase : {users.users[id-1]?.company?.catchPhrase}</div>
+                  <div>Bs : {users.users[id-1]?.company?.bs}</div>
               </Div>
+            {posts.posts.map((post) => {
+              const {title, body, userId} = post;
+              return <div key={id}>
+                <div>userId : {userId}</div>
+                <div>title : {title}</div>
+                <div>body : {body}</div>
+              </div>;
+            })}
           </Layout>
       </>
   );
