@@ -1,18 +1,8 @@
-// import AllUsersPageLayout from "../components/allUsersPageComponent";
-//
-// const AllUsersPageContainer = () => {
-//   return (
-//     <AllUsersPageLayout
-//
-//     />
-//   );
-// };
-//
-// export default AllUsersPageContainer;
-
 import {useState, useEffect, createContext, useContext} from 'react';
 
 import axios from "axios";
+
+import AllUsersPageLayout from "../components/allUsersPageComponent";
 
 const userContext = createContext(null);
 
@@ -30,32 +20,19 @@ const AllUsersPageContainer = () => {
 
   return (
     <userContext.Provider value={users}>
-      <ChildComponent1 />
+      <Layout/>
     </userContext.Provider>
   );
 };
 
-const ChildComponent1 = () => {
-
-  return (
-    <>
-      <ChildComponent2 />
-    </>
-
-  )
-}
-
-const ChildComponent2 = () => {
+const Layout = () => {
 
   const users = useContext(userContext)
 
   return (
-    <div>
-      {users &&
-      users.map((user) => {
-        return <li key={user.id}>{user.name}</li>;
-      })}
-    </div>
+      <AllUsersPageLayout
+          users={users}
+      />
   )
 }
 
