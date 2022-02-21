@@ -1,10 +1,12 @@
-import {useState, useEffect, createContext, useContext} from 'react';
+import {useState, useEffect, createContext, useContext, useCallback} from 'react';
+
+import {useHistory} from 'react-router-dom';
 
 import axios from "axios";
 
 import AllUsersPageLayout from "../components/allUsersPageComponent";
 
-const userContext = createContext(null);
+const usersContext = createContext(null);
 
 const baseURL = 'https://jsonplaceholder.typicode.com/users';
 
@@ -19,19 +21,25 @@ const AllUsersPageContainer = () => {
   }, []);
 
   return (
-    <userContext.Provider value={users}>
+    <usersContext.Provider value={users}>
       <Layout/>
-    </userContext.Provider>
+    </usersContext.Provider>
   );
 };
 
 const Layout = () => {
 
-  const users = useContext(userContext)
+  const users = useContext(usersContext)
+  const history = useHistory();
+
+  const handleGoToDetails = useCallback((userName) => {
+    history.push(`/users/${userName}`);
+  }, []);
 
   return (
       <AllUsersPageLayout
           users={users}
+          handleGoToDetails={handleGoToDetails}
       />
   )
 }

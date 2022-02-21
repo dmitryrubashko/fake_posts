@@ -27,6 +27,7 @@ const Button = styled.div`
   padding: 0.25em 1em;
   border-radius: 10px;
   border: 3px solid rgba(12, 28, 72, 0.83);
+  margin: 0 10px;
 `;
 
 const ButtonSignIn = styled.button`
@@ -50,9 +51,12 @@ const Header = () => {
         <ButtonSignIn>Sign in</ButtonSignIn>
       </Link>
       <div>
-        <Link to={ROUTES.USERS}>
-          <Button>Go To Users Page</Button>
-        </Link>
+          <Link to={ROUTES.USERS}>
+              <Button>Users Page</Button>
+          </Link>
+          <Link to={ROUTES.MAIN}>
+              <Button>Main Page</Button>
+          </Link>
       </div>
     </Wrapper>
   );

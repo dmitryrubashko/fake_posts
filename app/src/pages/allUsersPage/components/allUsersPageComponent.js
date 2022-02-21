@@ -1,9 +1,5 @@
 import styled from 'styled-components'
 
-import {Link} from "react-router-dom";
-
-import {ROUTES} from "../../../routes/routesNames";
-
 const H1 = styled.div`
   font-size: 64px;
   margin-bottom: 20px;
@@ -22,7 +18,7 @@ const Layout = styled.div`
 `;
 
 const Div = styled.div`
-  border: 3px solid rgba(12, 28, 72, 0.83);
+  border:5px solid rgba(12, 28, 72, 0.83);
   margin: 15px auto 30px auto;
   border-radius: 10px;
   padding: 5px;
@@ -50,7 +46,7 @@ const Wrapper = styled.div`
   text-align: center;
 `;
 
-const AllUsersPageLayout = ({users}) => {
+const AllUsersPageLayout = ({users, handleGoToDetails}) => {
   return (
     <Wrapper>
         <H1>
@@ -58,13 +54,11 @@ const AllUsersPageLayout = ({users}) => {
         </H1>
         <Layout>
             {users.map((user) => {
-                const {id, name, username, email} = user;
+                const {id, name, username} = user;
                 return <Div key={id}>
                     <div><Description>Name : </Description>{name}</div>
                     <div>Username : {username}</div>
-                    <Link to={ROUTES.USERS}>
-                        <Button>Visit Page</Button>
-                    </Link>
+                    <Button onClick={() => handleGoToDetails(id)}>Visit Page</Button>
                 </Div>;
             })
             }
