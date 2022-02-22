@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import CustomPagination from "../../../commonComponents/customPagination";
+import ReactPaginate from 'react-paginate';
 
 const H1 = styled.h1`
   text-align: center;
@@ -23,7 +23,7 @@ const Wrapper = styled.div`
 `;
 
 const Div = styled.div`
-  border: 3px solid rgba(12, 28, 72, 0.83);
+  border: 6px solid rgba(12, 28, 72, 0.83);
   margin: 15px 30px;
   border-radius: 10px;
   padding: 5px;
@@ -53,7 +53,7 @@ const Button = styled.div`
   margin: 10px;
 `;
 
-const MainPageLayout = ({posts, handleGoToPost}) => {
+const MainPageLayout = ({posts, handleGoToPost, pageCount, handlePageClick}) => {
   return (
     <>
       <H1>
@@ -71,11 +71,16 @@ const MainPageLayout = ({posts, handleGoToPost}) => {
           )
         })}
       </Wrapper>
-      <PaginationDiv>
-        <CustomPagination
-          pageCount={10}
-        />
-      </PaginationDiv>
+        <ReactPaginate
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={pageCount}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClick}
+            containerClassName={"pagination"}
+            subContainerClassName={"pages pagination"}
+            activeClassName={"active"}/>
     </>
   );
 };

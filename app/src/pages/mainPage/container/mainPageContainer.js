@@ -11,22 +11,35 @@ const baseURL = 'https://jsonplaceholder.typicode.com/posts';
 
 const MainPageContainer = () => {
 
+  const [offset, setOffset] = useState(0); /////////////////////
+  const [perPage] = useState(10); //////////////////////////
+  const [pageCount, setPageCount] = useState(0) /////////////
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     axios.get(baseURL).then((response) => {
-      setPosts(response.data);
+      setPageCount(Math.ceil(response.data.length/perPage)) //////////////
+      setPosts(response.data.slice(offset, offset+perPage)) ///////////////////
     });
-  }, []);
+  }, [offset]); /////////////////////////
+
+  const handlePageClick = (e) => {        //////////////////////
+    const selectedPage = e.selected;          //////////////////////
+    console.log(selectedPage*perPage)         //////////////////////
+    setOffset((selectedPage + 1)*perPage)       //////////////////////
+  }                                     //////////////////////
 
   return (
     <postsContext.Provider value={posts}>
-      <Layout/>
+      <Layout
+          pageCount={pageCount} ////////////////////
+          handlePageClick={handlePageClick} //////////////
+      />
     </postsContext.Provider>
   );
 };
 
-const Layout = () => {
+const Layout = ({pageCount, handlePageClick}) => {
 
   const posts = useContext(postsContext);
 
@@ -40,6 +53,8 @@ const Layout = () => {
     <MainPageLayout
       posts={posts}
       handleGoToPost={handleGoToPost}
+      pageCount={pageCount}             ////////////////
+      handlePageClick={handlePageClick}       /////////////////
     />
   )
 }
