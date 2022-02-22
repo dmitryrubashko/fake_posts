@@ -1,8 +1,9 @@
-import {useState, useEffect, createContext, useContext} from 'react';
+import {useState, useEffect, createContext, useContext, useCallback} from 'react';
 
 import axios from "axios";
 
 import MainPageLayout from "../components/mainPageComponent";
+import {useHistory} from "react-router-dom";
 
 const postsContext = createContext(null);
 
@@ -29,9 +30,16 @@ const Layout = () => {
 
   const posts = useContext(postsContext);
 
+  const history = useHistory();
+
+  const handleGoToPost = useCallback((post) => {
+    history.push(`/posts/${post}`);
+  }, []);
+
   return (
     <MainPageLayout
       posts={posts}
+      handleGoToPost={handleGoToPost}
     />
   )
 }

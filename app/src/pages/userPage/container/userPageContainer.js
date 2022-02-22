@@ -1,6 +1,6 @@
 import {useState, useEffect, createContext, useContext, useCallback} from 'react';
 
-import {useLocation} from 'react-router-dom';
+import {useHistory, useLocation} from 'react-router-dom';
 
 import axios from "axios";
 
@@ -40,6 +40,8 @@ const Layout = () => {
   const users = useContext(userContext);
   const posts = useContext(userContext);
 
+  const history = useHistory();
+
   const location = useLocation();
   const elements = location.pathname.split('/');
   const id = elements[elements.length-1];
@@ -51,11 +53,16 @@ const Layout = () => {
     return result
   }, [])
 
+  const handleGoToPost = useCallback((post) => {
+    history.push(`/posts/${post}`);
+  }, []);
+
   return (
       <UserPageLayout
           users={users}
           id={id}
           postsOfSelectedUser={postsOfSelectedUser}
+          handleGoToPost={handleGoToPost}
       />
   )
 }

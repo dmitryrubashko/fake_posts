@@ -6,6 +6,7 @@ const H1 = styled.h1`
   margin-bottom: 20px;
   color: rgb(52, 40, 51);
   font-family: 'Texturina', serif;
+  margin-top: 0;
 `;
 
 const H2 = styled.h2`
@@ -13,6 +14,7 @@ const H2 = styled.h2`
   font-size: 48px;
   color: rgb(52, 40, 51);
   font-family: 'Texturina', serif;
+  margin-top: 0;
 `;
 
 const Div = styled.div`
@@ -55,9 +57,21 @@ const Title = styled.span`
   color: #836729;
 `;
 
-const UserPageLayout = ({users, id, postsOfSelectedUser}) => {
+const Button = styled.div`
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Original Surfer', cursive;
+  color: rgba(12, 28, 72, 0.83);
+  background-color: #249f75;
+  padding: 0.25em 1em;
+  border-radius: 10px;
+  border: 3px solid rgba(12, 28, 72, 0.83);
+  margin: 10px;
+`;
 
-    console.log(postsOfSelectedUser)
+const UserPageLayout = ({users, id, postsOfSelectedUser, handleGoToPost}) => {
+
     return (
         <>
             <H1>
@@ -89,10 +103,11 @@ const UserPageLayout = ({users, id, postsOfSelectedUser}) => {
             </H2>
             <Posts>
                 {postsOfSelectedUser.map((post) => {
-                    const {title, body} = post;
-                    return <Post>
+                    const {title, body, id} = post;
+                    return <Post key={id}>
                         <div><Title>Title :</Title> {title}</div>
                         <article>Post : {body}</article>
+                        <Button onClick={() => handleGoToPost(id)}>Go To Comments</Button>
                     </Post>;
                 })}
             </Posts>

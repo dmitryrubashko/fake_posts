@@ -8,6 +8,7 @@ const H1 = styled.h1`
   margin-bottom: 20px;
   color: rgb(52, 40, 51);
   font-family: 'Texturina', serif;
+  margin-top: 0;
 `;
 
 const Wrapper = styled.div`
@@ -16,6 +17,9 @@ const Wrapper = styled.div`
   font-size: 20px;
   font-family: 'Texturina', serif;
   color: rgb(52, 40, 51);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 `;
 
 const Div = styled.div`
@@ -23,6 +27,7 @@ const Div = styled.div`
   margin: 15px 30px;
   border-radius: 10px;
   padding: 5px;
+  width: 25%;
 `;
 
 const PaginationDiv = styled.div`
@@ -35,7 +40,20 @@ const Description = styled.span`
   color: #836729;
 `;
 
-const MainPageLayout = ({posts}) => {
+const Button = styled.div`
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Original Surfer', cursive;
+  color: rgba(12, 28, 72, 0.83);
+  background-color: #249f75;
+  padding: 0.25em 1em;
+  border-radius: 10px;
+  border: 3px solid rgba(12, 28, 72, 0.83);
+  margin: 10px;
+`;
+
+const MainPageLayout = ({posts, handleGoToPost}) => {
   return (
     <>
       <H1>
@@ -47,7 +65,8 @@ const MainPageLayout = ({posts}) => {
           return (
             <Div key={id}>
               <div><Description>Title : </Description>{title}</div>
-              <div>{body}</div>
+              <div>Post : {body}</div>
+                <Button onClick={() => handleGoToPost(id)}>Go To Comments</Button>
             </Div>
           )
         })}

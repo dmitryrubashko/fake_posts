@@ -47,6 +47,7 @@ const InputWordDiv = styled.div`
 
 const H1 = styled.h1`
   font-size: 48px;
+  margin-top: 0;
 `;
 
 const LoginPageLayout = ({handleSubmit}) => {

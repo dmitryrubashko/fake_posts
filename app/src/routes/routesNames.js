@@ -2,6 +2,6 @@ export const ROUTES = {
   MAIN: '/',
   USERS: '/users',
   USER: '/users/:name',
-  POST: '/post',
+  POST: '/posts/:post',
   LOGIN: '/login',
 }

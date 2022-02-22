@@ -32,8 +32,8 @@ const Layout = () => {
   const users = useContext(usersContext)
   const history = useHistory();
 
-  const handleGoToDetails = useCallback((userName) => {
-    history.push(`/users/${userName}`);
+  const handleGoToDetails = useCallback((user) => {
+    history.push(`/users/${user}`);
   }, []);
 
   return (

@@ -5,6 +5,7 @@ const H1 = styled.h1`
   margin-bottom: 20px;
   color: rgb(52, 40, 51);
   font-family: 'Texturina', serif;
+  margin-top: 0;
 `;
 
 const Layout = styled.div`
