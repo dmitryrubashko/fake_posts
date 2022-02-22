@@ -24,9 +24,8 @@ const MainPageContainer = () => {
   }, [offset]); /////////////////////////
 
   const handlePageClick = (e) => {        //////////////////////
-    const selectedPage = e.selected;          //////////////////////
-    console.log(selectedPage*perPage)         //////////////////////
-    setOffset((selectedPage + 1)*perPage)       //////////////////////
+    const selectedPage = e.selected;          ///////////////////////
+    setOffset((selectedPage)*perPage)       //////////////////////
   }                                     //////////////////////
 
   return (

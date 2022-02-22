@@ -72,15 +72,10 @@ const MainPageLayout = ({posts, handleGoToPost, pageCount, handlePageClick}) => 
         })}
       </Wrapper>
         <ReactPaginate
-            breakLabel={"..."}
-            breakClassName={"break-me"}
             pageCount={pageCount}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
+            pageRangeDisplayed={10}
             onPageChange={handlePageClick}
-            containerClassName={"pagination"}
-            subContainerClassName={"pages pagination"}
-            activeClassName={"active"}/>
+        />
     </>
   );
 };
