@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const H1 = styled.div`
+const H1 = styled.h1`
   font-size: 64px;
   margin-bottom: 20px;
   color: rgb(52, 40, 51);

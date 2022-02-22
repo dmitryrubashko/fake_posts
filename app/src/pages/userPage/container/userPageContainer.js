@@ -1,4 +1,4 @@
-import {useState, useEffect, createContext, useContext} from 'react';
+import {useState, useEffect, createContext, useContext, useCallback} from 'react';
 
 import {useLocation} from 'react-router-dom';
 
@@ -44,16 +44,22 @@ const Layout = () => {
   const elements = location.pathname.split('/');
   const id = elements[elements.length-1];
 
+  const postsOfSelectedUser = posts.posts.reduce((result, post) => {
+    if (post.userId === users.users[id-1]?.id ) {
+      result.push(post)
+    }
+    return result
+  }, [])
+
   return (
       <UserPageLayout
           users={users}
-          posts={posts}
           id={id}
+          postsOfSelectedUser={postsOfSelectedUser}
       />
   )
 }
 
 export default UserPageContainer;
-
 
 

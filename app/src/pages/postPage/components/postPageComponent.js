@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const H1 = styled.div`
+const H1 = styled.h1`
   text-align: center;
   font-size: 64px;
   margin-bottom: 20px;
