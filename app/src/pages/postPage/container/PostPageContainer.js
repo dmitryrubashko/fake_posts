@@ -1,6 +1,6 @@
 import PostPageLayout from "../components/postPageComponent";
 
-import {useState, useEffect, createContext, useContext, useCallback} from 'react';
+import {useState, useEffect, createContext, useContext} from 'react';
 
 import {useLocation} from 'react-router-dom';
 
@@ -52,14 +52,14 @@ const Layout = ({isLoadingPosts, isLoadingComments}) => {
   const id = elements[elements.length-1];
 
   const postsOfSelectedUser = posts.posts.reduce((result, post) => {
-    if (post.id === posts.posts[id-1]?.id ) {
+    if (post.id === posts.posts[id-1]?.id) {
       result.push(post)
     }
     return result
   }, [])
 
   const commentsOfSelectedUser = comments.comments.reduce((result, comment) => {
-    if (comment.postId === comments.comments[id-1]?.id ) {
+    if (comment.postId === comments.comments[id-1]?.id) {
       result.push(comment)
     }
     return result

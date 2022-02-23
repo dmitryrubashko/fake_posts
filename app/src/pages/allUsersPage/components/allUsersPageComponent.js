@@ -6,9 +6,10 @@ const H1 = styled.h1`
   color: rgb(52, 40, 51);
   font-family: 'Texturina', serif;
   margin-top: 0;
+  text-align: center;
 `;
 
-const Layout = styled.div`
+const Users = styled.div`
   font-weight: bold;
   font-size: 20px;
   font-family: 'Texturina', serif;
@@ -16,6 +17,7 @@ const Layout = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  text-align: center;
 `;
 
 const Div = styled.div`
@@ -39,31 +41,27 @@ const Button = styled.div`
   margin: 10px;
 `;
 
-const Description = styled.span`
+const Name = styled.span`
   color: #4b390e;
-`;
-
-const Wrapper = styled.div`
-  text-align: center;
 `;
 
 const AllUsersPageLayout = ({users, handleGoToDetails}) => {
   return (
-    <Wrapper>
+    <>
         <H1>
             Users Page
         </H1>
-        <Layout>
+        <Users>
             {users.map((user) => {
                 const {id, name, username} = user;
                 return <Div key={id}>
-                    <div><Description>Name : </Description>{name}</div>
+                    <div><Name>Name : </Name>{name}</div>
                     <div>Username : {username}</div>
                     <Button onClick={() => handleGoToDetails(id)}>Visit Page</Button>
                 </Div>;
             })}
-        </Layout>
-    </Wrapper>
+        </Users>
+    </>
   );
 };
 

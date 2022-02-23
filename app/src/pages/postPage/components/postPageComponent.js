@@ -19,7 +19,7 @@ const H2 = styled.h2`
   margin: 0;
 `;
 
-const Div = styled.div`
+const Article = styled.div`
   border: 3px solid rgba(12, 28, 72, 0.83);
   margin: 15px 30px;
   border-radius: 10px;
@@ -27,7 +27,7 @@ const Div = styled.div`
   width: 50%;
 `;
 
-const Wrapper = styled.div`
+const Div = styled.div`
   font-weight: bold;
   text-align: center;
   font-size: 20px;
@@ -38,7 +38,7 @@ const Wrapper = styled.div`
   justify-content: space-around;
 `;
 
-const Description = styled.span`
+const Title = styled.span`
   color: #4b390e;
 `;
 
@@ -52,32 +52,32 @@ const PostPageLayout = ({postsOfSelectedUser, commentsOfSelectedUser, isLoadingP
         <H1>
             Post
         </H1>
-        {isLoadingPosts && isLoadingComments ? <CircularProgress/> : (
+        {isLoadingPosts && isLoadingComments ? <CircularProgress/> :
             <>
-                <Wrapper>
+                <Div>
                     {postsOfSelectedUser.map((post) => {
                         const {title, body, id} = post;
-                        return <Div key={id}>
-                            <div><Description>Title : </Description>{title}</div>
+                        return <Article key={id}>
+                            <div><Title>Title : </Title>{title}</div>
                             <article>Post : {body}</article>
-                        </Div>
+                        </Article>
                     })}
-                </Wrapper>
+                </Div>
                 <H2>
                     Comments :
                 </H2>
-                <Wrapper>
+                <Div>
                     {commentsOfSelectedUser.map((comment) => {
                         const {name, email, body} = comment;
-                        return <Div key={name}>
+                        return <Article key={name}>
                             <Comment>Comment : {body}</Comment>
                             <div>Name : {name}</div>
                             <div>Email : {email}</div>
-                        </Div>
+                        </Article>
                     })}
-                </Wrapper>
+                </Div>
             </>
-        )}
+        }
     </>
   );
 };

@@ -1,9 +1,9 @@
 import {useState, useEffect, createContext, useContext, useCallback} from 'react';
+import {useHistory} from "react-router-dom";
 
 import axios from "axios";
 
 import MainPageLayout from "../components/mainPageComponent";
-import {useHistory} from "react-router-dom";
 
 const postsContext = createContext(null);
 
@@ -11,30 +11,30 @@ const baseURL = 'https://jsonplaceholder.typicode.com/posts';
 
 const MainPageContainer = () => {
 
-  const [offset, setOffset] = useState(0); /////////////////////
-  const [perPage] = useState(10); //////////////////////////
-  const [pageCount, setPageCount] = useState(0) /////////////
+  const [offset, setOffset] = useState(0);
+  const [perPage] = useState(10);
+  const [pageCount, setPageCount] = useState(0);
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios.get(baseURL).then((response) => {
-      setPageCount(Math.ceil(response.data.length/perPage)) //////////////
-      setPosts(response.data.slice(offset, offset+perPage)) ///////////////////
-      setIsLoading(false)
+      setPageCount(Math.ceil(response.data.length/perPage));
+      setPosts(response.data.slice(offset, offset+perPage));
+      setIsLoading(false);
     });
-  }, [offset]); /////////////////////////
+  }, [offset]);
 
-  const handlePageClick = (e) => {        //////////////////////
-    const selectedPage = e.selected;          ///////////////////////
-    setOffset((selectedPage)*perPage)       //////////////////////
-  }                                     //////////////////////
+  const handlePageClick = (event) => {
+    const selectedPage = event.selected;
+    setOffset((selectedPage)*perPage);
+  }
 
   return (
     <postsContext.Provider value={posts}>
       <Layout
-          pageCount={pageCount} ////////////////////
-          handlePageClick={handlePageClick} //////////////
+          pageCount={pageCount}
+          handlePageClick={handlePageClick}
           isLoading={isLoading}
       />
     </postsContext.Provider>
@@ -44,7 +44,6 @@ const MainPageContainer = () => {
 const Layout = ({pageCount, handlePageClick, isLoading}) => {
 
   const posts = useContext(postsContext);
-
   const history = useHistory();
 
   const handleGoToPost = useCallback((post) => {
@@ -55,8 +54,8 @@ const Layout = ({pageCount, handlePageClick, isLoading}) => {
     <MainPageLayout
       posts={posts}
       handleGoToPost={handleGoToPost}
-      pageCount={pageCount}             ////////////////
-      handlePageClick={handlePageClick}       /////////////////
+      pageCount={pageCount}
+      handlePageClick={handlePageClick}
       isLoading={isLoading}
     />
   )

@@ -33,7 +33,7 @@ const Input = styled.input`
   color: rgba(12, 28, 72, 0.83);
 `;
 
-const LoginDiv = styled.div`
+const Login = styled.div`
   text-align: center;
   font-size: 64px;
   margin-bottom: 20px;
@@ -42,7 +42,7 @@ const LoginDiv = styled.div`
   font-weight: bold;
 `;
 
-const InputWordDiv = styled.div`
+const Word = styled.div`
   font-size: 24px;
 `;
 
@@ -54,14 +54,14 @@ const H1 = styled.h1`
 const LoginPageLayout = ({handleSubmit}) => {
   return (
     <>
-      <LoginDiv>
+      <Login>
         Login Page
-      </LoginDiv>
+      </Login>
       <Form onSubmit={handleSubmit}>
         <H1>Welcome back</H1>
         <div>
           <label>
-            <InputWordDiv>Email</InputWordDiv>
+            <Word>Email</Word>
             <Input
               name='email'
               type='email'
@@ -70,7 +70,7 @@ const LoginPageLayout = ({handleSubmit}) => {
         </div>
         <div>
           <label>
-            <InputWordDiv>Password</InputWordDiv>
+            <Word>Password</Word>
             <Input
               name='password'
               type='password'

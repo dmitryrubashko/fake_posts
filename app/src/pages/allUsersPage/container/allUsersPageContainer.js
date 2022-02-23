@@ -1,5 +1,4 @@
 import {useState, useEffect, createContext, useContext, useCallback} from 'react';
-
 import {useHistory} from 'react-router-dom';
 
 import axios from "axios";
@@ -29,7 +28,7 @@ const AllUsersPageContainer = () => {
 
 const Layout = () => {
 
-  const users = useContext(usersContext)
+  const users = useContext(usersContext);
   const history = useHistory();
 
   const handleGoToDetails = useCallback((user) => {

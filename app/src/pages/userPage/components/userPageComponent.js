@@ -19,7 +19,7 @@ const H2 = styled.h2`
   margin: 0;
 `;
 
-const Div = styled.div`
+const User = styled.div`
   border: 10px solid rgba(12, 28, 72, 0.83);
   border-radius: 30px;
   padding: 15px;
@@ -27,7 +27,7 @@ const Div = styled.div`
   text-align: center;
 `;
 
-const Layout = styled.div`
+const Div = styled.div`
   font-weight: bold;
   font-size: 20px;
   font-family: 'Texturina', serif;
@@ -48,7 +48,7 @@ const Post = styled.div`
   font-family: 'Texturina', serif;
   border: 6px solid rgba(12, 28, 72, 0.83);
   border-radius: 20px;
-  width: 44%;
+  width: 30%;
   margin: 15px;
   font-weight: bold;
   text-align: center;
@@ -73,7 +73,6 @@ const Button = styled.div`
 `;
 
 const Article = styled.div`
-  height: 130px;
   padding: 5px;
 `;
 
@@ -85,8 +84,8 @@ const UserPageLayout = ({users, id, postsOfSelectedUser, handleGoToPost, isLoadi
             </H1>
             {isLoadingUserInfo && isLoadingPosts ? <CircularProgress/> : (
                 <>
-                    <Layout>
-                        <Div>
+                    <Div>
+                        <User>
                             <div>UserId : {users.users[id-1]?.id}</div>
                             <div>Name : {users.users[id-1]?.name}</div>
                             <div>Username : {users.users[id-1]?.username}</div>
@@ -104,8 +103,8 @@ const UserPageLayout = ({users, id, postsOfSelectedUser, handleGoToPost, isLoadi
                             <div>Name : {users.users[id-1]?.company?.name}</div>
                             <div>CatchPhrase : {users.users[id-1]?.company?.catchPhrase}</div>
                             <div>Bs : {users.users[id-1]?.company?.bs}</div>
-                        </Div>
-                    </Layout>
+                        </User>
+                    </Div>
                     <H2>
                         Posts
                     </H2>
