@@ -14,7 +14,7 @@ const H2 = styled.h2`
   font-size: 48px;
   color: rgb(52, 40, 51);
   font-family: 'Texturina', serif;
-  margin-top: 0;
+  margin: 0;
 `;
 
 const Div = styled.div`

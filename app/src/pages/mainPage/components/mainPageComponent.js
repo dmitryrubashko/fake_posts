@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 import ReactPaginate from 'react-paginate';
 
+import './styles.css';
+
 const H1 = styled.h1`
   text-align: center;
   font-size: 64px;
@@ -20,6 +22,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  
 `;
 
 const Div = styled.div`
@@ -28,16 +31,7 @@ const Div = styled.div`
   border-radius: 10px;
   padding: 5px;
   width: 25%;
-`;
-
-const PaginationDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-`;
-
-const Description = styled.span`
-  color: #836729;
+  height: 300px;
 `;
 
 const Button = styled.div`
@@ -53,6 +47,18 @@ const Button = styled.div`
   margin: 10px;
 `;
 
+const Description = styled.span`
+  color: #836729;
+`;
+
+const PaginateDiv = styled.div`
+  display: flex;
+`;
+
+const Article = styled.div`
+  height: 245px;
+`;
+
 const MainPageLayout = ({posts, handleGoToPost, pageCount, handlePageClick}) => {
   return (
     <>
@@ -64,18 +70,30 @@ const MainPageLayout = ({posts, handleGoToPost, pageCount, handlePageClick}) => 
           const {id, title, body} = post;
           return (
             <Div key={id}>
-              <div><Description>Title : </Description>{title}</div>
-              <div>Post : {body}</div>
+                <Article>
+                    <div><Description>Title : </Description>{title}</div>
+                    <div>Post : {body}</div>
+                </Article>
                 <Button onClick={() => handleGoToPost(id)}>Go To Comments</Button>
             </Div>
           )
         })}
       </Wrapper>
-        <ReactPaginate
-            pageCount={pageCount}
-            pageRangeDisplayed={10}
-            onPageChange={handlePageClick}
-        />
+        <PaginateDiv>
+            <ReactPaginate
+                pageCount={pageCount}
+                pageRangeDisplayed={10}
+                onPageChange={handlePageClick}
+                previousLabel="<"
+                nextLabel=">"
+                containerClassName="pagination"
+                pageClassName="page-item"
+                pageLinkClassName="page-link"
+                previousLinkClassName="page-link"
+                nextLinkClassName="page-link"
+                activeClassName="active"
+            />
+        </PaginateDiv>
     </>
   );
 };
