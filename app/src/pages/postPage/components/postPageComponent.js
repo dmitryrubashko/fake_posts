@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import CircularProgress from '@mui/material/CircularProgress';
+
 const H1 = styled.h1`
   text-align: center;
   font-size: 64px;
@@ -37,41 +39,45 @@ const Wrapper = styled.div`
 `;
 
 const Description = styled.span`
-  color: #836729;
+  color: #4b390e;
 `;
 
 const Comment = styled.div`
   margin-bottom: 30px;
 `;
 
-const PostPageLayout = ({id, postsOfSelectedUser, commentsOfSelectedUser}) => {
+const PostPageLayout = ({postsOfSelectedUser, commentsOfSelectedUser, isLoadingPosts, isLoadingComments}) => {
   return (
     <>
         <H1>
             Post
         </H1>
-        <Wrapper>
-            {postsOfSelectedUser.map((post) => {
-                const {title, body, id} = post;
-                return <Div key={id}>
-                    <div><Description>Title : </Description>{title}</div>
-                    <article>Post : {body}</article>
-                    </Div>
-            })}
-        </Wrapper>
-        <H2>
-            Comments :
-        </H2>
-        <Wrapper>
-            {commentsOfSelectedUser.map((comment) => {
-                const {name, email, body} = comment;
-                return <Div key={name}>
-                    <Comment>Comment : {body}</Comment>
-                    <div>Name : {name}</div>
-                    <div>Email : {email}</div>
-                </Div>
-            })}
-        </Wrapper>
+        {isLoadingPosts && isLoadingComments ? <CircularProgress/> : (
+            <>
+                <Wrapper>
+                    {postsOfSelectedUser.map((post) => {
+                        const {title, body, id} = post;
+                        return <Div key={id}>
+                            <div><Description>Title : </Description>{title}</div>
+                            <article>Post : {body}</article>
+                        </Div>
+                    })}
+                </Wrapper>
+                <H2>
+                    Comments :
+                </H2>
+                <Wrapper>
+                    {commentsOfSelectedUser.map((comment) => {
+                        const {name, email, body} = comment;
+                        return <Div key={name}>
+                            <Comment>Comment : {body}</Comment>
+                            <div>Name : {name}</div>
+                            <div>Email : {email}</div>
+                        </Div>
+                    })}
+                </Wrapper>
+            </>
+        )}
     </>
   );
 };

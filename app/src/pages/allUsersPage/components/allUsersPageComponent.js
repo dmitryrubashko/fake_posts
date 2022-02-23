@@ -40,7 +40,7 @@ const Button = styled.div`
 `;
 
 const Description = styled.span`
-  color: #836729;
+  color: #4b390e;
 `;
 
 const Wrapper = styled.div`

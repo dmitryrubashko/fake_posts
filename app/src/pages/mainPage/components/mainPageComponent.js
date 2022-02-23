@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 import ReactPaginate from 'react-paginate';
 
+import CircularProgress from '@mui/material/CircularProgress';
+
 import './styles.css';
 
 const H1 = styled.h1`
@@ -48,7 +50,7 @@ const Button = styled.div`
 `;
 
 const Description = styled.span`
-  color: #836729;
+  color: #4b390e;
 `;
 
 const PaginateDiv = styled.div`
@@ -59,41 +61,45 @@ const Article = styled.div`
   height: 245px;
 `;
 
-const MainPageLayout = ({posts, handleGoToPost, pageCount, handlePageClick}) => {
+const MainPageLayout = ({posts, handleGoToPost, pageCount, handlePageClick, isLoading}) => {
   return (
     <>
       <H1>
         Main Page
       </H1>
-      <Wrapper>
-        {posts.map(post => {
-          const {id, title, body} = post;
-          return (
-            <Div key={id}>
-                <Article>
-                    <div><Description>Title : </Description>{title}</div>
-                    <div>Post : {body}</div>
-                </Article>
-                <Button onClick={() => handleGoToPost(id)}>Go To Comments</Button>
-            </Div>
-          )
-        })}
-      </Wrapper>
-        <PaginateDiv>
-            <ReactPaginate
-                pageCount={pageCount}
-                pageRangeDisplayed={10}
-                onPageChange={handlePageClick}
-                previousLabel="<"
-                nextLabel=">"
-                containerClassName="pagination"
-                pageClassName="page-item"
-                pageLinkClassName="page-link"
-                previousLinkClassName="page-link"
-                nextLinkClassName="page-link"
-                activeClassName="active"
-            />
-        </PaginateDiv>
+        {isLoading ? (<CircularProgress/>) : (
+            <>
+                <Wrapper>
+                    {posts.map(post => {
+                        const {id, title, body} = post;
+                        return (
+                            <Div key={id}>
+                                <Article>
+                                    <div><Description>Title : </Description>{title}</div>
+                                    <div>Post : {body}</div>
+                                </Article>
+                                <Button onClick={() => handleGoToPost(id)}>Go To Comments</Button>
+                            </Div>
+                        )
+                    })}
+                </Wrapper>
+                <PaginateDiv>
+                    <ReactPaginate
+                        pageCount={pageCount}
+                        pageRangeDisplayed={10}
+                        onPageChange={handlePageClick}
+                        previousLabel="<"
+                        nextLabel=">"
+                        containerClassName="pagination"
+                        pageClassName="page-item"
+                        pageLinkClassName="page-link"
+                        previousLinkClassName="page-link"
+                        nextLinkClassName="page-link"
+                        activeClassName="active"
+                    />
+                </PaginateDiv>
+            </>
+        )}
     </>
   );
 };

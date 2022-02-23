@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 
 const HeaderDiv = styled.header`
   font-size: 36px;
-  color: #836729;
+  color: #4b390e;
   font-family: 'Original Surfer', cursive;
   display: inline-block;
   margin-bottom: 20px;

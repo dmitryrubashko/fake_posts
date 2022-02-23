@@ -15,11 +15,13 @@ const MainPageContainer = () => {
   const [perPage] = useState(10); //////////////////////////
   const [pageCount, setPageCount] = useState(0) /////////////
   const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios.get(baseURL).then((response) => {
       setPageCount(Math.ceil(response.data.length/perPage)) //////////////
       setPosts(response.data.slice(offset, offset+perPage)) ///////////////////
+      setIsLoading(false)
     });
   }, [offset]); /////////////////////////
 
@@ -33,12 +35,13 @@ const MainPageContainer = () => {
       <Layout
           pageCount={pageCount} ////////////////////
           handlePageClick={handlePageClick} //////////////
+          isLoading={isLoading}
       />
     </postsContext.Provider>
   );
 };
 
-const Layout = ({pageCount, handlePageClick}) => {
+const Layout = ({pageCount, handlePageClick, isLoading}) => {
 
   const posts = useContext(postsContext);
 
@@ -54,6 +57,7 @@ const Layout = ({pageCount, handlePageClick}) => {
       handleGoToPost={handleGoToPost}
       pageCount={pageCount}             ////////////////
       handlePageClick={handlePageClick}       /////////////////
+      isLoading={isLoading}
     />
   )
 }

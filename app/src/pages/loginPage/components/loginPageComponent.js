@@ -39,6 +39,7 @@ const LoginDiv = styled.div`
   margin-bottom: 20px;
   color: rgb(52, 40, 51);
   font-family: 'Texturina', serif;
+  font-weight: bold;
 `;
 
 const InputWordDiv = styled.div`

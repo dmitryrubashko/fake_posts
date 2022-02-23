@@ -15,27 +15,34 @@ const UserPageContainer = () => {
 
   const [users, setUser] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [isLoadingUserInfo, setIsLoadingUserInfo] = useState(true);
+  const [isLoadingPosts, setIsLoadingPosts] = useState(true);
 
   useEffect(() => {
     axios.get(baseURL).then((response) => {
       setUser(response.data);
+      setIsLoadingUserInfo(false);
     });
   }, []);
 
   useEffect(() => {
     axios.get(baseURL2).then((response) => {
       setPosts(response.data);
+      setIsLoadingPosts(false);
     });
   }, []);
 
   return (
       <userContext.Provider value={{users, posts}}>
-        <Layout/>
+        <Layout
+            isLoadingUserInfo={isLoadingUserInfo}
+            isLoadingPosts={isLoadingPosts}
+        />
       </userContext.Provider>
   );
 };
 
-const Layout = () => {
+const Layout = ({isLoadingUserInfo, isLoadingPosts}) => {
 
   const users = useContext(userContext);
   const posts = useContext(userContext);
@@ -63,6 +70,8 @@ const Layout = () => {
           id={id}
           postsOfSelectedUser={postsOfSelectedUser}
           handleGoToPost={handleGoToPost}
+          isLoadingUserInfo={isLoadingUserInfo}
+          isLoadingPosts={isLoadingPosts}
       />
   )
 }

@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import {CircularProgress} from "@mui/material";
+
 const H1 = styled.h1`
   text-align: center;
   font-size: 64px;
@@ -54,7 +56,7 @@ const Post = styled.div`
 `;
 
 const Title = styled.span`
-  color: #836729;
+  color: #4b390e;
 `;
 
 const Button = styled.div`
@@ -70,47 +72,57 @@ const Button = styled.div`
   margin: 10px;
 `;
 
-const UserPageLayout = ({users, id, postsOfSelectedUser, handleGoToPost}) => {
+const Article = styled.div`
+  height: 130px;
+  padding: 5px;
+`;
 
+const UserPageLayout = ({users, id, postsOfSelectedUser, handleGoToPost, isLoadingUserInfo, isLoadingPosts}) => {
     return (
         <>
             <H1>
                 {users.users[id-1]?.name}'s Info
             </H1>
-            <Layout>
-                <Div>
-                    <div>UserId : {users.users[id-1]?.id}</div>
-                    <div>Name : {users.users[id-1]?.name}</div>
-                    <div>Username : {users.users[id-1]?.username}</div>
-                    <div>Email : {users.users[id-1]?.email}</div>
-                    Address :
-                    <div>Street : {users.users[id-1]?.address?.street}</div>
-                    <div>Suite : {users.users[id-1]?.address?.suite}</div>
-                    <div>City : {users.users[id-1]?.address?.city}</div>
-                    <div>Zipcode : {users.users[id-1]?.address?.zipcode}</div>
-                    <div>Geo.lat : {users.users[id-1]?.address?.geo?.lat}</div>
-                    <div>Geo.lng : {users.users[id-1]?.address?.geo?.lng}</div>
-                    <div>Phone : {users.users[id-1]?.phone}</div>
-                    <div>Website : {users.users[id-1]?.website}</div>
-                    Company :
-                    <div>Name : {users.users[id-1]?.company?.name}</div>
-                    <div>CatchPhrase : {users.users[id-1]?.company?.catchPhrase}</div>
-                    <div>Bs : {users.users[id-1]?.company?.bs}</div>
-                </Div>
-            </Layout>
-            <H2>
-                Posts
-            </H2>
-            <Posts>
-                {postsOfSelectedUser.map((post) => {
-                    const {title, body, id} = post;
-                    return <Post key={id}>
-                        <div><Title>Title :</Title> {title}</div>
-                        <article>Post : {body}</article>
-                        <Button onClick={() => handleGoToPost(id)}>Go To Comments</Button>
-                    </Post>;
-                })}
-            </Posts>
+            {isLoadingUserInfo && isLoadingPosts ? <CircularProgress/> : (
+                <>
+                    <Layout>
+                        <Div>
+                            <div>UserId : {users.users[id-1]?.id}</div>
+                            <div>Name : {users.users[id-1]?.name}</div>
+                            <div>Username : {users.users[id-1]?.username}</div>
+                            <div>Email : {users.users[id-1]?.email}</div>
+                            Address :
+                            <div>Street : {users.users[id-1]?.address?.street}</div>
+                            <div>Suite : {users.users[id-1]?.address?.suite}</div>
+                            <div>City : {users.users[id-1]?.address?.city}</div>
+                            <div>Zipcode : {users.users[id-1]?.address?.zipcode}</div>
+                            <div>Geo.lat : {users.users[id-1]?.address?.geo?.lat}</div>
+                            <div>Geo.lng : {users.users[id-1]?.address?.geo?.lng}</div>
+                            <div>Phone : {users.users[id-1]?.phone}</div>
+                            <div>Website : {users.users[id-1]?.website}</div>
+                            Company :
+                            <div>Name : {users.users[id-1]?.company?.name}</div>
+                            <div>CatchPhrase : {users.users[id-1]?.company?.catchPhrase}</div>
+                            <div>Bs : {users.users[id-1]?.company?.bs}</div>
+                        </Div>
+                    </Layout>
+                    <H2>
+                        Posts
+                    </H2>
+                    <Posts>
+                        {postsOfSelectedUser.map((post) => {
+                            const {title, body, id} = post;
+                            return <Post key={id}>
+                                <Article>
+                                    <div><Title>Title :</Title> {title}</div>
+                                    <div>Post : {body}</div>
+                                </Article>
+                                <Button onClick={() => handleGoToPost(id)}>Go To Comments</Button>
+                            </Post>;
+                        })}
+                    </Posts>
+                </>
+            )}
         </>
     );
 };

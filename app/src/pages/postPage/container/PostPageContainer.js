@@ -15,27 +15,34 @@ const PostPageContainer = () => {
 
   const [posts, setPosts] = useState([]);
   const [comments, setComments] = useState([]);
+  const [isLoadingPosts, setIsLoadingPosts] = useState(true);
+  const [isLoadingComments, setIsLoadingComments] = useState(true);
 
   useEffect(() => {
     axios.get(baseURL).then((response) => {
       setPosts(response.data);
+      setIsLoadingPosts(false);
     });
   }, []);
 
   useEffect(() => {
     axios.get(baseURL2).then((response) => {
       setComments(response.data);
+      setIsLoadingComments(false);
     });
   }, []);
 
   return (
       <userContext.Provider value={{posts, comments}}>
-        <Layout/>
+        <Layout
+            isLoadingPosts={isLoadingPosts}
+            isLoadingComments={isLoadingComments}
+        />
       </userContext.Provider>
   );
 };
 
-const Layout = () => {
+const Layout = ({isLoadingPosts, isLoadingComments}) => {
 
   const posts = useContext(userContext);
   const comments = useContext(userContext);
@@ -63,6 +70,8 @@ const Layout = () => {
           id={id}
           postsOfSelectedUser={postsOfSelectedUser}
           commentsOfSelectedUser={commentsOfSelectedUser}
+          isLoadingPosts={isLoadingPosts}
+          isLoadingComments={isLoadingComments}
       />
   )
 }
