@@ -41,6 +41,7 @@ const ButtonSignIn = styled.button`
   border: 3px solid rgba(12, 28, 72, 0.83);
   position: absolute;
   right: 1%;
+  cursor: pointer;
 `;
 
 const Header = () => {

@@ -6,7 +6,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: rgba(24, 96, 96, 0.84);
-  cursor: pointer;
 }
 
 code {
@@ -17,5 +16,9 @@ code {
 @font-face {
   font-family: 'Texturina';
   src: url('../src/assets/fonts/Texturina-VariableFont_opsz,wght.woff2')
+}
+
+* {
+  cursor: pointer;
 }
 
