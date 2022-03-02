@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Form = styled.form`
   border: 5px solid rgba(12, 28, 72, 0.83);
@@ -51,27 +51,41 @@ const H1 = styled.h1`
   margin-top: 0;
 `;
 
-const LoginPageLayout = ({handleSubmit}) => {
+const EmailData = styled.div`
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  color: #8d2828;
+  font-size: 24px;
+  background-color: rgba(194, 111, 139, 0.73);
+  width: 90%;
+  border-radius: 15px;
+`;
+
+const LoginPageLayout = ({handleSubmit, emailData}) => {
   return (
     <>
       <Login>
         Login Page
       </Login>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} noValidate>
         <H1>Welcome back</H1>
         <div>
           <label>
             <Word>Email</Word>
             <Input
+              placeholder="Enter your email"
               name='email'
               type='email'
             />
           </label>
+          <EmailData>{emailData}</EmailData>
         </div>
         <div>
           <label>
             <Word>Password</Word>
             <Input
+              placeholder="Enter your password"
               name='password'
               type='password'
             />

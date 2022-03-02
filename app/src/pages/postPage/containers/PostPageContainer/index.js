@@ -1,15 +1,13 @@
-import PostPageLayout from "../components/postPageComponent";
-
 import {useState, useEffect, createContext, useContext} from 'react';
-
 import {useLocation} from 'react-router-dom';
 
-import axios from "axios";
+import PostPageLayout from "../../components/PostPageLayout";
+import Api from "../../../../shared/commonComponents/api";
 
 const userContext = createContext(null);
 
-const baseURL = 'https://jsonplaceholder.typicode.com/posts';
-const baseURL2 = 'https://jsonplaceholder.typicode.com/comments';
+const urlDataPosts = Api.get(`/posts`);
+const urlDataComments = Api.get(`/comments`);
 
 const PostPageContainer = () => {
 
@@ -17,19 +15,26 @@ const PostPageContainer = () => {
   const [comments, setComments] = useState([]);
   const [isLoadingPosts, setIsLoadingPosts] = useState(true);
   const [isLoadingComments, setIsLoadingComments] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(baseURL).then((response) => {
+    urlDataPosts.then((response) => {
       setPosts(response.data);
       setIsLoadingPosts(false);
-    });
+    })
+      .catch((error) => {
+        setError(error);
+      });
   }, []);
 
   useEffect(() => {
-    axios.get(baseURL2).then((response) => {
+    urlDataComments.then((response) => {
       setComments(response.data);
       setIsLoadingComments(false);
-    });
+    })
+      .catch((error) => {
+        setError(error);
+      });
   }, []);
 
   return (
@@ -37,12 +42,13 @@ const PostPageContainer = () => {
         <Layout
             isLoadingPosts={isLoadingPosts}
             isLoadingComments={isLoadingComments}
+            error={error}
         />
       </userContext.Provider>
   );
 };
 
-const Layout = ({isLoadingPosts, isLoadingComments}) => {
+const Layout = ({isLoadingPosts, isLoadingComments, error}) => {
 
   const posts = useContext(userContext);
   const comments = useContext(userContext);
@@ -72,6 +78,7 @@ const Layout = ({isLoadingPosts, isLoadingComments}) => {
           commentsOfSelectedUser={commentsOfSelectedUser}
           isLoadingPosts={isLoadingPosts}
           isLoadingComments={isLoadingComments}
+          error={error}
       />
   )
 }

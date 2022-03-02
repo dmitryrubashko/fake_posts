@@ -1,32 +1,40 @@
 import {useState, useEffect, createContext, useContext, useCallback} from 'react';
 import {useHistory} from 'react-router-dom';
 
-import axios from "axios";
-
-import AllUsersPageLayout from "../components/allUsersPageComponent";
+import AllUsersPageLayout from "../../components/AllUsersPageLayout";
+import Api from "../../../../shared/commonComponents/api";
 
 const usersContext = createContext(null);
 
-const baseURL = 'https://jsonplaceholder.typicode.com/users';
+const urlDataUsers = Api.get(`/users`);
 
 const AllUsersPageContainer = () => {
 
   const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(baseURL).then((response) => {
+    urlDataUsers.then((response) => {
       setUsers(response.data);
-    });
+      setIsLoading(false);
+    })
+      .catch((error) => {
+        setError(error);
+      });
   }, []);
 
   return (
     <usersContext.Provider value={users}>
-      <Layout/>
+      <Layout
+        error={error}
+        isLoading={isLoading}
+      />
     </usersContext.Provider>
   );
 };
 
-const Layout = () => {
+const Layout = ({isLoading, error}) => {
 
   const users = useContext(usersContext);
   const history = useHistory();
@@ -39,6 +47,8 @@ const Layout = () => {
       <AllUsersPageLayout
           users={users}
           handleGoToDetails={handleGoToDetails}
+          isLoading={isLoading}
+          error={error}
       />
   )
 }

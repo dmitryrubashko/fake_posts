@@ -1,8 +1,8 @@
-import styled from 'styled-components'
-
 import {Link} from "react-router-dom";
 
 import {ROUTES} from "../../routes/routesNames";
+
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
   text-align: center;
@@ -48,14 +48,14 @@ const Header = () => {
   return (
     <Wrapper>
       <HeaderDiv>This app was made with the help of JSONPlaceholder!</HeaderDiv>
-      <Link to={ROUTES.LOGIN}>
+      <Link to={ROUTES.LOGIN_PAGE}>
         <ButtonSignIn>Sign in</ButtonSignIn>
       </Link>
       <div>
-          <Link to={ROUTES.USERS}>
+          <Link to={ROUTES.USERS_PAGE}>
               <Button>Users Page</Button>
           </Link>
-          <Link to={ROUTES.MAIN}>
+          <Link to={ROUTES.MAIN_PAGE}>
               <Button>Main Page</Button>
           </Link>
       </div>

@@ -4,8 +4,8 @@ import './index.css';
 
 import {BrowserRouter} from "react-router-dom";
 
-import Routes from './routes/routes';
-import MainLayout from "./commonComponents/mainLayout/mainLayout";
+import Routes from './shared/routes/routes';
+import MainLayout from "./shared/commonComponents/MainLayout";
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,15 +1,13 @@
 import {useState, useEffect, createContext, useContext, useCallback} from 'react';
-
 import {useHistory, useLocation} from 'react-router-dom';
 
-import axios from "axios";
-
-import UserPageLayout from "../components/userPageComponent";
+import UserPageLayout from "../../components/UserPageLayout";
+import Api from "../../../../shared/commonComponents/api";
 
 const userContext = createContext(null);
 
-const baseURL = 'https://jsonplaceholder.typicode.com/users';
-const baseURL2 = 'https://jsonplaceholder.typicode.com/posts';
+const urlDataUsers = Api.get(`/users`);
+const urlDataPosts = Api.get(`/posts`);
 
 const UserPageContainer = () => {
 
@@ -17,19 +15,26 @@ const UserPageContainer = () => {
   const [posts, setPosts] = useState([]);
   const [isLoadingUserInfo, setIsLoadingUserInfo] = useState(true);
   const [isLoadingPosts, setIsLoadingPosts] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(baseURL).then((response) => {
+    urlDataUsers.then((response) => {
       setUser(response.data);
       setIsLoadingUserInfo(false);
-    });
+    })
+      .catch((error) => {
+        setError(error);
+      });
   }, []);
 
   useEffect(() => {
-    axios.get(baseURL2).then((response) => {
+    urlDataPosts.then((response) => {
       setPosts(response.data);
       setIsLoadingPosts(false);
-    });
+    })
+      .catch((error) => {
+        setError(error);
+      });
   }, []);
 
   return (
@@ -37,12 +42,13 @@ const UserPageContainer = () => {
         <Layout
             isLoadingUserInfo={isLoadingUserInfo}
             isLoadingPosts={isLoadingPosts}
+            error={error}
         />
       </userContext.Provider>
   );
 };
 
-const Layout = ({isLoadingUserInfo, isLoadingPosts}) => {
+const Layout = ({isLoadingUserInfo, isLoadingPosts, error}) => {
 
   const users = useContext(userContext);
   const posts = useContext(userContext);
@@ -72,6 +78,7 @@ const Layout = ({isLoadingUserInfo, isLoadingPosts}) => {
           handleGoToPost={handleGoToPost}
           isLoadingUserInfo={isLoadingUserInfo}
           isLoadingPosts={isLoadingPosts}
+          error={error}
       />
   )
 }

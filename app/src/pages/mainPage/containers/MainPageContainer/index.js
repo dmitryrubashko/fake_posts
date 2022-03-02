@@ -1,13 +1,12 @@
 import {useState, useEffect, createContext, useContext, useCallback} from 'react';
 import {useHistory} from "react-router-dom";
 
-import axios from "axios";
-
-import MainPageLayout from "../components/mainPageComponent";
+import MainPageLayout from "../../components/MainPageLayout";
+import Api from "../../../../shared/commonComponents/api";
 
 const postsContext = createContext(null);
 
-const baseURL = 'https://jsonplaceholder.typicode.com/posts';
+const urlDataPosts = Api.get(`/posts`);
 
 const MainPageContainer = () => {
 
@@ -16,13 +15,17 @@ const MainPageContainer = () => {
   const [pageCount, setPageCount] = useState(0);
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(baseURL).then((response) => {
+    urlDataPosts.then((response) => {
       setPageCount(Math.ceil(response.data.length/perPage));
       setPosts(response.data.slice(offset, offset+perPage));
       setIsLoading(false);
-    });
+    })
+      .catch((error) => {
+        setError(error);
+      });
   }, [offset]);
 
   const handlePageClick = (event) => {
@@ -36,12 +39,13 @@ const MainPageContainer = () => {
           pageCount={pageCount}
           handlePageClick={handlePageClick}
           isLoading={isLoading}
+          error={error}
       />
     </postsContext.Provider>
   );
 };
 
-const Layout = ({pageCount, handlePageClick, isLoading}) => {
+const Layout = ({pageCount, handlePageClick, isLoading, error}) => {
 
   const posts = useContext(postsContext);
   const history = useHistory();
@@ -52,6 +56,7 @@ const Layout = ({pageCount, handlePageClick, isLoading}) => {
 
   return (
     <MainPageLayout
+      error={error}
       posts={posts}
       handleGoToPost={handleGoToPost}
       pageCount={pageCount}
