@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom';
 import AllUsersPageLayout from "../../components/AllUsersPageLayout";
 import Api from "../../../../shared/commonComponents/api";
 
-const usersContext = createContext(null);
+const userContext = createContext(null);
 
 const urlDataUsers = Api.get(`/users`);
 
@@ -25,18 +25,18 @@ const AllUsersPageContainer = () => {
   }, []);
 
   return (
-    <usersContext.Provider value={users}>
+    <userContext.Provider value={users}>
       <Layout
         error={error}
         isLoading={isLoading}
       />
-    </usersContext.Provider>
+    </userContext.Provider>
   );
 };
 
 const Layout = ({isLoading, error}) => {
 
-  const users = useContext(usersContext);
+  const users = useContext(userContext);
   const history = useHistory();
 
   const handleGoToDetails = useCallback((user) => {

@@ -4,7 +4,7 @@ import {useHistory} from "react-router-dom";
 import MainPageLayout from "../../components/MainPageLayout";
 import Api from "../../../../shared/commonComponents/api";
 
-const postsContext = createContext(null);
+const userContext = createContext(null);
 
 const urlDataPosts = Api.get(`/posts`);
 
@@ -34,20 +34,20 @@ const MainPageContainer = () => {
   }
 
   return (
-    <postsContext.Provider value={posts}>
+    <userContext.Provider value={posts}>
       <Layout
           pageCount={pageCount}
           handlePageClick={handlePageClick}
           isLoading={isLoading}
           error={error}
       />
-    </postsContext.Provider>
+    </userContext.Provider>
   );
 };
 
 const Layout = ({pageCount, handlePageClick, isLoading, error}) => {
 
-  const posts = useContext(postsContext);
+  const posts = useContext(userContext);
   const history = useHistory();
 
   const handleGoToPost = useCallback((post) => {
