@@ -29,14 +29,15 @@ const AllUsersPageContainer = () => {
       <Layout
         error={error}
         isLoading={isLoading}
+        users={users}
       />
     </userContext.Provider>
   );
 };
 
-const Layout = ({isLoading, error}) => {
+const Layout = ({isLoading, error, users}) => {
 
-  const users = useContext(userContext);
+
   const history = useHistory();
 
   const handleGoToDetails = useCallback((user) => {

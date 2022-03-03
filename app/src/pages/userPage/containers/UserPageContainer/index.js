@@ -43,15 +43,14 @@ const UserPageContainer = () => {
             isLoadingUserInfo={isLoadingUserInfo}
             isLoadingPosts={isLoadingPosts}
             error={error}
+            users={{users}}
+            posts={{posts}}
         />
       </userContext.Provider>
   );
 };
 
-const Layout = ({isLoadingUserInfo, isLoadingPosts, error}) => {
-
-  const users = useContext(userContext);
-  const posts = useContext(userContext);
+const Layout = ({isLoadingUserInfo, isLoadingPosts, error, users, posts}) => {
 
   const history = useHistory();
 

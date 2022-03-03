@@ -43,15 +43,14 @@ const PostPageContainer = () => {
             isLoadingPosts={isLoadingPosts}
             isLoadingComments={isLoadingComments}
             error={error}
+            posts={{posts}}
+            comments={{comments}}
         />
       </userContext.Provider>
   );
 };
 
-const Layout = ({isLoadingPosts, isLoadingComments, error}) => {
-
-  const posts = useContext(userContext);
-  const comments = useContext(userContext);
+const Layout = ({isLoadingPosts, isLoadingComments, error, posts, comments}) => {
 
   const location = useLocation();
   const elements = location.pathname.split('/');

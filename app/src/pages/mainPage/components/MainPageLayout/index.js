@@ -30,6 +30,7 @@ const Post = styled.div`
   border-radius: 10px;
   padding: 5px;
   width: 25%;
+  height: 300px;
 `;
 
 const Button = styled.div`

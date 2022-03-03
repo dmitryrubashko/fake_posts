@@ -40,14 +40,14 @@ const MainPageContainer = () => {
           handlePageClick={handlePageClick}
           isLoading={isLoading}
           error={error}
+          posts={posts}
       />
     </userContext.Provider>
   );
 };
 
-const Layout = ({pageCount, handlePageClick, isLoading, error}) => {
+const Layout = ({pageCount, handlePageClick, isLoading, error, posts}) => {
 
-  const posts = useContext(userContext);
   const history = useHistory();
 
   const handleGoToPost = useCallback((post) => {
