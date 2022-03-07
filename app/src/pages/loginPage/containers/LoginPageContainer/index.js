@@ -6,6 +6,7 @@ import LoginPageLayout from "../../components/LoginPageLayout";
 const LoginPageContainer = () => {
 
   const history = useHistory();
+
   const [emailData, setEmailData] = useState(null);
 
   const handleSubmit = useCallback((event) => {

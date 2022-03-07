@@ -1,65 +1,20 @@
-import {useState, useEffect, createContext, useContext, useCallback} from 'react';
+import {useContext, useCallback} from 'react';
 import {useHistory, useLocation} from 'react-router-dom';
 
 import UserPageLayout from "../../components/UserPageLayout";
-import Api from "../../../../shared/commonComponents/api";
-
-const userContext = createContext(null);
-
-const urlDataUsers = Api.get(`/users`);
-const urlDataPosts = Api.get(`/posts`);
+import Context from "../../../../shared/commonComponents/Context";
 
 const UserPageContainer = () => {
 
-  const [users, setUser] = useState([]);
-  const [posts, setPosts] = useState([]);
-  const [isLoadingUserInfo, setIsLoadingUserInfo] = useState(true);
-  const [isLoadingPosts, setIsLoadingPosts] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    urlDataUsers.then((response) => {
-      setUser(response.data);
-      setIsLoadingUserInfo(false);
-    })
-      .catch((error) => {
-        setError(error);
-      });
-  }, []);
-
-  useEffect(() => {
-    urlDataPosts.then((response) => {
-      setPosts(response.data);
-      setIsLoadingPosts(false);
-    })
-      .catch((error) => {
-        setError(error);
-      });
-  }, []);
-
-  return (
-    <userContext.Provider value={{users, posts}}>
-      <Layout
-        isLoadingUserInfo={isLoadingUserInfo}
-        isLoadingPosts={isLoadingPosts}
-        error={error}
-        users={{users}}
-        posts={{posts}}
-      />
-    </userContext.Provider>
-  );
-};
-
-const Layout = ({isLoadingUserInfo, isLoadingPosts, error, users, posts}) => {
-
+  const {users, isLoadingUsers, usersError, posts, isLoadingPosts, postsError} = useContext(Context);
   const history = useHistory();
 
   const location = useLocation();
   const elements = location.pathname.split('/');
   const id = elements[elements.length-1];
 
-  const postsOfSelectedUser = posts.posts.reduce((result, post) => {
-    if (post.userId === users.users[id-1]?.id ) {
+  const postsOfSelectedUser = posts.reduce((result, post) => {
+    if (post.userId === users[id-1]?.id) {
       result.push(post)
     }
     return result
@@ -75,9 +30,10 @@ const Layout = ({isLoadingUserInfo, isLoadingPosts, error, users, posts}) => {
       id={id}
       postsOfSelectedUser={postsOfSelectedUser}
       handleGoToPost={handleGoToPost}
-      isLoadingUserInfo={isLoadingUserInfo}
+      isLoadingUsers={isLoadingUsers}
       isLoadingPosts={isLoadingPosts}
-      error={error}
+      usersError={usersError}
+      postsError={postsError}
     />
   )
 }

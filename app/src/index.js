@@ -1,5 +1,4 @@
-import {useState, useEffect} from 'react';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 
 import Context from "./shared/commonComponents/Context";
@@ -24,24 +23,24 @@ function ContextInfo() {
      const [commentsError, setCommentsError] = useState(null);
 
      useEffect(() => {
-         dataUsers.then((response) => {
-             setUser(response.data);
-             setIsLoadingUsers(false);
-         })
-           .catch((error) => {
-             setUsersError(error);
-           });
+       dataUsers.then((response) => {
+         setUser(response.data);
+         setIsLoadingUsers(false);
+       })
+         .catch((error) => {
+           setUsersError(error);
+         });
      }, []);
 
-  useEffect(() => {
-    dataPosts.then((response) => {
-      setPosts(response.data)
-      setIsLoadingPosts(false);
-    })
-      .catch((error) => {
-        setPostsError(error);
-      });
-  }, [])
+    useEffect(() => {
+      dataPosts.then((response) => {
+        setPosts(response.data)
+        setIsLoadingPosts(false);
+      })
+        .catch((error) => {
+          setPostsError(error);
+        });
+    }, [])
 
      useEffect(() => {
          dataComments.then((response) => {
@@ -53,23 +52,23 @@ function ContextInfo() {
            });
      }, []);
 
-    return (
-        <React.StrictMode>
-            <Context.Provider value={{
-              users,
-              posts,
-              comments,
-              isLoadingUsers,
-              isLoadingPosts,
-              isLoadingComments,
-              usersError,
-              postsError,
-              commentsError,
-            }}>
-                <App/>
-            </Context.Provider>
-        </React.StrictMode>
-    )
+      return (
+          <React.StrictMode>
+              <Context.Provider value={{
+                users,
+                posts,
+                comments,
+                isLoadingUsers,
+                isLoadingPosts,
+                isLoadingComments,
+                usersError,
+                postsError,
+                commentsError,
+              }}>
+                  <App/>
+              </Context.Provider>
+          </React.StrictMode>
+      )
 }
 
 ReactDOM.render(
