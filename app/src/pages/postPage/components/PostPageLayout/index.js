@@ -59,10 +59,16 @@ const Error = styled.div`
   margin: 20px;
 `;
 
-const PostPageLayout = ({postsOfSelectedUser, commentsOfSelectedUser, isLoadingPosts, isLoadingComments, error}) => {
+const PostPageLayout = ({postsOfSelectedUser,
+                          commentsOfSelectedUser,
+                          isLoadingPosts,
+                          isLoadingComments,
+                          postsError,
+                          commentsError
+}) => {
   return (
     <>
-      {error && <Error>Not Found</Error>}
+      {(postsError || commentsError) && <Error>Not Found</Error>}
       {(isLoadingPosts || isLoadingComments) && <Loader>{<img src={loading} alt={"loading"}/>}</Loader>}
       {(!isLoadingPosts && !isLoadingComments) &&
       <>

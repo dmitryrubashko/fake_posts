@@ -38,15 +38,15 @@ const UserPageContainer = () => {
   }, []);
 
   return (
-      <userContext.Provider value={{users, posts}}>
-        <Layout
-            isLoadingUserInfo={isLoadingUserInfo}
-            isLoadingPosts={isLoadingPosts}
-            error={error}
-            users={{users}}
-            posts={{posts}}
-        />
-      </userContext.Provider>
+    <userContext.Provider value={{users, posts}}>
+      <Layout
+        isLoadingUserInfo={isLoadingUserInfo}
+        isLoadingPosts={isLoadingPosts}
+        error={error}
+        users={{users}}
+        posts={{posts}}
+      />
+    </userContext.Provider>
   );
 };
 
@@ -70,18 +70,16 @@ const Layout = ({isLoadingUserInfo, isLoadingPosts, error, users, posts}) => {
   }, []);
 
   return (
-      <UserPageLayout
-          users={users}
-          id={id}
-          postsOfSelectedUser={postsOfSelectedUser}
-          handleGoToPost={handleGoToPost}
-          isLoadingUserInfo={isLoadingUserInfo}
-          isLoadingPosts={isLoadingPosts}
-          error={error}
-      />
+    <UserPageLayout
+      users={users}
+      id={id}
+      postsOfSelectedUser={postsOfSelectedUser}
+      handleGoToPost={handleGoToPost}
+      isLoadingUserInfo={isLoadingUserInfo}
+      isLoadingPosts={isLoadingPosts}
+      error={error}
+    />
   )
 }
 
 export default UserPageContainer;
-
-

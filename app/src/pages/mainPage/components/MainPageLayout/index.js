@@ -30,7 +30,7 @@ const Post = styled.div`
   border-radius: 10px;
   padding: 5px;
   width: 25%;
-  height: 300px;
+  height: 340px;
 `;
 
 const Button = styled.div`
@@ -73,7 +73,6 @@ const Pagination = styled.div`
     padding-top: 20px;
     margin: 0 auto 20px;
   }
-
   .page-link {
     display: block;
     padding: 0.5rem 0.75rem;
@@ -82,7 +81,6 @@ const Pagination = styled.div`
     background-color: #b6a27f;
     border: 1px solid #816026;
   }
-
   li.page-item.active > a {
     background: #249f75;
     color: white;
@@ -90,20 +88,20 @@ const Pagination = styled.div`
   }
 `;
 
-const MainPageLayout = ({posts, handleGoToPost, pageCount, handlePageClick, isLoading, error}) => {
+const MainPageLayout = ({postsOnMainPage, handleGoToPost, pageCount, handlePageClick, isLoadingPosts, postsError}) => {
   return (
     <>
-      {error && <Error>Not Found</Error>}
-      {isLoading && <Loader>{<img src={loading} alt={"loading"}/>}</Loader>}
-      {!isLoading &&
-        <>
-          <H1>
-            Main Page
-          </H1>
-          <Wrapper>
-            {posts.map(post => {
-              const {id, title, body} = post;
-              return (
+      {postsError && <Error>Not Found</Error>}
+      {isLoadingPosts && <Loader>{<img src={loading} alt={"loading"}/>}</Loader>}
+      {!isLoadingPosts &&
+      <>
+        <H1>
+          Main Page
+        </H1>
+        <Wrapper>
+          {postsOnMainPage.map(post => {
+            const {id, title, body} = post;
+            return (
               <Post key={id}>
                 <div>
                   <div><Title>Title : </Title>{title}</div>
@@ -111,11 +109,11 @@ const MainPageLayout = ({posts, handleGoToPost, pageCount, handlePageClick, isLo
                 </div>
                 <Button onClick={() => handleGoToPost(id)}>Go To Comments</Button>
               </Post>
-              )
-            })}
-          </Wrapper>
-          <Pagination>
-            <ReactPaginate
+            )
+          })}
+        </Wrapper>
+        <Pagination>
+          <ReactPaginate
             pageCount={pageCount}
             pageRangeDisplayed={10}
             onPageChange={handlePageClick}
@@ -127,9 +125,9 @@ const MainPageLayout = ({posts, handleGoToPost, pageCount, handlePageClick, isLo
             previousLinkClassName="page-link"
             nextLinkClassName="page-link"
             activeClassName="active"
-            />
-          </Pagination>
-        </>
+          />
+        </Pagination>
+      </>
       }
     </>
   );

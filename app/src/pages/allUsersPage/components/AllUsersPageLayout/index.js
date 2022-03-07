@@ -60,12 +60,13 @@ const Error = styled.div`
   margin: 20px;
 `;
 
-const AllUsersPageLayout = ({users, handleGoToDetails, isLoading, error}) => {
+const AllUsersPageLayout = ({users, handleGoToDetails, isLoadingUsers, usersError}) => {
+
   return (
     <>
-      {error && <Error>Not Found</Error>}
-      {isLoading && <Loader>{<img src={loading} alt={"loading"}/>}</Loader>}
-      {!isLoading &&
+      {usersError && <Error>Not Found</Error>}
+      {isLoadingUsers && <Loader>{<img src={loading} alt={"loading"}/>}</Loader>}
+      {!isLoadingUsers &&
         <>
           <H1>
             Users Page
