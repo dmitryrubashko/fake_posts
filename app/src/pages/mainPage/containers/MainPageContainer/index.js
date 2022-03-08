@@ -8,18 +8,20 @@ const MainPageContainer = () => {
 
   const {posts, isLoadingPosts, postsError} = useContext(Context);
 
+  console.log(posts, 12345)
   const [offset, setOffset] = useState(0);
   const [perPage] = useState(10);
   const [pageCount, setPageCount] = useState(0);
 
   const history = useHistory();
+
   const [postsOnMainPage, setPostsOnMainPage] = useState([]);
 
   useEffect(() => {
     setPageCount(Math.ceil(posts.length/perPage));
-    setPostsOnMainPage(posts.slice(offset, offset + perPage)
-    )
-  }, [offset]);
+    setPostsOnMainPage(posts.slice(offset, offset + perPage))
+    console.log(posts, 123)
+  }, [offset, posts]);
 
   const handleGoToPost = useCallback((post) => {
     history.push(`/posts/${post}`);
@@ -29,7 +31,7 @@ const MainPageContainer = () => {
     const selectedPage = event.selected;
     setOffset((selectedPage) * perPage);
   }
-
+  console.log(postsOnMainPage, 'container')
   return (
     <MainPageLayout
       pageCount={pageCount}
