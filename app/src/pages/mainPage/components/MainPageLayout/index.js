@@ -89,7 +89,6 @@ const Pagination = styled.div`
 `;
 
 const MainPageLayout = ({postsOnMainPage, handleGoToPost, pageCount, handlePageClick, isLoadingPosts, postsError}) => {
-  console.log(postsOnMainPage)
   return (
     <>
       {postsError && <Error>Not Found</Error>}
