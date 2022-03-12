@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5421fc8b-6312-4fc4-bad2-0dc130caf8bb" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feat/fe1" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="ProjectId" id="25IkTwEr83iBEGRS3nEs6oTS2TE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IT\GitHub\fake_posts\app\src\shared\commonComponents" />
+      <recent name="D:\IT\GitHub\fake_posts\app\src\pages\userPage\components\UserPageLayout" />
+      <recent name="D:\IT\GitHub\fake_posts\app\src\pages\userPage\containers\UserPageContainer" />
+      <recent name="D:\IT\GitHub\fake_posts\app\src\pages\postPage\containers\PostPageContainer" />
+      <recent name="D:\IT\GitHub\fake_posts\app\src\pages\postPage\components\PostPageLayout" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5421fc8b-6312-4fc4-bad2-0dc130caf8bb" name="Changes" comment="" />
+      <created>1645222014366</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1645222014366</updated>
+      <workItem from="1645222015882" duration="1940000" />
+      <workItem from="1645224016213" duration="7706000" />
+      <workItem from="1645267433902" duration="12432000" />
+      <workItem from="1645282514113" duration="14690000" />
+      <workItem from="1645303169883" duration="7299000" />
+      <workItem from="1645344088664" duration="4415000" />
+      <workItem from="1645350892282" duration="34918000" />
+      <workItem from="1645461469184" duration="19211000" />
+      <workItem from="1645554062762" duration="9714000" />
+      <workItem from="1645633664197" duration="4918000" />
+      <workItem from="1645884870429" duration="102000" />
+      <workItem from="1645889601581" duration="636000" />
+      <workItem from="1646155906873" duration="1286000" />
+      <workItem from="1646157398826" duration="8509000" />
+      <workItem from="1646212945123" duration="889000" />
+      <workItem from="1646217935400" duration="917000" />
+      <workItem from="1646218900244" duration="8621000" />
+      <workItem from="1646230261985" duration="18348000" />
+      <workItem from="1646251685381" duration="5201000" />
+      <workItem from="1646352982142" duration="1011000" />
+      <workItem from="1646653107519" duration="30300000" />
+      <workItem from="1646747068592" duration="3171000" />
+      <workItem from="1646750359704" duration="1248000" />
+      <workItem from="1646751663111" duration="354000" />
+      <workItem from="1646752044264" duration="252000" />
+      <workItem from="1646752329546" duration="233000" />
+      <workItem from="1646752595067" duration="127000" />
+      <workItem from="1646752741050" duration="1018000" />
+      <workItem from="1646753796775" duration="451000" />
+      <workItem from="1646754266530" duration="281000" />
+      <workItem from="1646757085607" duration="329000" />
+      <workItem from="1646757470555" duration="584000" />
+      <workItem from="1646758364007" duration="44000" />
+      <workItem from="1646760734907" duration="11956000" />
+      <workItem from="1646858753417" duration="3985000" />
+      <workItem from="1646924110137" duration="5897000" />
+      <workItem from="1646996055498" duration="15494000" />
+      <workItem from="1647023485681" duration="49000" />
+      <workItem from="1647025819504" duration="1521000" />
+      <workItem from="1647030605515" duration="3513000" />
+      <workItem from="1647105763813" duration="1242000" />
+      <workItem from="1647108451849" duration="509000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
