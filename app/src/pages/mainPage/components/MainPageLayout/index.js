@@ -81,6 +81,7 @@ const Pagination = styled.div`
     background-color: #b6a27f;
     border: 1px solid #816026;
   }
+  
   li.page-item.active > a {
     background: #249f75;
     color: white;
@@ -88,7 +89,12 @@ const Pagination = styled.div`
   }
 `;
 
-const MainPageLayout = ({postsOnMainPage, handleGoToPost, pageCount, handlePageClick, isLoadingPosts, postsError}) => {
+const MainPageLayout = ({postsOnMainPage,
+                          handleGoToPost,
+                          pageCount,
+                          handlePageClick,
+                          isLoadingPosts,
+                          postsError}) => {
   return (
     <>
       {postsError && <Error>Not Found</Error>}

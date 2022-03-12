@@ -1,8 +1,8 @@
-import {useContext, useCallback, useState, useEffect} from 'react';
+import {useContext, useCallback, useState, useLayoutEffect} from 'react';
 import {useHistory} from "react-router-dom";
 
 import MainPageLayout from "../../components/MainPageLayout";
-import Context from "../../../../shared/commonComponents/Context";
+import Context from "../../../../shared/commonComponents/Context/context";
 
 const MainPageContainer = () => {
 
@@ -16,19 +16,20 @@ const MainPageContainer = () => {
 
   const [postsOnMainPage, setPostsOnMainPage] = useState([]);
 
-  useEffect(() => {
-    setPageCount(Math.ceil(posts.length/perPage));
-    setPostsOnMainPage(posts.slice(offset, offset + perPage))
+  useLayoutEffect(() => {
+    setPageCount(Math.ceil(posts.length / perPage));
+    setPostsOnMainPage(posts.slice(offset, offset + perPage));
   }, [offset, posts]);
 
   const handleGoToPost = useCallback((post) => {
     history.push(`/posts/${post}`);
   }, []);
 
-  const handlePageClick = (event) => {
-    const selectedPage = event.selected;
-    setOffset((selectedPage) * perPage);
-  }
+  const handlePageClick = useCallback((event) => {
+     const selectedPage = event.selected;
+     setOffset((selectedPage) * perPage);
+  }, []);
+
   return (
     <MainPageLayout
       pageCount={pageCount}

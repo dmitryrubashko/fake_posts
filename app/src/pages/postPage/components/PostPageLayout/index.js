@@ -64,41 +64,39 @@ const PostPageLayout = ({postsOfSelectedUser,
                           isLoadingPosts,
                           isLoadingComments,
                           postsError,
-                          commentsError
-}) => {
+                          commentsError}) => {
   return (
     <>
       {(postsError || commentsError) && <Error>Not Found</Error>}
       {(isLoadingPosts || isLoadingComments) && <Loader>{<img src={loading} alt={"loading"}/>}</Loader>}
       {(!isLoadingPosts && !isLoadingComments) &&
-      <>
-        <H1>
-          Post
-        </H1>
-        <Div>
-          {postsOfSelectedUser.map((post) => {
-            const {title, body, id} = post;
-            return <Article key={id}>
-              <div><Title>Title : </Title>{title}</div>
-              <article>Post : {body}</article>
-            </Article>
-          })}
-        </Div>
-        <H2>
-          Comments :
-        </H2>
-        <Div>
-          {commentsOfSelectedUser.map((comment) => {
-            const {name, email, body} = comment;
-            return <Article key={name}>
-              <Comment>Comment : {body}</Comment>
-              <div>Name : {name}</div>
-              <div>Email : {email}</div>
-            </Article>
-          })}
-        </Div>
-      </>
-      }
+        <>
+          <H1>
+            Post
+          </H1>
+          <Div>
+            {postsOfSelectedUser.map((post) => {
+              const {title, body, id} = post;
+              return <Article key={id}>
+                <div><Title>Title : </Title>{title}</div>
+                <article>Post : {body}</article>
+              </Article>
+            })}
+          </Div>
+          <H2>
+            Comments :
+          </H2>
+          <Div>
+            {commentsOfSelectedUser.map((comment) => {
+              const {name, email, body} = comment;
+              return <Article key={name}>
+                <Comment>Comment : {body}</Comment>
+                <div>Name : {name}</div>
+                <div>Email : {email}</div>
+              </Article>
+            })}
+          </Div>
+        </>
       }
     </>
   );

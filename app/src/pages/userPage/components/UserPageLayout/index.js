@@ -96,8 +96,7 @@ const UserPageLayout = ({users,
                           isLoadingUserInfo,
                           isLoadingPosts,
                           usersError,
-                          postsError
-}) => {
+                          postsError}) => {
   return (
     <>
       {(usersError || postsError) && <Error>Not Found</Error>}
@@ -140,7 +139,7 @@ const UserPageLayout = ({users,
                 <div>Post : {body}</div>
               </Article>
               <Button onClick={() => handleGoToPost(id)}>Go To Comments</Button>
-            </Post>;
+            </Post>
           })}
         </Posts>
       </>

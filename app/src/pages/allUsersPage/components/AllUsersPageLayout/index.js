@@ -61,7 +61,6 @@ const Error = styled.div`
 `;
 
 const AllUsersPageLayout = ({users, handleGoToDetails, isLoadingUsers, usersError}) => {
-
   return (
     <>
       {usersError && <Error>Not Found</Error>}

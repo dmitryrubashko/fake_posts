@@ -2,7 +2,7 @@ import {useContext, useCallback} from 'react';
 import {useHistory, useLocation} from 'react-router-dom';
 
 import UserPageLayout from "../../components/UserPageLayout";
-import Context from "../../../../shared/commonComponents/Context";
+import Context from "../../../../shared/commonComponents/Context/context";
 
 const UserPageContainer = () => {
 
