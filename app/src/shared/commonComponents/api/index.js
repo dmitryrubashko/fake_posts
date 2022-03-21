@@ -1,7 +1,17 @@
-import axios from 'axios';
+import axios from "axios";
 
-const baseURL = 'https://jsonplaceholder.typicode.com';
+const baseURL = "https://jsonplaceholder.typicode.com";
+const Api = axios.create({ baseURL });
 
-const Api = axios.create({baseURL});
-
-export default Api;
+const GetData = {
+  dataUsers() {
+    return Api.get(`/users`);
+  },
+  dataPosts() {
+    return Api.get(`/posts`);
+  },
+  dataComments() {
+    return Api.get(`/comments`);
+  },
+};
+export default GetData;

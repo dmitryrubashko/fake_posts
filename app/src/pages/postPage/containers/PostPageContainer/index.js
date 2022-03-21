@@ -1,39 +1,44 @@
-import {useLocation} from 'react-router-dom';
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
+import { getPosts } from "../../../../shared/actions/postsAction";
+import { getComments } from "../../../../shared/actions/commentsAction";
 import PostPageLayout from "../../components/PostPageLayout";
-import {getPosts} from "../../../../shared/actions/postsAction";
-import {getComments} from "../../../../shared/actions/commentsAction";
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
 
 const PostPageContainer = () => {
-
   const dispatch = useDispatch();
-  const postPageList = useSelector(state => state.postPageList);
-  const {posts, isLoadingPosts, postsError, comments, isLoadingComments, commentsError} = postPageList;
+  const {
+    posts,
+    isLoadingPosts,
+    postsError,
+    comments,
+    isLoadingComments,
+    commentsError,
+  } = useSelector((state) => state.postPageList);
 
   useEffect(() => {
     dispatch(getPosts());
     dispatch(getComments());
-  }, [dispatch])
+  }, [dispatch]);
 
   const location = useLocation();
-  const elements = location.pathname.split('/');
-  const id = elements[elements.length-1];
+  const elements = location.pathname.split("/");
+  const id = elements[elements.length - 1];
 
   const postsOfSelectedUser = posts.reduce((result, post) => {
-    if (post.id === posts[id-1]?.id) {
-      result.push(post)
+    if (post.id === posts[id - 1]?.id) {
+      result.push(post);
     }
-    return result
-  }, [])
+    return result;
+  }, []);
 
   const commentsOfSelectedUser = comments.reduce((result, comment) => {
-    if (comment.postId === comments[id-1]?.id) {
-      result.push(comment)
+    if (comment.postId === comments[id - 1]?.id) {
+      result.push(comment);
     }
-    return result
-  }, [])
+    return result;
+  }, []);
 
   return (
     <PostPageLayout
@@ -45,10 +50,6 @@ const PostPageContainer = () => {
       postsError={postsError}
       commentsError={commentsError}
     />
-  )
-}
-
+  );
+};
 export default PostPageContainer;
-
-
-

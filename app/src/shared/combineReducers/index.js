@@ -1,4 +1,5 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from "redux";
+
 import AllUsersPageReducer from "../../pages/allUsersPage/reducers";
 import MainPageReducer from "../../pages/mainPage/reducers";
 import PostPageReducer from "../../pages/postPage/reducers";
@@ -9,4 +10,4 @@ export default combineReducers({
   mainPageList: MainPageReducer,
   postPageList: PostPageReducer,
   userPageList: UserPageReducer,
-})
+});

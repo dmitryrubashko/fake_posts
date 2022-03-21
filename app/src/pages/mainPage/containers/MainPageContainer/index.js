@@ -1,19 +1,18 @@
-import {useCallback, useState, useEffect} from 'react';
-import {useHistory} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import { useCallback, useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
+import { getPosts } from "../../../../shared/actions/postsAction";
 import MainPageLayout from "../../components/MainPageLayout";
-import {getPosts} from "../../../../shared/actions/postsAction";
 
 const MainPageContainer = () => {
-
   const dispatch = useDispatch();
-  const mainPageList = useSelector(state => state.mainPageList);
-  const {isLoading, error, posts} = mainPageList;
+  const mainPageList = useSelector((state) => state.mainPageList);
+  const { isLoading, error, posts } = mainPageList;
 
   useEffect(() => {
-    dispatch(getPosts())
-  }, [dispatch])
+    dispatch(getPosts());
+  }, [dispatch]);
 
   const [postsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
@@ -25,7 +24,7 @@ const MainPageContainer = () => {
   const history = useHistory();
 
   const paginate = useCallback((pageNumber) => {
-    setCurrentPage(pageNumber)
+    setCurrentPage(pageNumber);
   }, []);
 
   const handleGoToPost = useCallback((post) => {
@@ -34,13 +33,13 @@ const MainPageContainer = () => {
 
   const goToNextPage = useCallback(() => {
     if (currentPage <= 9) {
-      setCurrentPage((currentPage) => currentPage + 1)
-      }
+      setCurrentPage((currentPage) => currentPage + 1);
+    }
   }, [currentPage]);
 
   const goToPreviousPage = useCallback(() => {
     if (currentPage >= 2) {
-      setCurrentPage((currentPage) => currentPage - 1)
+      setCurrentPage((currentPage) => currentPage - 1);
     }
   }, [currentPage]);
 
@@ -56,7 +55,6 @@ const MainPageContainer = () => {
       goToNextPage={goToNextPage}
       goToPreviousPage={goToPreviousPage}
     />
-  )
-}
-
+  );
+};
 export default MainPageContainer;
