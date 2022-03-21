@@ -1,7 +1,7 @@
-import {Link} from "react-router-dom";
-import styled from 'styled-components';
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
-import {ROUTES} from "../../routes/routesNames";
+import { ROUTES } from "../../routes/routesNames";
 
 const Wrapper = styled.div`
   text-align: center;
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 const HeaderDiv = styled.header`
   font-size: 36px;
   color: #4b390e;
-  font-family: 'Original Surfer', cursive;
+  font-family: "Original Surfer", cursive;
   display: inline-block;
   margin-bottom: 20px;
 `;
@@ -20,7 +20,7 @@ const Button = styled.div`
   display: inline-block;
   font-size: 20px;
   font-weight: bold;
-  font-family: 'Original Surfer', cursive;
+  font-family: "Original Surfer", cursive;
   color: rgba(12, 28, 72, 0.83);
   background-color: #249f75;
   padding: 0.25em 1em;
@@ -32,7 +32,7 @@ const Button = styled.div`
 const ButtonSignIn = styled.button`
   font-size: 20px;
   font-weight: bold;
-  font-family: 'Original Surfer', cursive;
+  font-family: "Original Surfer", cursive;
   color: rgba(12, 28, 72, 0.83);
   background-color: #249f75;
   padding: 0.25em 1em;
@@ -46,7 +46,7 @@ const ButtonLogOut = styled.button`
   margin-top: -20px;
   font-size: 20px;
   font-weight: bold;
-  font-family: 'Original Surfer', cursive;
+  font-family: "Original Surfer", cursive;
   color: rgba(12, 28, 72, 0.83);
   background-color: #249f75;
   padding: 0.25em 1em;
@@ -71,12 +71,12 @@ const Header = () => {
         </Link>
       </div>
       <div>
-          <Link to={ROUTES.USERS_PAGE}>
-              <Button>Users Page</Button>
-          </Link>
-          <Link to={ROUTES.MAIN_PAGE}>
-              <Button>Main Page</Button>
-          </Link>
+        <Link to={ROUTES.USERS_PAGE}>
+          <Button>Users Page</Button>
+        </Link>
+        <Link to={ROUTES.MAIN_PAGE}>
+          <Button>Main Page</Button>
+        </Link>
       </div>
     </Wrapper>
   );

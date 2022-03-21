@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Form = styled.form`
   border: 5px solid rgba(12, 28, 72, 0.83);
@@ -9,7 +9,7 @@ const Form = styled.form`
   background-color: #249f75;
   margin: auto;
   padding-bottom: 20px;
-  font-family: 'Texturina', serif;
+  font-family: "Texturina", serif;
 `;
 
 const Button = styled.button`
@@ -18,7 +18,7 @@ const Button = styled.button`
   border-radius: 5px;
   color: rgba(12, 28, 72, 0.83);
   font-size: 22px;
-  font-family: 'Texturina', serif;
+  font-family: "Texturina", serif;
 `;
 
 const Input = styled.input`
@@ -29,7 +29,7 @@ const Input = styled.input`
   margin-bottom: 0.5em;
   outline: none;
   font-size: 22px;
-  font-family: 'Texturina', serif;
+  font-family: "Texturina", serif;
   color: rgba(12, 28, 72, 0.83);
 `;
 
@@ -38,7 +38,7 @@ const Login = styled.div`
   font-size: 64px;
   margin-bottom: 20px;
   color: rgb(52, 40, 51);
-  font-family: 'Texturina', serif;
+  font-family: "Texturina", serif;
   font-weight: bold;
 `;
 
@@ -62,22 +62,16 @@ const EmailData = styled.div`
   border-radius: 15px;
 `;
 
-const LoginPageLayout = ({handleSubmit, emailData}) => {
+const LoginPageLayout = ({ handleSubmit, emailData }) => {
   return (
     <>
-      <Login>
-        Login Page
-      </Login>
+      <Login>Login Page</Login>
       <Form onSubmit={handleSubmit} noValidate>
         <H1>Welcome back</H1>
         <div>
           <label>
             <Word>Email</Word>
-            <Input
-              placeholder="Enter your email"
-              name='email'
-              type='email'
-            />
+            <Input placeholder="Enter your email" name="email" type="email" />
           </label>
           <EmailData>{emailData}</EmailData>
         </div>
@@ -86,14 +80,12 @@ const LoginPageLayout = ({handleSubmit, emailData}) => {
             <Word>Password</Word>
             <Input
               placeholder="Enter your password"
-              name='password'
-              type='password'
+              name="password"
+              type="password"
             />
           </label>
         </div>
-        <Button>
-          Sign in
-        </Button>
+        <Button>Sign in</Button>
       </Form>
     </>
   );

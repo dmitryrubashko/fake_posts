@@ -1,12 +1,12 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import loading from '../../../../shared/assets/images/loading.gif';
+import loading from "../../../../shared/assets/images/loading.gif";
 
 const H1 = styled.h1`
   font-size: 64px;
   margin-bottom: 20px;
   color: rgb(52, 40, 51);
-  font-family: 'Texturina', serif;
+  font-family: "Texturina", serif;
   margin-top: 0;
   text-align: center;
 `;
@@ -14,7 +14,7 @@ const H1 = styled.h1`
 const Users = styled.div`
   font-weight: bold;
   font-size: 20px;
-  font-family: 'Texturina', serif;
+  font-family: "Texturina", serif;
   color: rgb(52, 40, 51);
   display: flex;
   flex-wrap: wrap;
@@ -23,7 +23,7 @@ const Users = styled.div`
 `;
 
 const Div = styled.div`
-  border:5px solid rgba(12, 28, 72, 0.83);
+  border: 5px solid rgba(12, 28, 72, 0.83);
   margin: 15px auto 30px auto;
   border-radius: 10px;
   padding: 5px;
@@ -34,7 +34,7 @@ const Button = styled.div`
   display: inline-block;
   font-size: 20px;
   font-weight: bold;
-  font-family: 'Original Surfer', cursive;
+  font-family: "Original Surfer", cursive;
   color: rgba(12, 28, 72, 0.83);
   background-color: #249f75;
   padding: 0.25em 1em;
@@ -48,40 +48,52 @@ const Name = styled.span`
 `;
 
 const Loader = styled.div`
-  display:flex;
+  display: flex;
   justify-content: center;
 `;
 
 const Error = styled.div`
   text-align: center;
   color: #771c1c;
-  font-family: 'Original Surfer', cursive;
+  font-family: "Original Surfer", cursive;
   font-size: 96px;
   margin: 20px;
 `;
 
-const AllUsersPageLayout = ({users, handleGoToDetails, isLoadingUsers, usersError}) => {
+const AllUsersPageLayout = ({
+  users,
+  handleGoToDetails,
+  isLoadingUsers,
+  usersError,
+}) => {
   return (
     <>
       {usersError && <Error>Not Found</Error>}
-      {isLoadingUsers && <Loader>{<img src={loading} alt={"loading"}/>}</Loader>}
-      {!isLoadingUsers &&
+      {isLoadingUsers && (
+        <Loader>{<img src={loading} alt={"loading"} />}</Loader>
+      )}
+      {!isLoadingUsers && (
         <>
-          <H1>
-            Users Page
-          </H1>
+          <H1>Users Page</H1>
           <Users>
             {users.map((user) => {
-              const {id, name, username} = user;
-              return <Div key={id}>
-                <div><Name>Name : </Name>{name}</div>
-                <div>Username : {username}</div>
-                <Button onClick={() => handleGoToDetails(id)}>Visit Page</Button>
-              </Div>;
+              const { id, name, username } = user;
+              return (
+                <Div key={id}>
+                  <div>
+                    <Name>Name : </Name>
+                    {name}
+                  </div>
+                  <div>Username : {username}</div>
+                  <Button onClick={() => handleGoToDetails(id)}>
+                    Visit Page
+                  </Button>
+                </Div>
+              );
             })}
           </Users>
         </>
-      }
+      )}
     </>
   );
 };
