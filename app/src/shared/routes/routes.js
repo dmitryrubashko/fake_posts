@@ -1,7 +1,6 @@
 import {Switch, Route, Redirect} from "react-router-dom";
 
 import {ROUTES} from "./routesNames";
-
 import MainPageContainer from "../../pages/mainPage/containers/MainPageContainer";
 import AllUsersPageContainer from "../../pages/allUsersPage/containers/AllUsersPageContainer";
 import UserPageContainer from "../../pages/userPage/containers/UserPageContainer";

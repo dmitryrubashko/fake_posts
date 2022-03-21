@@ -5,7 +5,6 @@ import AllUsersPageLayout from "../../components/AllUsersPageLayout";
 import Context from "../../../../shared/commonComponents/Context/context";
 
 const AllUsersPageContainer = () => {
-
   const {users, isLoadingUsers, usersError} = useContext(Context);
   const history = useHistory();
 
@@ -22,6 +21,5 @@ const AllUsersPageContainer = () => {
       />
   )
 }
-
 export default AllUsersPageContainer;
 

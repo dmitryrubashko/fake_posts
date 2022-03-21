@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import ContextInfo from "./shared/commonComponents/Context/contextInfo";
@@ -9,4 +9,3 @@ ReactDOM.render(
     <ContextInfo/>,
   document.getElementById('root')
 );
-

@@ -5,7 +5,6 @@ import MainPageLayout from "../../components/MainPageLayout";
 import Context from "../../../../shared/commonComponents/Context/context";
 
 const MainPageContainer = () => {
-
   const {posts, isLoadingPosts, postsError} = useContext(Context);
 
   const [offset, setOffset] = useState(0);
@@ -41,5 +40,4 @@ const MainPageContainer = () => {
     />
   )
 }
-
 export default MainPageContainer;

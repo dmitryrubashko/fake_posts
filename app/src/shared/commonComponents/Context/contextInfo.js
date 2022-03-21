@@ -1,14 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {BrowserRouter} from "react-router-dom";
 
-import Api from "../api";
+import GetData from "../../api";
 import Context from "./context";
 import MainLayout from "../MainLayout";
 import Routes from "../../routes/routes";
-
-const dataUsers = Api.get(`/users`);
-const dataPosts = Api.get(`/posts`);
-const dataComments = Api.get(`/comments`);
 
 const ContextInfo = () => {
   const [users, setUser] = useState([]);
@@ -22,7 +18,7 @@ const ContextInfo = () => {
   const [commentsError, setCommentsError] = useState(null);
 
   useEffect(() => {
-    dataUsers.then((response) => {
+    GetData.dataUsers().then((response) => {
       setUser(response.data);
       setIsLoadingUsers(false);
     })
@@ -32,7 +28,7 @@ const ContextInfo = () => {
   }, []);
 
   useEffect(() => {
-    dataPosts.then((response) => {
+    GetData.dataPosts().then((response) => {
       setPosts(response.data)
       setIsLoadingPosts(false);
     })
@@ -42,7 +38,7 @@ const ContextInfo = () => {
   }, [])
 
   useEffect(() => {
-    dataComments.then((response) => {
+    GetData.dataComments().then((response) => {
       setComments(response.data);
       setIsLoadingComments(false)
     })
@@ -73,5 +69,4 @@ const ContextInfo = () => {
     </React.StrictMode>
   );
 };
-
 export default ContextInfo;

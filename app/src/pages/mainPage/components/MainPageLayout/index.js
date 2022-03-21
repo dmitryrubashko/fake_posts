@@ -1,8 +1,7 @@
 import ReactPaginate from 'react-paginate';
 
-import loading from '../../../../shared/static/images/loading.gif';
-
 import styled from "styled-components";
+import loading from '../../../../shared/assets/images/loading.gif';
 
 const H1 = styled.h1`
   text-align: center;
@@ -138,5 +137,4 @@ const MainPageLayout = ({postsOnMainPage,
     </>
   );
 };
-
 export default MainPageLayout;

@@ -5,7 +5,6 @@ import PostPageLayout from "../../components/PostPageLayout";
 import Context from "../../../../shared/commonComponents/Context/context";
 
 const PostPageContainer = () => {
-
   const {posts, isLoadingPosts, postsError, comments, isLoadingComments, commentsError} = useContext(Context);
 
   const location = useLocation();
@@ -38,7 +37,6 @@ const PostPageContainer = () => {
     />
   )
 }
-
 export default PostPageContainer;
 
 

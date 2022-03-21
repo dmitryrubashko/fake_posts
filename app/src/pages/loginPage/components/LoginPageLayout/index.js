@@ -98,5 +98,4 @@ const LoginPageLayout = ({handleSubmit, emailData}) => {
     </>
   );
 };
-
 export default LoginPageLayout;

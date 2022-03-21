@@ -8,5 +8,4 @@ const MainLayout = ({children}) => {
     </main>
   );
 };
-
 export default MainLayout;
