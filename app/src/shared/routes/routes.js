@@ -15,7 +15,7 @@ const Routes = () => {
       <Route exact path={ROUTES.USER_PAGE} component={UserPageContainer} />
       <Route path={ROUTES.POST_PAGE} component={PostPageContainer} />
       <Route path={ROUTES.LOGIN_PAGE} component={LoginPageContainer} />
-      <Redirect path="*" to={ROUTES.MAIN_PAGE} />
+      <Redirect path="*" to={ROUTES.LOGIN_PAGE} />
     </Switch>
   );
 };

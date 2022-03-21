@@ -64,7 +64,7 @@ const Header = () => {
         <ButtonSignIn>Sign in</ButtonSignIn>
       </Link>
       <div>
-        <Link to={ROUTES.MAIN_PAGE}>
+        <Link to={ROUTES.LOGIN_PAGE}>
           <ButtonLogOut onClick={() => localStorage.clear()}>
             Log out
           </ButtonLogOut>
@@ -72,7 +72,7 @@ const Header = () => {
       </div>
       <div>
         <Link to={ROUTES.USERS_PAGE}>
-          <Button>Users Page</Button>
+          <Button >Users Page</Button>
         </Link>
         <Link to={ROUTES.MAIN_PAGE}>
           <Button>Main Page</Button>
