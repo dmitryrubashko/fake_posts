@@ -63,6 +63,7 @@ const EmailData = styled.div`
 `;
 
 const LoginPageLayout = ({ handleSubmit, emailData }) => {
+  
   return (
     <>
       <Login>Login Page</Login>

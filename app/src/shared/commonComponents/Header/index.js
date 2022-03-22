@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -58,6 +60,9 @@ const ButtonLogOut = styled.button`
 `;
 
 const Header = () => {
+  const { isAuth } = useSelector((state) => state.loginPageList);
+  const history = useHistory();
+
   return (
     <Wrapper>
       <HeaderDiv>This app was made with the help of JSONPlaceholder!</HeaderDiv>
@@ -66,11 +71,15 @@ const Header = () => {
       </Link>
       <div>
         <Link to={ROUTES.LOGIN_PAGE}>
-          <ButtonLogOut onClick={() => localStorage.clear()}>
+          <ButtonLogOut onClick={() => {
+            localStorage.clear();
+            history.push("/")
+          }}>
             Log out
           </ButtonLogOut>
         </Link>
       </div>
+      {isAuth &&
       <div>
         <Link to={ROUTES.USERS_PAGE}>
           <Button>Users Page</Button>
@@ -78,7 +87,7 @@ const Header = () => {
         <Link to={ROUTES.MAIN_PAGE}>
           <Button>Main Page</Button>
         </Link>
-      </div>
+      </div>}
     </Wrapper>
   );
 };
