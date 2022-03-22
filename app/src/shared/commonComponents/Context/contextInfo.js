@@ -16,6 +16,7 @@ const ContextInfo = () => {
   const [usersError, setUsersError] = useState(null);
   const [postsError, setPostsError] = useState(null);
   const [commentsError, setCommentsError] = useState(null);
+  const [isAuth, setIsAuth] = useState(false);
 
   useEffect(() => {
     GetData.dataUsers()
@@ -63,15 +64,15 @@ const ContextInfo = () => {
           usersError,
           postsError,
           commentsError,
+          isAuth,
+          setIsAuth
         }}
       >
         <BrowserRouter>
-          {" "}
           <MainLayout>
-            {" "}
             <Routes />
-          </MainLayout>{" "}
-        </BrowserRouter>{" "}
+          </MainLayout>
+        </BrowserRouter>
       </Context.Provider>
     </React.StrictMode>
   );

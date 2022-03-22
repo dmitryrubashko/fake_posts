@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { useHistory, Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { ROUTES } from "../../routes/routesNames";
+import Context from "../../../shared/commonComponents/Context/context";
 
 const Wrapper = styled.div`
   text-align: center;
@@ -57,6 +59,9 @@ const ButtonLogOut = styled.button`
 `;
 
 const Header = () => {
+  const { isAuth, setIsAuth } = useContext(Context);
+  const history = useHistory();
+
   return (
     <Wrapper>
       <HeaderDiv>This app was made with the help of JSONPlaceholder!</HeaderDiv>
@@ -65,19 +70,27 @@ const Header = () => {
       </Link>
       <div>
         <Link to={ROUTES.LOGIN_PAGE}>
-          <ButtonLogOut onClick={() => localStorage.clear()}>
+          <ButtonLogOut
+            onClick={() => {
+              localStorage.clear();
+              history.push("/");
+              setIsAuth(false);
+            }}
+          >
             Log out
           </ButtonLogOut>
         </Link>
       </div>
-      <div>
-        <Link to={ROUTES.USERS_PAGE}>
-          <Button >Users Page</Button>
-        </Link>
-        <Link to={ROUTES.MAIN_PAGE}>
-          <Button>Main Page</Button>
-        </Link>
-      </div>
+      {isAuth && (
+        <div>
+          <Link to={ROUTES.USERS_PAGE}>
+            <Button>Users Page</Button>
+          </Link>
+          <Link to={ROUTES.MAIN_PAGE}>
+            <Button>Main Page</Button>
+          </Link>
+        </div>
+      )}
     </Wrapper>
   );
 };
