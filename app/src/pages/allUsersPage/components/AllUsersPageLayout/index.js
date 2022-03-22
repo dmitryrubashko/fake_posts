@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import loading from "../../../../shared/static/images/loading.gif";
+import loading from "../../../../shared/assets/images/loading.gif";
 
 const H1 = styled.h1`
   font-size: 64px;

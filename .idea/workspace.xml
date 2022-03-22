@@ -2,13 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5421fc8b-6312-4fc4-bad2-0dc130caf8bb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/pages/allUsersPage/containers/AllUsersPageContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/allUsersPage/containers/AllUsersPageContainer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/pages/postPage/containers/PostPageContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/postPage/containers/PostPageContainer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/shared/actions/commentsAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/shared/actions/commentsAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/shared/actions/postsAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/shared/actions/postsAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/shared/actions/usersAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/shared/actions/usersAction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/shared/commonComponents/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/shared/commonComponents/Header/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/shared/commonComponents/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/shared/commonComponents/api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/pages/allUsersPage/components/AllUsersPageLayout/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/allUsersPage/components/AllUsersPageLayout/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/pages/loginPage/containers/LoginPageContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/loginPage/containers/LoginPageContainer/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/pages/mainPage/components/MainPageLayout/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/mainPage/components/MainPageLayout/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/pages/postPage/components/PostPageLayout/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/postPage/components/PostPageLayout/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/pages/userPage/components/UserPageLayout/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/userPage/components/UserPageLayout/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/shared/combineReducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/shared/combineReducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/shared/routes/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/shared/routes/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/shared/routes/routesNames.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/shared/routes/routesNames.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/shared/static/fonts/Texturina-VariableFont_opsz,wght.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/shared/static/images/loading.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/shared/types/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/shared/types/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,10 +47,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../IT SHATLE REACT/pokemon_store" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="D:\IT\GitHub\fake_posts\app\node_modules\prettier" />
@@ -111,7 +118,9 @@
       <workItem from="1647105763813" duration="1242000" />
       <workItem from="1647108451849" duration="509000" />
       <workItem from="1647894070213" duration="4921000" />
-      <workItem from="1647899279485" duration="2027000" />
+      <workItem from="1647899279485" duration="6550000" />
+      <workItem from="1647906030709" duration="176000" />
+      <workItem from="1647906254556" duration="2479000" />
     </task>
     <servers />
   </component>
