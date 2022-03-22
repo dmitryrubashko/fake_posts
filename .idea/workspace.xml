@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5421fc8b-6312-4fc4-bad2-0dc130caf8bb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/pages/loginPage/components/LoginPageLayout/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/loginPage/components/LoginPageLayout/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/pages/loginPage/containers/LoginPageContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/loginPage/containers/LoginPageContainer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/shared/combineReducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/shared/combineReducers/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/shared/commonComponents/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/shared/commonComponents/Header/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/shared/types/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/shared/types/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +119,7 @@
       <workItem from="1647899279485" duration="6550000" />
       <workItem from="1647906030709" duration="176000" />
       <workItem from="1647906254556" duration="3511000" />
-      <workItem from="1647936508725" duration="5587000" />
+      <workItem from="1647936508725" duration="6570000" />
     </task>
     <servers />
   </component>

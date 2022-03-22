@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory, Link } from "react-router-dom";
 import styled from "styled-components";
 
+import { getAuth } from "../../../shared/actions/isAuthAction";
 import { ROUTES } from "../../routes/routesNames";
 
 const Wrapper = styled.div`
@@ -62,6 +62,7 @@ const ButtonLogOut = styled.button`
 const Header = () => {
   const { isAuth } = useSelector((state) => state.loginPageList);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   return (
     <Wrapper>
@@ -71,23 +72,27 @@ const Header = () => {
       </Link>
       <div>
         <Link to={ROUTES.LOGIN_PAGE}>
-          <ButtonLogOut onClick={() => {
-            localStorage.clear();
-            history.push("/")
-          }}>
+          <ButtonLogOut
+            onClick={() => {
+              localStorage.clear();
+              history.push("/");
+              dispatch(getAuth(false));
+            }}
+          >
             Log out
           </ButtonLogOut>
         </Link>
       </div>
-      {isAuth &&
-      <div>
-        <Link to={ROUTES.USERS_PAGE}>
-          <Button>Users Page</Button>
-        </Link>
-        <Link to={ROUTES.MAIN_PAGE}>
-          <Button>Main Page</Button>
-        </Link>
-      </div>}
+      {isAuth && (
+        <div>
+          <Link to={ROUTES.USERS_PAGE}>
+            <Button>Users Page</Button>
+          </Link>
+          <Link to={ROUTES.MAIN_PAGE}>
+            <Button>Main Page</Button>
+          </Link>
+        </div>
+      )}
     </Wrapper>
   );
 };

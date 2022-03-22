@@ -7,19 +7,22 @@ import LoginPageLayout from "../../components/LoginPageLayout";
 
 const LoginPageContainer = () => {
   const [emailData, setEmailData] = useState(null);
-  
+
   const dispatch = useDispatch();
   const history = useHistory();
+
   const handleSubmit = useCallback((event) => {
     event.preventDefault();
     const { email, password } = event.target.elements;
     console.log({ Email: email.value, Password: password.value });
-    if (email.value.includes("@")) {
+    if (email.value.includes("@") && password.value.length >= 3) {
       history.push("/main");
-      dispatch(getAuth(true))
+      dispatch(getAuth(true));
     } else {
-      setEmailData("Please include an @ in the email address!");
-      dispatch(getAuth(false))
+      setEmailData(
+        "Please include an @ in the email address and use at least three symbols in your password!"
+      );
+      dispatch(getAuth(false));
     }
     email.value = "";
     password.value = "";
