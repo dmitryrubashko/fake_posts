@@ -1,10 +1,10 @@
 import Header from "../Header";
 
-const MainLayout = ({children}) => {
+const MainLayout = ({ children }) => {
   return (
     <main>
-      <Header/>
-      <div>{children}</div>
+      <Header />
+      <div>{ children }</div>
     </main>
   );
 };

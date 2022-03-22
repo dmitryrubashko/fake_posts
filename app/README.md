@@ -5,7 +5,6 @@ Fake Posts is a project with dummy data from JSONPlaceholder.
 ![project](https://m.media-amazon.com/images/M/MV5BYmJhMDExOTEtZmNiMS00ZWExLThjZDItNDNhMzVmNjEwNDE4XkEyXkFqcGdeQXVyNTcwOTcxMjk@._V1_.jpg)
 
 ## What is JSONPlaceholder
-
 JSONPlaceholder is a free online REST API that you can use whenever you need some fake data. It can be in a README on GitHub, for a demo on CodeSandbox, in code examples on Stack Overflow, ...or simply to test things locally.
 
 ## Stack

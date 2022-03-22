@@ -1,30 +1,31 @@
-import {useCallback, useState} from "react";
-import {useHistory} from 'react-router-dom';
+import { useCallback, useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 
 import LoginPageLayout from "../../components/LoginPageLayout";
+import Context from "../../../../shared/commonComponents/Context/context";
 
 const LoginPageContainer = () => {
   const [emailData, setEmailData] = useState(null);
-  const history = useHistory();
+  const { setIsAuth } = useContext(Context);
 
+  const history = useHistory();
   const handleSubmit = useCallback((event) => {
     event.preventDefault();
-    const {email, password} = event.target.elements;
-    console.log({Email: email.value, Password: password.value});
-    if (email.value.includes('@')) {
-      history.push('');
+    const { email, password } = event.target.elements;
+    console.log({ Email: email.value, Password: password.value });
+    if (email.value.includes("@") && password.value.length >= 3) {
+      setIsAuth(true);
+      history.push("/main");
     } else {
-      setEmailData('Please include an @ in the email address!')
+      setEmailData(
+        "Please include an @ in the email address and use at least three symbols in your password!"
+      );
+      setIsAuth(false);
     }
-    email.value = '';
-    password.value = '';
-  }, [])
+    email.value = "";
+    password.value = "";
+  }, []);
 
-  return (
-    <LoginPageLayout
-      handleSubmit={handleSubmit}
-      emailData={emailData}
-    />
-  );
+  return <LoginPageLayout handleSubmit={handleSubmit} emailData={emailData} />;
 };
 export default LoginPageContainer;

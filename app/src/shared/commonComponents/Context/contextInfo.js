@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from "react";
-import {BrowserRouter} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter } from "react-router-dom";
 
 import GetData from "../../api";
 import Context from "./context";
@@ -16,32 +16,36 @@ const ContextInfo = () => {
   const [usersError, setUsersError] = useState(null);
   const [postsError, setPostsError] = useState(null);
   const [commentsError, setCommentsError] = useState(null);
+  const [isAuth, setIsAuth] = useState(false);
 
   useEffect(() => {
-    GetData.dataUsers().then((response) => {
-      setUser(response.data);
-      setIsLoadingUsers(false);
-    })
+    GetData.dataUsers()
+      .then((response) => {
+        setUser(response.data);
+        setIsLoadingUsers(false);
+      })
       .catch((error) => {
         setUsersError(error);
       });
   }, []);
 
   useEffect(() => {
-    GetData.dataPosts().then((response) => {
-      setPosts(response.data)
-      setIsLoadingPosts(false);
-    })
+    GetData.dataPosts()
+      .then((response) => {
+        setPosts(response.data);
+        setIsLoadingPosts(false);
+      })
       .catch((error) => {
         setPostsError(error);
       });
-  }, [])
+  }, []);
 
   useEffect(() => {
-    GetData.dataComments().then((response) => {
-      setComments(response.data);
-      setIsLoadingComments(false)
-    })
+    GetData.dataComments()
+      .then((response) => {
+        setComments(response.data);
+        setIsLoadingComments(false);
+      })
       .catch((error) => {
         setCommentsError(error);
       });
@@ -49,22 +53,26 @@ const ContextInfo = () => {
 
   return (
     <React.StrictMode>
-      <Context.Provider value={{
-        users,
-        posts,
-        comments,
-        isLoadingUsers,
-        isLoadingPosts,
-        isLoadingComments,
-        usersError,
-        postsError,
-        commentsError,
-      }}>
-        <BrowserRouter>         {/*App*/}
-          <MainLayout>          {/*App*/}
-            <Routes/>           {/*App*/}
-          </MainLayout>         {/*App*/}
-        </BrowserRouter>        {/*App*/}
+      <Context.Provider
+        value={{
+          users,
+          posts,
+          comments,
+          isLoadingUsers,
+          isLoadingPosts,
+          isLoadingComments,
+          usersError,
+          postsError,
+          commentsError,
+          isAuth,
+          setIsAuth
+        }}
+      >
+        <BrowserRouter>
+          <MainLayout>
+            <Routes />
+          </MainLayout>
+        </BrowserRouter>
       </Context.Provider>
     </React.StrictMode>
   );
