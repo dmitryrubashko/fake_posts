@@ -90,7 +90,6 @@ const Error = styled.div`
 `;
 
 const UserPageLayout = ({
-  users,
   id,
   postsOfSelectedUser,
   handleGoToPost,
@@ -109,7 +108,7 @@ const UserPageLayout = ({
       )}
       {!isLoadingUserInfo && !isLoadingPosts && (
         <>
-          <H1>{users[id - 1]?.name}'s Info</H1>
+          <H1>{user?.name}'s Info</H1>
           <Div>
             <User>{flatObj(user)}</User>
           </Div>

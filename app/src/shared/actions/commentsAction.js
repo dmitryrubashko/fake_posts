@@ -1,5 +1,5 @@
 import { GET_COMMENTS, COMMENTS_ERROR } from "../types";
-import GetData from "../commonComponents/api";
+import GetData from "../api";
 
 export const getComments = () => (dispatch) => {
   GetData.dataComments()
