@@ -1,5 +1,5 @@
 import {GET_POSTS, POSTS_ERROR} from '../types';
-import GetData from "../commonComponents/api";
+import GetData from "../api";
 
 export const getPosts = () => dispatch => {
 

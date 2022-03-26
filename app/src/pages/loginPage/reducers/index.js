@@ -1,7 +1,7 @@
 import { GET_AUTH } from "../../../shared/types";
 
 const initialState = {
-  isAuth: false,
+  isAuth: localStorage.getItem('isAuth')
 };
 
 const LoginPageReducer = (state = initialState, action) => {

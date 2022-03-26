@@ -1,5 +1,5 @@
 import { GET_USERS, USERS_ERROR } from "../types";
-import GetData from "../commonComponents/api";
+import GetData from "../api";
 
 export const getUsers = () => (dispatch) => {
   GetData.dataUsers()

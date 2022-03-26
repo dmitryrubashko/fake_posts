@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const baseURL = "https://jsonplaceholder.typicode.com"; //http://localhost:5000
+// const baseURL = "https://jsonplaceholder.typicode.com";
+const baseURL = "http://localhost:5000";
 const Api = axios.create({ baseURL });
 
 const GetData = {

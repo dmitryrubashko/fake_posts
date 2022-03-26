@@ -1,4 +1,4 @@
-exports.posts = [
+exports.posts =[
   {
     "userId": 1,
     "id": 1,
