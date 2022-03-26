@@ -16,12 +16,14 @@ const LoginPageContainer = () => {
     const { email, password } = event.target.elements;
     console.log({ Email: email.value, Password: password.value });
     if (email.value.includes("@") && password.value.length >= 3) {
+      localStorage.setItem('isAuth', true);
       history.push("/main");
       dispatch(getAuth(true));
     } else {
       setEmailData(
         "Please include an @ in the email address and use at least three symbols in your password!"
       );
+      localStorage.setItem('isAuth', false);
       dispatch(getAuth(false));
     }
     email.value = "";
