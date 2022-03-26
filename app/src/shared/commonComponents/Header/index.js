@@ -74,9 +74,9 @@ const Header = () => {
         <Link to={ROUTES.LOGIN_PAGE}>
           <ButtonLogOut
             onClick={() => {
+              dispatch(getAuth(false));
               localStorage.clear();
               history.push("/");
-              dispatch(getAuth(false));
             }}
           >
             Log out
