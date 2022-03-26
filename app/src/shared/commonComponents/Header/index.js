@@ -72,9 +72,9 @@ const Header = () => {
         <Link to={ROUTES.LOGIN_PAGE}>
           <ButtonLogOut
             onClick={() => {
+              setIsAuth(false);
               localStorage.clear();
               history.push("/");
-              setIsAuth(false);
             }}
           >
             Log out

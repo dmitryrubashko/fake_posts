@@ -16,7 +16,8 @@ const ContextInfo = () => {
   const [usersError, setUsersError] = useState(null);
   const [postsError, setPostsError] = useState(null);
   const [commentsError, setCommentsError] = useState(null);
-  const [isAuth, setIsAuth] = useState(false);
+  const authFromLocalStorage = localStorage.getItem('isAuth');
+  const [isAuth, setIsAuth] = useState(authFromLocalStorage);
 
   useEffect(() => {
     GetData.dataUsers()
