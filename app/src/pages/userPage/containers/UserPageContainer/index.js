@@ -2,15 +2,12 @@ import { useCallback, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import styled from "styled-components";
 
 import { getPosts } from "../../../../shared/actions/postsAction";
 import { getUsers } from "../../../../shared/actions/usersAction";
 import UserPageLayout from "../../components/UserPageLayout";
 
-const Word = styled.span`
-  text-transform: capitalize;
-`;
+import styles from "./styles.module.scss";
 
 const UserPageContainer = () => {
   const dispatch = useDispatch();
@@ -53,7 +50,7 @@ const UserPageContainer = () => {
       if (typeof attr[1] === "string" || typeof attr[1] === "number") {
         return (
           <div key={uuidv4()}>
-            <Word>{attr[0]}</Word> : {attr[1]}
+            <span className={styles.word}>{attr[0]}</span> : {attr[1]}
           </div>
         );
       } else {

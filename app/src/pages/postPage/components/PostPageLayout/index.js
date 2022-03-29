@@ -1,63 +1,5 @@
-import styled from "styled-components";
-
+import styles from "./styles.module.scss";
 import loading from "../../../../shared/assets/images/loading.gif";
-
-const H1 = styled.h1`
-  text-align: center;
-  font-size: 64px;
-  margin-bottom: 20px;
-  color: rgb(52, 40, 51);
-  font-family: "Texturina", serif;
-  margin-top: 0;
-`;
-
-const H2 = styled.h2`
-  text-align: center;
-  font-size: 48px;
-  color: rgb(52, 40, 51);
-  font-family: "Texturina", serif;
-  margin: 0;
-`;
-
-const Article = styled.div`
-  border: 3px solid rgba(12, 28, 72, 0.83);
-  margin: 15px 30px;
-  border-radius: 10px;
-  padding: 5px;
-  width: 50%;
-`;
-
-const Div = styled.div`
-  font-weight: bold;
-  text-align: center;
-  font-size: 20px;
-  font-family: "Texturina", serif;
-  color: rgb(52, 40, 51);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-`;
-
-const Title = styled.span`
-  color: #4b390e;
-`;
-
-const Comment = styled.div`
-  margin-bottom: 30px;
-`;
-
-const Loader = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-const Error = styled.div`
-  text-align: center;
-  color: #771c1c;
-  font-family: "Original Surfer", cursive;
-  font-size: 96px;
-  margin: 20px;
-`;
 
 const PostPageLayout = ({
   postsOfSelectedUser,
@@ -69,40 +11,40 @@ const PostPageLayout = ({
 }) => {
   return (
     <>
-      {(postsError || commentsError) && <Error>Not Found</Error>}
+      {(postsError || commentsError) && <div className={styles.error}>Not Found</div>}
       {(isLoadingPosts || isLoadingComments) && (
-        <Loader>{<img src={loading} alt={"loading"} />}</Loader>
+        <div className={styles.loader}>{<img src={loading} alt={"loading"} />}</div>
       )}
       {!isLoadingPosts && !isLoadingComments && (
         <>
-          <H1>Post</H1>
-          <Div>
+          <h1>Post</h1>
+          <div className={styles.section}>
             {postsOfSelectedUser.map((post) => {
               const { title, body, id } = post;
               return (
-                <Article key={id}>
+                <div className={styles.article} key={id}>
                   <div>
-                    <Title>Title : </Title>
+                    <span className={styles.title}>Title : </span>
                     {title}
                   </div>
                   <article>Post : {body}</article>
-                </Article>
+                </div>
               );
             })}
-          </Div>
-          <H2>Comments :</H2>
-          <Div>
+          </div>
+          <h2>Comments :</h2>
+          <div className={styles.section}>
             {commentsOfSelectedUser.map((comment) => {
               const { name, email, body } = comment;
               return (
-                <Article key={name}>
-                  <Comment>Comment : {body}</Comment>
+                <div className={styles.article} key={name}>
+                  <div className={styles.comment}>Comment : {body}</div>
                   <div>Name : {name}</div>
                   <div>Email : {email}</div>
-                </Article>
+                </div>
               );
             })}
-          </Div>
+          </div>
         </>
       )}
     </>

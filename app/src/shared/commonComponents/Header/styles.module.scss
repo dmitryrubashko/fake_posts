@@ -1,0 +1,30 @@
+.wrapper {
+  text-align: center;
+  margin-top: 15px;
+}
+
+header {
+  font-size: 36px;
+  color: #4b390e;
+  font-family: "Original Surfer", cursive;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.signIn {
+  margin-top: -65px;
+  position: absolute;
+  right: 1%;
+}
+
+.logOut {
+  margin-top: -20px;
+  position: absolute;
+  right: 1%;
+}
+
+.link {
+  text-decoration: none;
+  padding: 0 10px;
+}
+

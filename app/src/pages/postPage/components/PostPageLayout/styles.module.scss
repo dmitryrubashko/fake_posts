@@ -1,0 +1,59 @@
+.error {
+  text-align: center;
+  color: #771c1c;
+  font-family: "Original Surfer", cursive;
+  font-size: 96px;
+  margin: 20px;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 64px;
+  margin-bottom: 20px;
+  color: rgb(52, 40, 51);
+  font-family: "Texturina", serif;
+  margin-top: 0;
+}
+
+.section {
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Texturina", serif;
+  color: rgb(52, 40, 51);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.article {
+  border: 3px solid rgba(12, 28, 72, 0.83);
+  margin: 15px 30px;
+  border-radius: 10px;
+  padding: 5px;
+  width: 50%;
+}
+
+.title {
+  color: #4b390e;
+}
+
+h2 {
+  text-align: center;
+  font-size: 48px;
+  color: rgb(52, 40, 51);
+  font-family: "Texturina", serif;
+  margin: 0;
+}
+
+.comment {
+  margin-bottom: 30px;
+}
+
+
+
