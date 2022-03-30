@@ -31,18 +31,6 @@ const MainPageContainer = () => {
     history.push(`/posts/${post}`);
   }, []);
 
-  const goToNextPage = useCallback(() => {
-    if (currentPage <= 9) {
-      setCurrentPage((currentPage) => currentPage + 1);
-    }
-  }, [currentPage]);
-
-  const goToPreviousPage = useCallback(() => {
-    if (currentPage >= 2) {
-      setCurrentPage((currentPage) => currentPage - 1);
-    }
-  }, [currentPage]);
-
   return (
     <MainPageLayout
       posts={currentPosts}
@@ -50,10 +38,6 @@ const MainPageContainer = () => {
       error={error}
       handleGoToPost={handleGoToPost}
       paginate={paginate}
-      totalPosts={posts.length}
-      postsPerPage={postsPerPage}
-      goToNextPage={goToNextPage}
-      goToPreviousPage={goToPreviousPage}
     />
   );
 };
