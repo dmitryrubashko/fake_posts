@@ -1,11 +1,11 @@
-import {useContext, useCallback, useState, useLayoutEffect} from 'react';
-import {useHistory} from "react-router-dom";
+import { useContext, useCallback, useState, useLayoutEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 import MainPageLayout from "../../components/MainPageLayout";
 import Context from "../../../../shared/commonComponents/Context/context";
 
 const MainPageContainer = () => {
-  const {posts, isLoadingPosts, postsError} = useContext(Context);
+  const { posts, isLoadingPosts, postsError } = useContext(Context);
 
   const [offset, setOffset] = useState(0);
   const [perPage] = useState(10);
@@ -25,8 +25,8 @@ const MainPageContainer = () => {
   }, []);
 
   const handlePageClick = useCallback((event) => {
-     const selectedPage = event.selected;
-     setOffset((selectedPage) * perPage);
+    const selectedPage = event.selected;
+    setOffset(selectedPage * perPage);
   }, []);
 
   return (
@@ -38,6 +38,6 @@ const MainPageContainer = () => {
       handleGoToPost={handleGoToPost}
       handlePageClick={handlePageClick}
     />
-  )
-}
+  );
+};
 export default MainPageContainer;
