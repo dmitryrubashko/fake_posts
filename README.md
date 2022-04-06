@@ -4,15 +4,11 @@ Fake Posts is a project with dummy data from JSONPlaceholder.
 
 ![project](https://m.media-amazon.com/images/M/MV5BYmJhMDExOTEtZmNiMS00ZWExLThjZDItNDNhMzVmNjEwNDE4XkEyXkFqcGdeQXVyNTcwOTcxMjk@._V1_.jpg)
 
-## How to run project:
-fake_posts>cd app ---> npm start ---> (http://localhost:3000);
-fake_posts>cd server ---> node server;
-
 ## What is JSONPlaceholder
 JSONPlaceholder is a free online REST API that you can use whenever you need some fake data. It can be in a README on GitHub, for a demo on CodeSandbox, in code examples on Stack Overflow, ...or simply to test things locally.
 
 ## Stack
-HTML, CSS, JavaScript, Redux, React Context, Material-UI, Styled-components
+HTML, SCSS, JavaScript, React, Redux, Redux Thunk, Material-UI
 
 ## Contributing
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
@@ -35,7 +31,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open your local server to view it in your browser.
 
 ### `npm test`
 
