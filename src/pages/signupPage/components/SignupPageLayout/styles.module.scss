@@ -8,12 +8,12 @@
 }
 
 .form {
-  border: 5px solid rgba(12, 28, 72, 0.83);
-  border-radius: 15px;
-  width: 40%;
+  border-radius: 8px;
+  width: 496px;
+  height: 684px;
   text-align: center;
   color: rgba(12, 28, 72, 0.83);
-  background-color: #249f75;
+  background-color: #F5F7FA;
   margin: auto;
   padding-bottom: 20px;
   font-family: "Texturina", serif;
@@ -25,7 +25,15 @@ h1 {
 }
 
 .word {
-  font-size: 24px;
+  height: 42px;
+  width: 200px;
+  border-bottom: solid 2px #2E1AAD;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 26px;
+  color: #2E1AAD;
+  font-family: "Manrope", serif;
+  margin: 32px auto 0;
 }
 
 .input {
@@ -43,8 +51,3 @@ h1 {
 .error {
   color: #bd3b3b;
 }
-
-.newAccount {
-  padding: 10px 0;
-}
-

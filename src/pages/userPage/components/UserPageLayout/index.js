@@ -1,10 +1,10 @@
 import Button from "@mui/material/Button";
 
+import Loader from "../../../../shared/commonComponents/Loader";
+
 import styles from "./styles.module.scss";
-import loading from "../../../../shared/assets/images/loading.gif";
 
 const UserPageLayout = ({
-  id,
   postsOfSelectedUser,
   handleGoToPost,
   isLoadingUserInfo,
@@ -19,11 +19,7 @@ const UserPageLayout = ({
       {(usersError || postsError) && (
         <div className={styles.error}>Not Found</div>
       )}
-      {(isLoadingUserInfo || isLoadingPosts) && (
-        <div className={styles.loader}>
-          {<img src={loading} alt={"loading"} />}
-        </div>
-      )}
+      {(isLoadingUserInfo || isLoadingPosts) && <Loader />}
       {!isLoadingUserInfo && !isLoadingPosts && (
         <>
           <h1>{user?.name}'s Info</h1>

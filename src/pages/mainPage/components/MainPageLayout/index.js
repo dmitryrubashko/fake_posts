@@ -1,24 +1,21 @@
 import Button from "@mui/material/Button";
 import Pagination from "@mui/material/Pagination";
 
+import Loader from "../../../../shared/commonComponents/Loader";
+
 import styles from "./styles.module.scss";
-import loading from "../../../../shared/assets/images/loading.gif";
 
 const MainPageLayout = ({
   handleGoToPost,
   isLoading,
   error,
   posts,
-  paginate
+  paginate,
 }) => {
   return (
     <>
       {error && <div className={styles.error}>Not Found</div>}
-      {isLoading && (
-        <div className={styles.loader}>
-          {<img src={loading} alt={"loading"} />}
-        </div>
-      )}
+      {isLoading && <Loader />}
       {!isLoading && (
         <>
           <h1>Main Page</h1>

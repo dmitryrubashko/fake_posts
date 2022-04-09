@@ -6,6 +6,7 @@ import AllUsersPageContainer from "../../pages/allUsersPage/containers/AllUsersP
 import UserPageContainer from "../../pages/userPage/containers/UserPageContainer";
 import PostPageContainer from "../../pages/postPage/containers/PostPageContainer";
 import LoginPageContainer from "../../pages/loginPage/containers/LoginPageContainer";
+import SignupPageContainer from "../../pages/signupPage/containers/SignupPageContainer";
 
 const Routes = () => {
   return (
@@ -14,6 +15,7 @@ const Routes = () => {
       <Route exact path={ROUTES.USERS_PAGE} component={AllUsersPageContainer} />
       <Route exact path={ROUTES.USER_PAGE} component={UserPageContainer} />
       <Route path={ROUTES.POST_PAGE} component={PostPageContainer} />
+      <Route path={ROUTES.SIGNUP_PAGE} component={SignupPageContainer} />
       <Route path={ROUTES.LOGIN_PAGE} component={LoginPageContainer} />
       <Redirect path="*" to={ROUTES.LOGIN_PAGE} />
     </Switch>

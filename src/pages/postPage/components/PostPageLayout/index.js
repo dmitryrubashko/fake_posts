@@ -1,5 +1,6 @@
+import Loader from "../../../../shared/commonComponents/Loader";
+
 import styles from "./styles.module.scss";
-import loading from "../../../../shared/assets/images/loading.gif";
 
 const PostPageLayout = ({
   postsOfSelectedUser,
@@ -11,10 +12,10 @@ const PostPageLayout = ({
 }) => {
   return (
     <>
-      {(postsError || commentsError) && <div className={styles.error}>Not Found</div>}
-      {(isLoadingPosts || isLoadingComments) && (
-        <div className={styles.loader}>{<img src={loading} alt={"loading"} />}</div>
+      {(postsError || commentsError) && (
+        <div className={styles.error}>Not Found</div>
       )}
+      {(isLoadingPosts || isLoadingComments) && <Loader />}
       {!isLoadingPosts && !isLoadingComments && (
         <>
           <h1>Post</h1>
