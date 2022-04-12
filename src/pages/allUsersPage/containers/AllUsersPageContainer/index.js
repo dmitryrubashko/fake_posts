@@ -2,7 +2,7 @@ import { useCallback, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getUsers } from "../../../../shared/store/actions/usersAction";
+import { getUsers } from "../../../../shared/store/reducers/AllUsersPageReducer/thunks";
 import AllUsersPageLayout from "../../components/AllUsersPageLayout";
 
 const AllUsersPageContainer = () => {
@@ -13,7 +13,10 @@ const AllUsersPageContainer = () => {
 
   useEffect(() => {
     dispatch(getUsers());
-  }, [dispatch]);
+    if (error) {
+      history.push("./error");
+    }
+  }, [dispatch, error]);
 
   const history = useHistory();
 

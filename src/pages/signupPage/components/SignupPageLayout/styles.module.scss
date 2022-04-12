@@ -1,53 +1,33 @@
-.login {
-  text-align: center;
-  font-size: 64px;
-  margin-bottom: 20px;
-  color: rgb(52, 40, 51);
-  font-family: "Texturina", serif;
-  font-weight: bold;
-}
-
-.form {
-  border-radius: 8px;
-  width: 496px;
-  height: 684px;
-  text-align: center;
-  color: rgba(12, 28, 72, 0.83);
-  background-color: #F5F7FA;
-  margin: auto;
-  padding-bottom: 20px;
-  font-family: "Texturina", serif;
-}
-
 h1 {
   font-size: 48px;
   margin-top: 0;
 }
 
-.word {
-  height: 42px;
-  width: 200px;
-  border-bottom: solid 2px #2E1AAD;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 26px;
-  color: #2E1AAD;
-  font-family: "Manrope", serif;
-  margin: 32px auto 0;
-}
-
-.input {
-  background: #b6a27f;
-  border: 3px solid rgba(12, 28, 72, 0.83);
-  border-radius: 5px;
-  width: 45%;
-  margin-bottom: 0.5em;
-  outline: none;
-  font-size: 22px;
+.SignupPageLayout__loginTitle_active {
+  text-align: center;
+  font-size: 64px;
+  margin-bottom: 20px;
+  color: var(--main-text);
   font-family: "Texturina", serif;
-  color: rgba(12, 28, 72, 0.83);
+  font-weight: bold;
 }
 
-.error {
-  color: #bd3b3b;
+.SignupPageLayout__form_active {
+  border-radius: 8px;
+  width: 496px;
+  height: 684px;
+  text-align: center;
+  background-color: white; //
+  margin: auto;
+  padding-bottom: 20px;
+  font-family: "Texturina", serif;
+}
+
+.SignupPageLayout__inputContainer_active {
+  margin: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 16px;
+  width: 400px;
+  padding: 10px 12px;
 }

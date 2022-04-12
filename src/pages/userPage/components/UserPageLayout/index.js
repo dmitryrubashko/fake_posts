@@ -1,6 +1,5 @@
-import Button from "@mui/material/Button";
-
 import Loader from "../../../../shared/commonComponents/Loader";
+import FPButton from "../../../../shared/commonComponents/Button";
 
 import styles from "./styles.module.scss";
 
@@ -16,41 +15,40 @@ const UserPageLayout = ({
 }) => {
   return (
     <>
-      {(usersError || postsError) && (
-        <div className={styles.error}>Not Found</div>
-      )}
       {(isLoadingUserInfo || isLoadingPosts) && <Loader />}
-      {!isLoadingUserInfo && !isLoadingPosts && (
-        <>
-          <h1>{user?.name}'s Info</h1>
-          <div className={styles.user}>
-            <div className={styles.userInfo}>{flatObj(user)}</div>
-          </div>
-          <h2>Posts</h2>
-          <div className={styles.posts}>
-            {postsOfSelectedUser.map((post) => {
-              const { title, body, id } = post;
-              return (
-                <div className={styles.post} key={id}>
-                  <div className={styles.article}>
-                    <div>
-                      <span className={styles.title}>Title :</span> {title}
+      {!isLoadingUserInfo &&
+        !isLoadingPosts &&
+        !postsError &&
+        !usersError(
+          <>
+            <h1>{user?.name}'s Info</h1>
+            <div className={styles.UserPageLayout__userContainer_active}>
+              <div className={styles.userInfo}>{flatObj(user)}</div>
+            </div>
+            <h2>Posts</h2>
+            <div className={styles.UserPageLayout__postsContainer_active}>
+              {postsOfSelectedUser.map((post) => {
+                const { title, body, id } = post;
+                return (
+                  <div className={styles.UserPageLayout__post_active} key={id}>
+                    <div className={styles.UserPageLayout__article_active}>
+                      <div>
+                        <span className={styles.UserPageLayout__title_active}>
+                          Title :
+                        </span>{" "}
+                        {title}
+                      </div>
+                      <div>Post : {body}</div>
                     </div>
-                    <div>Post : {body}</div>
+                    <FPButton type="submit" onClick={() => handleGoToPost(id)}>
+                      Go To Comments
+                    </FPButton>
                   </div>
-                  <Button
-                    variant="contained"
-                    color="success"
-                    onClick={() => handleGoToPost(id)}
-                  >
-                    Go To Comments
-                  </Button>
-                </div>
-              );
-            })}
-          </div>
-        </>
-      )}
+                );
+              })}
+            </div>
+          </>
+        )}
     </>
   );
 };

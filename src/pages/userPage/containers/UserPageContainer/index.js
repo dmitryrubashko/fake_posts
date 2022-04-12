@@ -3,8 +3,8 @@ import { useHistory, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
-import { getPosts } from "../../../../shared/store/actions/postsAction";
-import { getUsers } from "../../../../shared/store/actions/usersAction";
+import { getPosts } from "../../../../shared/store/reducers/PostPageReducer/thunks";
+import { getUsers } from "../../../../shared/store/reducers/AllUsersPageReducer/thunks";
 import UserPageLayout from "../../components/UserPageLayout";
 
 import styles from "./styles.module.scss";
@@ -24,7 +24,10 @@ const UserPageContainer = () => {
   useEffect(() => {
     dispatch(getPosts());
     dispatch(getUsers());
-  }, [dispatch]);
+    if (postsError || usersError) {
+      history.push("./error");
+    }
+  }, [dispatch, postsError, usersError]);
 
   const history = useHistory();
 
@@ -50,7 +53,10 @@ const UserPageContainer = () => {
       if (typeof attr[1] === "string" || typeof attr[1] === "number") {
         return (
           <div key={uuidv4()}>
-            <span className={styles.word}>{attr[0]}</span> : {attr[1]}
+            <span className={styles.UserPageContainer__username_capitalized}>
+              {attr[0]}
+            </span>{" "}
+            : {attr[1]}
           </div>
         );
       } else {

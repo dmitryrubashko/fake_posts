@@ -1,6 +1,7 @@
-import Button from "@mui/material/Button";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
+
+import FPButton from "../../../../shared/commonComponents/Button";
 
 import styles from "./styles.module.scss";
 
@@ -16,7 +17,9 @@ const LoginPageLayout = ({ handleSubmit, goToSignupPage }) => {
 
   return (
     <>
-      <div className={styles.login}>Login Page</div>
+      <div className={styles.LoginPageLayout__loginContainer_active}>
+        Login Page
+      </div>
       <div>
         <Formik
           initialValues={{
@@ -29,12 +32,18 @@ const LoginPageLayout = ({ handleSubmit, goToSignupPage }) => {
           }}
         >
           {({ errors, touched }) => (
-            <Form className={styles.form} onSubmit={handleSubmit}>
+            <Form
+              className={styles.LoginPageLayout__form_selected}
+              onSubmit={handleSubmit}
+              noValidate
+            >
               <div>
                 <label>
-                  <div className={styles.word}>Email</div>
+                  <div className={styles.LoginPageLayout__userEmail_active}>
+                    Email
+                  </div>
                   <Field
-                    className={styles.input}
+                    className={styles.LoginPageLayout__inputContainer_active}
                     name="email"
                     type="email"
                     placeholder="Enter your email"
@@ -42,13 +51,17 @@ const LoginPageLayout = ({ handleSubmit, goToSignupPage }) => {
                 </label>
               </div>
               {errors.email && touched.email ? (
-                <div className={styles.error}>{errors.email}</div>
+                <div className={styles.LoginPageLayout__errorMessage_hidden}>
+                  {errors.email}
+                </div>
               ) : null}
               <div>
                 <label>
-                  <div className={styles.word}>Password</div>
+                  <div className={styles.LoginPageLayout__userPassword_active}>
+                    Password
+                  </div>
                   <Field
-                    className={styles.input}
+                    className={styles.LoginPageLayout__inputContainer_active}
                     name="password"
                     type="password"
                     placeholder="Enter your password"
@@ -56,20 +69,17 @@ const LoginPageLayout = ({ handleSubmit, goToSignupPage }) => {
                 </label>
               </div>
               {errors.password && touched.password ? (
-                <div className={styles.error}>{errors.password}</div>
+                <div className={styles.LoginPageLayout__errorMessage_hidden}>
+                  {errors.password}
+                </div>
               ) : null}
-              <Button variant="contained" color="success" type="submit">
-                Sign in
-              </Button>
-              <div className={styles.newAccount}>Don't have an account?</div>
-              <Button
-                variant="contained"
-                color="success"
-                type="button"
-                onClick={() => goToSignupPage()}
-              >
+              <FPButton type="submit">Sign in</FPButton>
+              <div className={styles.LoginPageLayout__registrationField_active}>
+                Don't have an account?
+              </div>
+              <FPButton onClick={() => goToSignupPage()}>
                 Create an account
-              </Button>
+              </FPButton>
             </Form>
           )}
         </Formik>

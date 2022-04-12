@@ -1,34 +1,35 @@
-import Button from "@mui/material/Button";
-
 import Loader from "../../../../shared/commonComponents/Loader";
+import FPButton from "../../../../shared/commonComponents/Button";
 
 import styles from "./styles.module.scss";
 
 const AllUsersPageLayout = ({ users, handleGoToDetails, isLoading, error }) => {
   return (
     <>
-      {error && <div className={styles.error}>Not Found</div>}
       {isLoading && <Loader />}
-      {!isLoading && (
+      {!isLoading && !error && (
         <>
           <h1>Users Page</h1>
-          <div className={styles.users}>
+          <div className={styles.AllUsersPageLayout__usersContainer_active}>
             {users.map((user) => {
               const { id, name, username } = user;
               return (
-                <div className={styles.user} key={id}>
+                <div
+                  className={styles.AllUsersPageLayout__userContainer_active}
+                  key={id}
+                >
                   <div>
-                    <span className={styles.name}>Name : </span>
+                    <span
+                      className={styles.AllUsersPageLayout__userName_active}
+                    >
+                      Name :{" "}
+                    </span>
                     {name}
                   </div>
                   <div>Username : {username}</div>
-                  <Button
-                    variant="contained"
-                    color="success"
-                    onClick={() => handleGoToDetails(id)}
-                  >
+                  <FPButton onClick={() => handleGoToDetails(id)}>
                     Visit Page
-                  </Button>
+                  </FPButton>
                 </div>
               );
             })}

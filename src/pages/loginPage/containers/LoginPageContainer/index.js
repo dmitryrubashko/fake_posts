@@ -1,8 +1,8 @@
-import { useCallback, useState, useEffect } from "react";
+import { useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { getAuth } from "../../../../shared/store/actions/isAuthAction";
+import { getAuth } from "../../../../shared/store/reducers/LoginPageReducer/thunks";
 import LoginPageLayout from "../../components/LoginPageLayout";
 
 const LoginPageContainer = () => {
@@ -16,11 +16,11 @@ const LoginPageContainer = () => {
   const handleSubmit = useCallback((event) => {
     event.preventDefault();
     const { email, password } = event.target.elements;
-    console.log({ Email: email.value, Password: password.value });
-    if (email.value && password.value >= 8) {
+    if (email.value.includes("@") && password.value.length >= 8) {
       localStorage.setItem("isAuth", true);
-      history.push("/main");
       dispatch(getAuth(true));
+      history.push("/main");
+      console.log({ Email: email.value, Password: password.value });
     } else {
       localStorage.setItem("isAuth", false);
       dispatch(getAuth(false));

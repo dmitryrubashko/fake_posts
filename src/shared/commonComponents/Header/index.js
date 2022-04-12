@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
-import Button from "@mui/material/Button";
 
-import { getAuth } from "../../store/actions/isAuthAction";
+import { getAuth } from "../../store/reducers/LoginPageReducer/thunks";
 import { ROUTES } from "../../routes/routesNames";
+import FPButton from "../Button";
 
 import styles from "./styles.module.scss";
 
@@ -17,17 +17,13 @@ const Header = () => {
       <header>This app was made with the help of JSONPlaceholder!</header>
       <Link to={ROUTES.LOGIN_PAGE}>
         <div className={styles.signIn}>
-          <Button variant="contained" color="success">
-            Sign in
-          </Button>
+          <FPButton>Sign in</FPButton>
         </div>
       </Link>
       <div>
         <Link to={ROUTES.LOGIN_PAGE}>
           <div className={styles.logOut}>
-            <Button
-              variant="contained"
-              color="success"
+            <FPButton
               onClick={() => {
                 dispatch(getAuth(false));
                 localStorage.clear();
@@ -35,21 +31,17 @@ const Header = () => {
               }}
             >
               Log out
-            </Button>
+            </FPButton>
           </div>
         </Link>
       </div>
       {isAuth && (
         <div>
           <Link to={ROUTES.USERS_PAGE} className={styles.link}>
-            <Button variant="contained" color="success">
-              Users Page
-            </Button>
+            <FPButton>Users Page</FPButton>
           </Link>
           <Link to={ROUTES.MAIN_PAGE} className={styles.link}>
-            <Button variant="contained" color="success">
-              Main Page
-            </Button>
+            <FPButton>Main Page</FPButton>
           </Link>
         </div>
       )}

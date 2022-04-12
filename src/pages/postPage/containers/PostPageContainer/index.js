@@ -1,13 +1,14 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getPosts } from "../../../../shared/store/actions/postsAction";
-import { getComments } from "../../../../shared/store/actions/commentsAction";
+import { getPosts } from "../../../../shared/store/reducers/PostPageReducer/thunks";
+import { getComments } from "../../../../shared/store/reducers/MainPageReducer/thunks";
 import PostPageLayout from "../../components/PostPageLayout";
 
 const PostPageContainer = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const {
     posts,
     isLoadingPosts,
@@ -20,7 +21,10 @@ const PostPageContainer = () => {
   useEffect(() => {
     dispatch(getPosts());
     dispatch(getComments());
-  }, [dispatch]);
+    if (postsError || commentsError) {
+      history.push("./error");
+    }
+  }, [dispatch, postsError, commentsError]);
 
   const location = useLocation();
   const elements = location.pathname.split("/");

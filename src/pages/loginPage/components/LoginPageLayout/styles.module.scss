@@ -1,50 +1,50 @@
-.login {
-  text-align: center;
-  font-size: 64px;
-  margin-bottom: 20px;
-  color: rgb(52, 40, 51);
-  font-family: "Texturina", serif;
-  font-weight: bold;
-}
-
-.form {
-  border: 5px solid rgba(12, 28, 72, 0.83);
-  border-radius: 15px;
-  width: 40%;
-  text-align: center;
-  color: rgba(12, 28, 72, 0.83);
-  background-color: #249f75;
-  margin: auto;
-  padding-bottom: 20px;
-  font-family: "Texturina", serif;
-}
-
 h1 {
   font-size: 48px;
   margin-top: 0;
 }
 
-.word {
+.LoginPageLayout__loginContainer_active {
+  text-align: center;
+  font-size: 64px;
+  margin-bottom: 20px;
+  color: var(--main-text);
+  font-family: "Texturina", serif;
+  font-weight: bold;
+}
+
+.LoginPageLayout__form_selected {
+  border: 5px solid var(--border);
+  border-radius: 15px;
+  width: 40%;
+  text-align: center;
+  color: var(--login-text);
+  background-color: var(--bg-login);
+  margin: auto;
+  padding-bottom: 20px;
+  font-family: "Texturina", serif;
+}
+
+.LoginPageLayout__userEmail_active,
+.LoginPageLayout__userPassword_active {
   font-size: 24px;
 }
 
-.input {
-  background: #b6a27f;
-  border: 3px solid rgba(12, 28, 72, 0.83);
+.LoginPageLayout__inputContainer_active {
+  background-color: var(--input-field);
+  border: 3px solid var(--border);
   border-radius: 5px;
   width: 45%;
   margin-bottom: 0.5em;
   outline: none;
   font-size: 22px;
   font-family: "Texturina", serif;
-  color: rgba(12, 28, 72, 0.83);
+  color: var(--login-text);
 }
 
-.error {
-  color: #bd3b3b;
+.LoginPageLayout__errorMessage_hidden {
+  color: var(--error-message);
 }
 
-.newAccount {
+.LoginPageLayout__registrationField_active {
   padding: 10px 0;
 }
-
