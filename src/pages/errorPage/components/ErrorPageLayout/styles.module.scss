@@ -1,0 +1,20 @@
+.ErrorPageContainer__container {
+  text-align: center;
+  font-family: "Texturina", serif;
+  color: var(--main-text);
+}
+
+.ErrorPageLayout__error {
+  color: var(--error-message);
+  font-weight: 700;
+  font-size: 200px;
+}
+
+.ErrorPageLayout__errorMessage {
+  font-size: 32px;
+  padding-bottom: 10px;
+}
+
+.ErrorPageLayout__button_active {
+  text-decoration:none;
+}

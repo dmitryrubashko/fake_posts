@@ -14,9 +14,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        {/*<MainLayout>*/}
-        <Pages />
-        {/*</MainLayout>*/}
+        <MainLayout>
+          <Pages />
+        </MainLayout>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,

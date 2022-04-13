@@ -16,39 +16,36 @@ const UserPageLayout = ({
   return (
     <>
       {(isLoadingUserInfo || isLoadingPosts) && <Loader />}
-      {!isLoadingUserInfo &&
-        !isLoadingPosts &&
-        !postsError &&
-        !usersError(
-          <>
-            <h1>{user?.name}'s Info</h1>
-            <div className={styles.UserPageLayout__userContainer_active}>
-              <div className={styles.userInfo}>{flatObj(user)}</div>
-            </div>
-            <h2>Posts</h2>
-            <div className={styles.UserPageLayout__postsContainer_active}>
-              {postsOfSelectedUser.map((post) => {
-                const { title, body, id } = post;
-                return (
-                  <div className={styles.UserPageLayout__post_active} key={id}>
-                    <div className={styles.UserPageLayout__article_active}>
-                      <div>
-                        <span className={styles.UserPageLayout__title_active}>
-                          Title :
-                        </span>{" "}
-                        {title}
-                      </div>
-                      <div>Post : {body}</div>
+      {!isLoadingUserInfo && !isLoadingPosts && !postsError && (
+        <>
+          <h1>{user?.name}'s Info</h1>
+          <div className={styles.UserPageLayout__userContainer_active}>
+            <div className={styles.userInfo}>{flatObj(user)}</div>
+          </div>
+          <h2>Posts</h2>
+          <div className={styles.UserPageLayout__postsContainer_active}>
+            {postsOfSelectedUser.map((post) => {
+              const { title, body, id } = post;
+              return (
+                <div className={styles.UserPageLayout__post_active} key={id}>
+                  <div className={styles.UserPageLayout__article_active}>
+                    <div>
+                      <span className={styles.UserPageLayout__title_active}>
+                        Title :
+                      </span>{" "}
+                      {title}
                     </div>
-                    <FPButton type="submit" onClick={() => handleGoToPost(id)}>
-                      Go To Comments
-                    </FPButton>
+                    <div>Post : {body}</div>
                   </div>
-                );
-              })}
-            </div>
-          </>
-        )}
+                  <FPButton type="submit" onClick={() => handleGoToPost(id)}>
+                    Go To Comments
+                  </FPButton>
+                </div>
+              );
+            })}
+          </div>
+        </>
+      )}
     </>
   );
 };

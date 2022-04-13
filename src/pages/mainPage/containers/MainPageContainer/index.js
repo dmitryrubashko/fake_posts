@@ -23,6 +23,7 @@ const MainPageContainer = () => {
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
+
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
   const history = useHistory();
