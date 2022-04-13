@@ -25,17 +25,16 @@ const UserPageContainer = () => {
     dispatch(getPosts());
     dispatch(getUsers());
     if (postsError || usersError) {
-      history.push("./error");
+      history.push("../../error");
     }
   }, [dispatch, postsError, usersError]);
-
   const history = useHistory();
 
   const location = useLocation();
   const elements = location.pathname.split("/");
   const id = elements[elements.length - 1];
 
-  const postsOfSelectedUser = posts.reduce((result, post) => {
+  const postsOfSelectedUser = posts?.reduce((result, post) => {
     if (post.userId === users[id - 1]?.id) {
       result.push(post);
     }
@@ -46,10 +45,10 @@ const UserPageContainer = () => {
     history.push(`/posts/${post}`);
   }, []);
 
-  const user = users[id - 1];
+  const user = (users || [])[id - 1];
 
   const flatObj = (obj) => {
-    return Object.entries(obj).map((attr) => {
+    return Object.entries(obj || {})?.map((attr) => {
       if (typeof attr[1] === "string" || typeof attr[1] === "number") {
         return (
           <div key={uuidv4()}>

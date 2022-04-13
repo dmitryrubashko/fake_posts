@@ -24,7 +24,7 @@ const UserPageLayout = ({
           </div>
           <h2>Posts</h2>
           <div className={styles.UserPageLayout__postsContainer_active}>
-            {postsOfSelectedUser.map((post) => {
+            {postsOfSelectedUser?.map((post) => {
               const { title, body, id } = post;
               return (
                 <div className={styles.UserPageLayout__post_active} key={id}>

@@ -1,7 +1,7 @@
 import { GET_AUTH } from "./actions/types";
 
 const initialState = {
-  isAuth: localStorage.getItem("isAuth"),
+  isAuth: JSON.parse(localStorage.getItem("isAuth")),
 };
 
 const LoginPageReducer = (state = initialState, action) => {

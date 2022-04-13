@@ -1,23 +1,20 @@
-import { ROUTES } from "../../../../shared/routes/routesNames";
+import { useHistory } from "react-router-dom";
 
 import FPButton from "../../../../shared/commonComponents/Button";
-import { Link } from "react-router-dom";
 
 import styles from "./styles.module.scss";
 
 const ErrorPageLayout = () => {
+  const history = useHistory();
   return (
     <div className={styles.ErrorPageContainer__container}>
       <div className={styles.ErrorPageLayout__error}>404</div>
       <div className={styles.ErrorPageLayout__errorMessage}>
-        Something went wrong. Try to reload this page.
+        Something went wrong. Try to reload this page and click the button
+        bellow
       </div>
-      <Link
-        to={ROUTES.USERS_PAGE}
-        className={styles.ErrorPageLayout__button_active}
-      >
-        <FPButton> Visit Users Page</FPButton>
-      </Link>
+
+      <FPButton onClick={() => history.goBack()}>Go To Previous Page</FPButton>
     </div>
   );
 };

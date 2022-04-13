@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getPosts } from "../../../../shared/store/reducers/PostPageReducer/thunks";
-
 import MainPageLayout from "../../components/MainPageLayout";
 
 const MainPageContainer = () => {
@@ -24,7 +23,7 @@ const MainPageContainer = () => {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
 
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = posts?.slice(indexOfFirstPost, indexOfLastPost);
 
   const history = useHistory();
 

@@ -21,11 +21,11 @@ const Header = () => {
       {page === "error" ? null : (
         <div className={styles.wrapper}>
           <header>This app was made with the help of JSONPlaceholder!</header>
-          <Link to={ROUTES.LOGIN_PAGE}>
-            <div className={styles.signIn}>
-              <FPButton>Sign in</FPButton>
-            </div>
-          </Link>
+          {/*<Link to={ROUTES.LOGIN_PAGE}>*/}
+          {/*  <div className={styles.signIn}>*/}
+          {/*    <FPButton>Sign in</FPButton>*/}
+          {/*  </div>*/}
+          {/*</Link>*/}
           <div>
             <Link to={ROUTES.LOGIN_PAGE}>
               <div className={styles.logOut}>

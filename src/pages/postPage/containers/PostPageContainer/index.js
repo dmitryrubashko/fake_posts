@@ -22,7 +22,7 @@ const PostPageContainer = () => {
     dispatch(getPosts());
     dispatch(getComments());
     if (postsError || commentsError) {
-      history.push("./error");
+      history.push("../../error");
     }
   }, [dispatch, postsError, commentsError]);
 
@@ -30,14 +30,14 @@ const PostPageContainer = () => {
   const elements = location.pathname.split("/");
   const id = elements[elements.length - 1];
 
-  const postsOfSelectedUser = posts.reduce((result, post) => {
+  const postsOfSelectedUser = posts?.reduce((result, post) => {
     if (post.id === posts[id - 1]?.id) {
       result.push(post);
     }
     return result;
   }, []);
 
-  const commentsOfSelectedUser = comments.reduce((result, comment) => {
+  const commentsOfSelectedUser = comments?.reduce((result, comment) => {
     if (comment.postId === comments[id - 1]?.id) {
       result.push(comment);
     }
