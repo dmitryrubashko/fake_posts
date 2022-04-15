@@ -17,83 +17,104 @@ h1 {
   width: 496px;
   height: 684px;
   text-align: center;
-  background-color: #F5F7FA;
-  margin: auto;
+  background-color: var(--bg-signup);
+  margin: 0 auto 20px;
   padding-bottom: 20px;
   font-family: "Texturina", serif;
 }
 
-.SignupPageLayout__inputContainer_active {
-  margin: 10px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  font-size: 16px;
-  width: 400px;
-  padding: 10px 12px;
-  background-color: #FFFFFF;
-}
-
-.signup {
+.SignupPageLayout__title_active {
   margin: 0 auto 49px;
   width: 200px;
-
-  color: #2E1AAD;
+  color: var(--signup-main);
   font-weight: 700;
   font-size: 18px;
-  font-family: 'Manrope';
+  font-family: 'Manrope', serif;
   padding: 32px 0 16px;
-  border-bottom: 2px solid #2E1AAD;
+  border-bottom: 2px solid var(--signup-main);
 }
 
-.word {
+.SignupPageLayout__label_active {
   padding-left: 1%;
   text-align: left;
   margin: 0 auto;
   width: 400px;
-  color: #999999;
-  font-family: 'Manrope';
+  color: var(--signup-label);
+  font-family: 'Manrope', serif;
   font-weight: 800;
   font-size: 12px;
 }
 
-.field {
+.SignupPageLayout__inputField_selected {
   margin-bottom: 10px;
   width: 392px;
   height: 46px;
-  border: 1px solid #DDDDDD;
+  border: 1px solid var(--signup-label);
   border-radius: 8px;
   font-weight: 700;
   font-size: 16px;
-  font-family: 'Manrope';
-  color: #231F20;
+  font-family: 'Manrope', serif;
+  color: var(--input-value);
   outline: none;
+  padding-left: 15px;
 }
 
-.error {
-  font-family: 'Manrope';
+.SignupPageLayout__errorMessage_hidden {
+  font-family: 'Manrope', serif;
   font-size: 14px;
   color: var(--error-message)
 }
 
-.checkbox {
+.SignupPageLayout__checkbox {
   width: 18px;
   height: 18px;
-  margin: 0 10px 0 0;
+  margin: 0;
 }
 
-.text {
+.SignupPageLayout__checkboxContainer {
   display: inline-block;
-  width: 372px;
+  position: absolute;
+}
+
+.SignupPageLayout__checkbox_description_active {
+  display: inline-block;
+  width: 380px;
   height: 144px;
-  font-family: 'Manrope';
-  color: #231F20;
+  font-family: 'Manrope', serif;
+  color: var(--checkbox-text);
   font-weight: 400;
   font-size: 14px;
   text-align: left;
+  padding-left: 30px;
   font-style: normal;
-
   line-height: 24px;
-  /* or 171% */
-
   font-feature-settings: 'liga' off;
+}
+
+.SignupPageLayout__signupForm_active {
+  margin-top: 20px;
+}
+
+.SignupPageLayout__confirmButton_disabled {
+  margin-top: 40px;
+  background-color: var(--signup-main);
+  border: none;
+  color: var(--bg-signup);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: 'Manrope', serif;
+  border-radius: 8px;
+  width: 400px;
+}
+
+.SignupPageLayout__exclamationText {
+  position: absolute;
+  margin: 12px 0 0 10px;
+}
+
+.SignupPageLayout__exclamationImage {
+  width: 24px;
 }

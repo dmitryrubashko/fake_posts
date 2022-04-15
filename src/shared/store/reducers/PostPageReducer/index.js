@@ -1,5 +1,4 @@
 import { GET_COMMENTS, COMMENTS_ERROR } from "../MainPageReducer/actions/types";
-
 import { GET_POSTS, POSTS_ERROR } from "./actions/types";
 
 const initialState = {

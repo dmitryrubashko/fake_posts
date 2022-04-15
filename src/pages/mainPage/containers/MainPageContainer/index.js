@@ -1,6 +1,6 @@
 import { useCallback, useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import { getPosts } from "../../../../shared/store/reducers/PostPageReducer/thunks";
 import MainPageLayout from "../../components/MainPageLayout";

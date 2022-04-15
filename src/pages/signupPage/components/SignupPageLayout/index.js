@@ -1,20 +1,13 @@
 import { useHistory } from "react-router-dom";
-
-import TextField from "@material-ui/core/TextField";
-import { useFormik } from "formik";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import ReactTooltip from "react-tooltip";
-
 import { Formik, Field, Form } from "formik";
+import ReactTooltip from "react-tooltip";
 import * as Yup from "yup";
 
-import FPButton from "../../../../shared/commonComponents/Button";
 import exclamation from "../../../../shared/assets/images/exclamationmark.png";
 
 import styles from "./styles.module.scss";
 
-const SignupPageLayout = () => {
+const SignupPageLayout = ({ handleActivateButton }) => {
   const signupSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Required"),
     password: Yup.string()
@@ -30,97 +23,15 @@ const SignupPageLayout = () => {
       .oneOf([Yup.ref("password"), null], "Passwords must match"),
   });
 
+  const history = useHistory();
+
   return (
     <>
-      {/*<div className={styles.SignupPageLayout__loginTitle_active}>*/}
-      {/*  Registration Page*/}
-      {/*</div>*/}
-      {/*<div>*/}
-      {/*  <form*/}
-      {/*    className={styles.SignupPageLayout__form_active}*/}
-      {/*    onSubmit={formik.handleSubmit}*/}
-      {/*  >*/}
-      {/*    <div>*/}
-      {/*      <InputLabel>*/}
-      {/*        Email*/}
-      {/*        <div className={styles.SignupPageLayout__inputContainer_active}>*/}
-      {/*          <div>*/}
-      {/*            <TextField*/}
-      {/*              id="email"*/}
-      {/*              name="email"*/}
-      {/*              value={formik.values.email}*/}
-      {/*              onChange={formik.handleChange}*/}
-      {/*              error={formik.touched.email && Boolean(formik.errors.email)}*/}
-      {/*              helperText={formik.touched.email && formik.errors.email}*/}
-      {/*            />*/}
-      {/*          </div>*/}
-      {/*        </div>*/}
-      {/*        <span data-tip="Enter a valid email">*/}
-      {/*          {<img src={exclamation} alt={"exclamation"} />}*/}
-      {/*        </span>*/}
-      {/*        <ReactTooltip />*/}
-      {/*      </InputLabel>*/}
-      {/*    </div>*/}
-      {/*    <div>*/}
-      {/*      <InputLabel>*/}
-      {/*        Password*/}
-      {/*        <span>*/}
-      {/*          <FormControl variant="standard">*/}
-      {/*            <TextField*/}
-      {/*              id="password"*/}
-      {/*              name="password"*/}
-      {/*              type="password"*/}
-      {/*              value={formik.values.password}*/}
-      {/*              onChange={formik.handleChange}*/}
-      {/*              error={*/}
-      {/*                formik.touched.password && Boolean(formik.errors.password)*/}
-      {/*              }*/}
-      {/*              helperText={*/}
-      {/*                formik.touched.password && formik.errors.password*/}
-      {/*              }*/}
-      {/*            />*/}
-      {/*          </FormControl>*/}
-      {/*        </span>*/}
-      {/*        <span data-tip="Password should be 8-30 chars and can only contain Latin letters and numbers">*/}
-      {/*          {<img src={exclamation} alt={"exclamation"} />}*/}
-      {/*        </span>*/}
-      {/*        <ReactTooltip />*/}
-      {/*      </InputLabel>*/}
-      {/*    </div>*/}
-      {/*    <div>*/}
-      {/*      <InputLabel>*/}
-      {/*        Confirm Password*/}
-      {/*        <span>*/}
-      {/*          <FormControl variant="standard">*/}
-      {/*            <TextField*/}
-      {/*              id="confirmPassword"*/}
-      {/*              name="confirmPassword"*/}
-      {/*              type="password"*/}
-      {/*              value={formik.values.confirmPassword}*/}
-      {/*              onChange={formik.handleChange}*/}
-      {/*              error={*/}
-      {/*                formik.touched.confirmPassword &&*/}
-      {/*                Boolean(formik.errors.confirmPassword)*/}
-      {/*              }*/}
-      {/*              helperText={*/}
-      {/*                formik.touched.confirmPassword &&*/}
-      {/*                formik.errors.confirmPassword*/}
-      {/*              }*/}
-      {/*            />*/}
-      {/*          </FormControl>*/}
-      {/*        </span>*/}
-      {/*        <span data-tip="Passwords must match">*/}
-      {/*          {<img src={exclamation} alt={"exclamation"} />}*/}
-      {/*        </span>*/}
-      {/*      </InputLabel>*/}
-      {/*    </div>*/}
-      {/*    <FPButton type="submit">Sing Up</FPButton>*/}
-      {/*  </form>*/}
-      {/*</div>*/}
-      {/*<div>*/}
-      {/*</div>*/}
+      <div className={styles.SignupPageLayout__loginTitle_active}>
+        Registration Page
+      </div>
       <div className={styles.SignupPageLayout__form_active}>
-        <div className={styles.signup}>Sign Up</div>
+        <div className={styles.SignupPageLayout__title_active}>Sign Up</div>
         <Formik
           initialValues={{
             email: "",
@@ -130,66 +41,126 @@ const SignupPageLayout = () => {
           validationSchema={signupSchema}
           onSubmit={(values) => {
             console.log(values);
+            history.push("/");
           }}
         >
           {({ errors, touched }) => (
-            <Form
-              className={styles.LoginPageLayout__form_selected}
-              // onSubmit={handleSubmit}
-              noValidate
-            >
-              <div>
-                <label>
-                  <div className={styles.word}>Email</div>
-                  <Field
-                    className={styles.field}
-                    name="email"
-                    type="email"
-                    placeholder="Enter your email"
+            <Form noValidate>
+              <label>
+                <div className={styles.SignupPageLayout__label_active}>
+                  Email
+                </div>
+                <Field
+                  className={styles.SignupPageLayout__inputField_selected}
+                  name="email"
+                  type="email"
+                  placeholder="Enter your email"
+                />
+              </label>
+              <span
+                data-tip="Enter a valid email"
+                className={styles.SignupPageLayout__exclamationText}
+              >
+                {
+                  <img
+                    src={exclamation}
+                    alt={"exclamation"}
+                    className={styles.SignupPageLayout__exclamationImage}
                   />
-                </label>
-              </div>
+                }
+              </span>
               {errors.email && touched.email ? (
-                <div className={styles.error}>{errors.email}</div>
+                <div className={styles.SignupPageLayout__errorMessage_hidden}>
+                  {errors.email}
+                </div>
               ) : null}
-              <div>
-                <label>
-                  <div className={styles.word}>Password</div>
-                  <Field
-                    className={styles.field}
-                    name="password"
-                    type="password"
-                    placeholder="Enter your password"
+              <ReactTooltip />
+              <label>
+                <div className={styles.SignupPageLayout__label_active}>
+                  Password
+                </div>
+                <Field
+                  className={styles.SignupPageLayout__inputField_selected}
+                  name="password"
+                  type="password"
+                  placeholder="Enter your password"
+                />
+              </label>
+              <span
+                data-tip="Password should be 8-30 chars and can only contain Latin letters and numbers"
+                className={styles.SignupPageLayout__exclamationText}
+              >
+                {
+                  <img
+                    src={exclamation}
+                    alt={"exclamation"}
+                    className={styles.SignupPageLayout__exclamationImage}
                   />
-                </label>
-              </div>
+                }
+              </span>
               {errors.password && touched.password ? (
-                <div className={styles.error}>{errors.password}</div>
+                <div className={styles.SignupPageLayout__errorMessage_hidden}>
+                  {errors.password}
+                </div>
               ) : null}
-              <div>
-                <label>
-                  <div className={styles.word}>Confirm Password</div>
-                  <Field
-                    className={styles.field}
-                    name="confirmPassword"
-                    type="password"
-                    placeholder="Confirm your password"
+              <label>
+                <div className={styles.SignupPageLayout__label_active}>
+                  Confirm Password
+                </div>
+                <Field
+                  className={styles.SignupPageLayout__inputField_selected}
+                  name="confirmPassword"
+                  type="password"
+                  placeholder="Confirm your password"
+                />
+              </label>
+              <span
+                data-tip="Passwords must match"
+                className={styles.SignupPageLayout__exclamationText}
+              >
+                {
+                  <img
+                    src={exclamation}
+                    alt={"exclamation"}
+                    className={styles.SignupPageLayout__exclamationImage}
                   />
-                </label>
-              </div>
+                }
+              </span>
               {errors.confirmPassword && touched.confirmPassword ? (
-                <div className={styles.error}>{errors.confirmPassword}</div>
+                <div className={styles.SignupPageLayout__errorMessage_hidden}>
+                  {errors.confirmPassword}
+                </div>
               ) : null}
-              <input type="checkbox" className={styles.checkbox} />
-              <div className={styles.text}>
-                By creating an account you agree to the terms and conditions
-                applicable to our service and acknowledge that your personal
-                data will be used in accordance with our privacy policy and you
-                will receive emails and communications about jobs, industry
-                news, new products and related topics.
+              <div className={styles.SignupPageLayout__signupForm_active}>
+                <div className={styles.SignupPageLayout__checkboxContainer}>
+                  <input
+                    type="checkbox"
+                    id="check"
+                    className={styles.SignupPageLayout__checkbox}
+                    onClick={handleActivateButton}
+                  />
+                </div>
+                <div
+                  className={
+                    styles.SignupPageLayout__checkbox_description_active
+                  }
+                >
+                  By creating an account you agree to the terms and conditions
+                  applicable to our service and acknowledge that your personal
+                  data will be used in accordance with our privacy policy and
+                  you will receive emails and communications about jobs,
+                  industry news, new products and related topics.
+                </div>
               </div>
               <div>
-                <button type="submit">Sign up</button>
+                <button
+                  type="submit"
+                  className={styles.SignupPageLayout__confirmButton_disabled}
+                  id="submit-button"
+                  disabled
+                >
+                  Sign up
+                </button>
               </div>
             </Form>
           )}

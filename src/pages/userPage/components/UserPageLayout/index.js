@@ -8,7 +8,6 @@ const UserPageLayout = ({
   handleGoToPost,
   isLoadingUserInfo,
   isLoadingPosts,
-  usersError,
   postsError,
   user,
   flatObj,
@@ -20,7 +19,7 @@ const UserPageLayout = ({
         <>
           <h1>{user?.name}'s Info</h1>
           <div className={styles.UserPageLayout__userContainer_active}>
-            <div className={styles.userInfo}>{flatObj(user)}</div>
+            <div className={styles.UserPageLayout__userInfo_active}>{flatObj(user)}</div>
           </div>
           <h2>Posts</h2>
           <div className={styles.UserPageLayout__postsContainer_active}>

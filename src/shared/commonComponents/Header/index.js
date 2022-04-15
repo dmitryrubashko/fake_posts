@@ -9,6 +9,7 @@ import styles from "./styles.module.scss";
 
 const Header = () => {
   const { isAuth } = useSelector((state) => state.loginPageList);
+
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -19,16 +20,11 @@ const Header = () => {
   return (
     <>
       {page === "error" ? null : (
-        <div className={styles.wrapper}>
+        <div className={styles.Header__wrapperContainer}>
           <header>This app was made with the help of JSONPlaceholder!</header>
-          {/*<Link to={ROUTES.LOGIN_PAGE}>*/}
-          {/*  <div className={styles.signIn}>*/}
-          {/*    <FPButton>Sign in</FPButton>*/}
-          {/*  </div>*/}
-          {/*</Link>*/}
           <div>
             <Link to={ROUTES.LOGIN_PAGE}>
-              <div className={styles.logOut}>
+              <div className={styles.Header__logoutButton_active}>
                 <FPButton
                   onClick={() => {
                     dispatch(getAuth(false));
@@ -43,10 +39,16 @@ const Header = () => {
           </div>
           {isAuth && (
             <div>
-              <Link to={ROUTES.USERS_PAGE} className={styles.link}>
+              <Link
+                to={ROUTES.USERS_PAGE}
+                className={styles.Header__linkButton_active}
+              >
                 <FPButton>Users Page</FPButton>
               </Link>
-              <Link to={ROUTES.MAIN_PAGE} className={styles.link}>
+              <Link
+                to={ROUTES.MAIN_PAGE}
+                className={styles.Header__linkButton_active}
+              >
                 <FPButton>Main Page</FPButton>
               </Link>
             </div>

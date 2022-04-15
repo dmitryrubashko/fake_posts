@@ -1,6 +1,5 @@
 import { USERS_ERROR } from "../actions/types";
 import UsersActionCreator from "../actions/creators";
-
 import GetData from "../../../../api";
 
 export const getUsers = () => (dispatch) => {
