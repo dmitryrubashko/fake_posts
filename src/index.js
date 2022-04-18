@@ -4,17 +4,18 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import MainLayout from "./shared/commonComponents/MainLayout";
-import Routes from "./shared/routes/routes";
 import store from "./shared/store";
+import Pages from "./pages";
 
-import "./index.css";
+import "./global.scss";
+import "./_variables.scss";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <MainLayout>
-          <Routes />
+          <Pages />
         </MainLayout>
       </BrowserRouter>
     </Provider>

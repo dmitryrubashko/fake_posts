@@ -1,8 +1,8 @@
 import { useCallback, useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
-import { getPosts } from "../../../../shared/store/actions/postsAction";
+import { getPosts } from "../../../../shared/store/reducers/PostPageReducer/thunks";
 import MainPageLayout from "../../components/MainPageLayout";
 
 const MainPageContainer = () => {
@@ -12,14 +12,18 @@ const MainPageContainer = () => {
 
   useEffect(() => {
     dispatch(getPosts());
-  }, [dispatch]);
+    if (error) {
+      history.push("./error");
+    }
+  }, [dispatch, error]);
 
   const [postsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+  const currentPosts = posts?.slice(indexOfFirstPost, indexOfLastPost);
 
   const history = useHistory();
 

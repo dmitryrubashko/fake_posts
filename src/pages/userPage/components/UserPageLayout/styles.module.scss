@@ -1,74 +1,69 @@
-.error {
+h1 {
   text-align: center;
-  color: #771c1c;
+  font-size: 64px;
+  margin-bottom: 20px;
+  color: var(--main-text);
+  font-family: "Texturina", serif;
+  margin-top: 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 48px;
+  color: var(--main-text);
+  font-family: "Texturina", serif;
+  margin: 0;
+}
+
+.UserPageLayout__errorMessage_hidden {
+  text-align: center;
+  color: var(--error-message);
   font-family: "Original Surfer", cursive;
   font-size: 96px;
   margin: 20px;
 }
 
-.loader {
-  display: flex;
-  justify-content: center;
-}
-
-h1 {
-  text-align: center;
-  font-size: 64px;
-  margin-bottom: 20px;
-  color: rgb(52, 40, 51);
-  font-family: "Texturina", serif;
-  margin-top: 0;
-}
-
-.user {
+.UserPageLayout__userContainer_active {
   font-weight: bold;
   font-size: 20px;
   font-family: "Texturina", serif;
-  color: rgb(52, 40, 51);
+  color: var(--main-text);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.userInfo {
-  border: 10px solid rgba(12, 28, 72, 0.83);
+.UserPageLayout__userInfo_active {
+  border: 10px solid var(--border);
   border-radius: 30px;
   padding: 15px;
   width: 25%;
   text-align: center;
 }
 
-h2 {
-  text-align: center;
-  font-size: 48px;
-  color: rgb(52, 40, 51);
-  font-family: "Texturina", serif;
-  margin: 0;
-}
-
-.posts {
+.UserPageLayout__postsContainer_active {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.post {
+.UserPageLayout__post_active {
   font-size: 20px;
   font-family: "Texturina", serif;
-  border: 6px solid rgba(12, 28, 72, 0.83);
+  border: 6px solid var(--border);
   border-radius: 20px;
   width: 30%;
   margin: 15px;
   font-weight: bold;
   text-align: center;
-  color: rgb(52, 40, 51);
+  color: var(--main-text);
   padding-bottom: 10px;
 }
 
-.article {
+.UserPageLayout__article_active {
   padding: 5px;
 }
 
-.title {
-  color: #4b390e;
+.UserPageLayout__title_active {
+  color: var(--posts-title);
 }

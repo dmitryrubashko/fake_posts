@@ -1,51 +1,48 @@
-import Button from "@mui/material/Button";
 import Pagination from "@mui/material/Pagination";
 
+import Loader from "../../../../shared/commonComponents/Loader";
+import FPButton from "../../../../shared/commonComponents/Button";
+
 import styles from "./styles.module.scss";
-import loading from "../../../../shared/assets/images/loading.gif";
 
 const MainPageLayout = ({
   handleGoToPost,
   isLoading,
   error,
   posts,
-  paginate
+  paginate,
 }) => {
   return (
     <>
-      {error && <div className={styles.error}>Not Found</div>}
-      {isLoading && (
-        <div className={styles.loader}>
-          {<img src={loading} alt={"loading"} />}
-        </div>
-      )}
-      {!isLoading && (
+      {isLoading && <Loader />}
+      {!isLoading && !error && (
         <>
           <h1>Main Page</h1>
-          <div className={styles.wrapper}>
+          <div className={styles.MainPageLayout__wrapper_active}>
             {posts.map((post) => {
               const { id, title, body } = post;
               return (
-                <div className={styles.post} key={id}>
+                <div
+                  className={styles.MainPageLayout__postContainer_active}
+                  key={id}
+                >
                   <div>
                     <div>
-                      <span className={styles.title}>Title : </span>
+                      <span className={styles.MainPageLayout__title_active}>
+                        Title :{" "}
+                      </span>
                       {title}
                     </div>
                     <div>Post : {body}</div>
                   </div>
-                  <Button
-                    variant="contained"
-                    color="success"
-                    onClick={() => handleGoToPost(id)}
-                  >
+                  <FPButton onClick={() => handleGoToPost(id)}>
                     Go To Comments
-                  </Button>
+                  </FPButton>
                 </div>
               );
             })}
           </div>
-          <div className={styles.pagination}>
+          <div className={styles.MainPageLayout__pagination_active}>
             <Pagination
               count={10}
               shape="rounded"

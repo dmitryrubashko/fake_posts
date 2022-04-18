@@ -1,59 +1,51 @@
-.error {
+h1 {
   text-align: center;
-  color: #771c1c;
+  font-size: 64px;
+  margin-bottom: 20px;
+  color: var(--main-text);
+  font-family: "Texturina", serif;
+  margin-top: 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 48px;
+  color: var(--main-text);
+  font-family: "Texturina", serif;
+  margin: 0;
+}
+
+.PostPageLayout__errorMessage_hidden {
+  text-align: center;
+  color: var(--error-message);
   font-family: "Original Surfer", cursive;
   font-size: 96px;
   margin: 20px;
 }
 
-.loader {
-  display: flex;
-  justify-content: center;
-}
-
-h1 {
-  text-align: center;
-  font-size: 64px;
-  margin-bottom: 20px;
-  color: rgb(52, 40, 51);
-  font-family: "Texturina", serif;
-  margin-top: 0;
-}
-
-.section {
+.PostPageLayout__sectionContainer_active {
   font-weight: bold;
   text-align: center;
   font-size: 20px;
   font-family: "Texturina", serif;
-  color: rgb(52, 40, 51);
+  color: var(--main-text);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.article {
-  border: 3px solid rgba(12, 28, 72, 0.83);
+.PostPageLayout__article_active {
+  border: 3px solid var(--border);
   margin: 15px 30px;
   border-radius: 10px;
   padding: 5px;
   width: 50%;
 }
 
-.title {
-  color: #4b390e;
+.PostPageLayout__title_active {
+  color: var(--posts-title);
 }
 
-h2 {
-  text-align: center;
-  font-size: 48px;
-  color: rgb(52, 40, 51);
-  font-family: "Texturina", serif;
-  margin: 0;
-}
-
-.comment {
+.PostPageLayout__commentMessage_active {
   margin-bottom: 30px;
 }
-
-
-

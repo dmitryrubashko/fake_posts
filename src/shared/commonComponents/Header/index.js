@@ -1,59 +1,61 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory, Link } from "react-router-dom";
-import Button from "@mui/material/Button";
+import { useHistory, Link, useLocation } from "react-router-dom";
 
-import { getAuth } from "../../store/actions/isAuthAction";
+import { getAuth } from "../../store/reducers/LoginPageReducer/thunks";
 import { ROUTES } from "../../routes/routesNames";
+import FPButton from "../Button";
 
 import styles from "./styles.module.scss";
 
 const Header = () => {
   const { isAuth } = useSelector((state) => state.loginPageList);
+
   const history = useHistory();
   const dispatch = useDispatch();
 
+  const location = useLocation();
+  const elements = location.pathname.split("/");
+  const page = elements[elements.length - 1];
+
   return (
-    <div className={styles.wrapper}>
-      <header>This app was made with the help of JSONPlaceholder!</header>
-      <Link to={ROUTES.LOGIN_PAGE}>
-        <div className={styles.signIn}>
-          <Button variant="contained" color="success">
-            Sign in
-          </Button>
-        </div>
-      </Link>
-      <div>
-        <Link to={ROUTES.LOGIN_PAGE}>
-          <div className={styles.logOut}>
-            <Button
-              variant="contained"
-              color="success"
-              onClick={() => {
-                dispatch(getAuth(false));
-                localStorage.clear();
-                history.push("/");
-              }}
-            >
-              Log out
-            </Button>
+    <>
+      {page === "error" ? null : (
+        <div className={styles.Header__wrapperContainer}>
+          <header>This app was made with the help of JSONPlaceholder!</header>
+          <div>
+            <Link to={ROUTES.LOGIN_PAGE}>
+              <div className={styles.Header__logoutButton_active}>
+                <FPButton
+                  onClick={() => {
+                    dispatch(getAuth(false));
+                    localStorage.clear();
+                    history.push("/");
+                  }}
+                >
+                  Log out
+                </FPButton>
+              </div>
+            </Link>
           </div>
-        </Link>
-      </div>
-      {isAuth && (
-        <div>
-          <Link to={ROUTES.USERS_PAGE} className={styles.link}>
-            <Button variant="contained" color="success">
-              Users Page
-            </Button>
-          </Link>
-          <Link to={ROUTES.MAIN_PAGE} className={styles.link}>
-            <Button variant="contained" color="success">
-              Main Page
-            </Button>
-          </Link>
+          {isAuth && (
+            <div>
+              <Link
+                to={ROUTES.USERS_PAGE}
+                className={styles.Header__linkButton_active}
+              >
+                <FPButton>Users Page</FPButton>
+              </Link>
+              <Link
+                to={ROUTES.MAIN_PAGE}
+                className={styles.Header__linkButton_active}
+              >
+                <FPButton>Main Page</FPButton>
+              </Link>
+            </div>
+          )}
         </div>
       )}
-    </div>
+    </>
   );
 };
 export default Header;

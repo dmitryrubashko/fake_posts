@@ -1,35 +1,39 @@
-import { useCallback, useState, useEffect } from "react";
+import { useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { getAuth } from "../../../../shared/store/actions/isAuthAction";
+import { getAuth } from "../../../../shared/store/reducers/LoginPageReducer/thunks";
 import LoginPageLayout from "../../components/LoginPageLayout";
 
 const LoginPageContainer = () => {
-  const [emailData, setEmailData] = useState(null);
-
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const goToSignupPage = () => {
+    history.push("/signup");
+  };
 
   const handleSubmit = useCallback((event) => {
     event.preventDefault();
     const { email, password } = event.target.elements;
-    console.log({ Email: email.value, Password: password.value });
-    if (email.value.includes("@") && password.value.length >= 3) {
-      localStorage.setItem('isAuth', true);
-      history.push("/main");
+    if (email.value.includes("@") && password.value.length >= 8) {
+      localStorage.setItem("isAuth", true);
       dispatch(getAuth(true));
+      history.push("/main");
+      console.log({ Email: email.value, Password: password.value });
     } else {
-      setEmailData(
-        "Please include an @ in the email address and use at least three symbols in your password!"
-      );
-      localStorage.setItem('isAuth', false);
+      localStorage.setItem("isAuth", false);
       dispatch(getAuth(false));
     }
     email.value = "";
     password.value = "";
   }, []);
 
-  return <LoginPageLayout handleSubmit={handleSubmit} emailData={emailData} />;
+  return (
+    <LoginPageLayout
+      handleSubmit={handleSubmit}
+      goToSignupPage={goToSignupPage}
+    />
+  );
 };
 export default LoginPageContainer;
