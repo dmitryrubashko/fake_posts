@@ -45,7 +45,7 @@ const MainPageLayout = ({
           </div>
           <div className={styles.MainPageLayout__pagination_active}>
             <Pagination
-              count={allPosts.length / 10}
+              count={Math.ceil(allPosts.length / 10)}
               shape="rounded"
               onChange={(event, page) => paginate(page)}
             />
