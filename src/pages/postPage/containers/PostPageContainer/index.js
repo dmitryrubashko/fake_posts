@@ -38,7 +38,7 @@ const PostPageContainer = () => {
   }, []);
 
   const commentsOfSelectedUser = comments?.reduce((result, comment) => {
-    if (comment.postId === comments[id - 1]?.id) {
+    if (comment.postid === comments[id - 1]?.id) {
       result.push(comment);
     }
     return result;

@@ -42,6 +42,7 @@ const MainPageContainer = () => {
       error={error}
       handleGoToPost={handleGoToPost}
       paginate={paginate}
+      allPosts={posts}
     />
   );
 };
