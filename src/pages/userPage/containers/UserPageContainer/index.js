@@ -35,7 +35,7 @@ const UserPageContainer = () => {
   const id = elements[elements.length - 1];
 
   const postsOfSelectedUser = posts?.reduce((result, post) => {
-    if (post.userid === users[id - 1]?.id) {
+    if (post.user_id === users[id - 1]?.id) {
       result.push(post);
     }
     return result;
