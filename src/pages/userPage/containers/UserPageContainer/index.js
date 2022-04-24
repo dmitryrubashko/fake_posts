@@ -35,7 +35,7 @@ const UserPageContainer = () => {
   const id = elements[elements.length - 1];
 
   const postsOfSelectedUser = posts?.reduce((result, post) => {
-    if (post.userid === users[id - 1]?.id) {
+    if (post.user_id === users[id - 1]?.id) {
       result.push(post);
     }
     return result;
@@ -49,6 +49,14 @@ const UserPageContainer = () => {
 
   const flatObj = (obj) => {
     return Object.entries(obj || {})?.map((attr) => {
+      if (attr[0] === "companies") {
+        return (
+          <div key={uuidv4()}>
+            <div>Companies :</div>
+            {flatObj(attr[1])}
+          </div>
+        );
+      }
       if (typeof attr[1] === "string" || typeof attr[1] === "number") {
         return (
           <div key={uuidv4()}>
