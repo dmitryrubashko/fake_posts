@@ -49,6 +49,14 @@ const UserPageContainer = () => {
 
   const flatObj = (obj) => {
     return Object.entries(obj || {})?.map((attr) => {
+      if (attr[0] === "companies") {
+        return (
+          <div key={uuidv4()}>
+            <div>Companies :</div>
+            {flatObj(attr[1])}
+          </div>
+        );
+      }
       if (typeof attr[1] === "string" || typeof attr[1] === "number") {
         return (
           <div key={uuidv4()}>
