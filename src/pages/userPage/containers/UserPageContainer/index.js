@@ -35,7 +35,7 @@ const UserPageContainer = () => {
   const id = elements[elements.length - 1];
 
   const postsOfSelectedUser = posts?.reduce((result, post) => {
-    if (post.user_id === users[id - 1]?.id) {
+    if (post.user_id.toString() === id) {
       result.push(post);
     }
     return result;
@@ -45,7 +45,7 @@ const UserPageContainer = () => {
     history.push(`/posts/${post}`);
   }, []);
 
-  const user = (users || [])[id - 1];
+  const user = users.filter((user) => user.id.toString() === id)[0];
 
   const flatObj = (obj) => {
     return Object.entries(obj || {})?.map((attr) => {
