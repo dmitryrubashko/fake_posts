@@ -29,16 +29,14 @@ const PostPageContainer = () => {
   const location = useLocation();
   const elements = location.pathname.split("/");
   const id = elements[elements.length - 1];
-
   const postsOfSelectedUser = posts?.reduce((result, post) => {
-    if (post.id === posts[id - 1]?.id) {
+    if (post.id.toString() === id) {
       result.push(post);
     }
     return result;
   }, []);
-
   const commentsOfSelectedUser = comments?.reduce((result, comment) => {
-    if (comment.post_id === comments[id - 1]?.id) {
+    if (comment.post_id.toString() === id) {
       result.push(comment);
     }
     return result;
