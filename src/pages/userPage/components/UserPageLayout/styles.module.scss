@@ -23,7 +23,7 @@ h2 {
   margin: 20px;
 }
 
-.UserPageLayout__userContainer_active {
+.UserPageLayout__userContainer {
   font-weight: bold;
   font-size: 20px;
   font-family: "Texturina", serif;
@@ -33,7 +33,7 @@ h2 {
   justify-content: space-around;
 }
 
-.UserPageLayout__userInfo_active {
+.UserPageLayout__userInfo {
   border: 10px solid var(--border);
   border-radius: 30px;
   padding: 15px;
@@ -41,13 +41,13 @@ h2 {
   text-align: center;
 }
 
-.UserPageLayout__postsContainer_active {
+.UserPageLayout__postsContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.UserPageLayout__post_active {
+.UserPageLayout__post {
   font-size: 20px;
   font-family: "Texturina", serif;
   border: 6px solid var(--border);
@@ -60,10 +60,10 @@ h2 {
   padding-bottom: 10px;
 }
 
-.UserPageLayout__article_active {
+.UserPageLayout__article {
   padding: 5px;
 }
 
-.UserPageLayout__title_active {
+.UserPageLayout__title {
   color: var(--posts-title);
 }

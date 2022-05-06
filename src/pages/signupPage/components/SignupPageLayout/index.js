@@ -27,11 +27,11 @@ const SignupPageLayout = ({ handleActivateButton }) => {
 
   return (
     <>
-      <div className={styles.SignupPageLayout__loginTitle_active}>
+      <div className={styles.SignupPageLayout__loginTitle}>
         Registration Page
       </div>
-      <div className={styles.SignupPageLayout__form_active}>
-        <div className={styles.SignupPageLayout__title_active}>Sign Up</div>
+      <div className={styles.SignupPageLayout__form}>
+        <div className={styles.SignupPageLayout__title}>Sign Up</div>
         <Formik
           initialValues={{
             email: "",
@@ -47,9 +47,7 @@ const SignupPageLayout = ({ handleActivateButton }) => {
           {({ errors, touched }) => (
             <Form noValidate>
               <label>
-                <div className={styles.SignupPageLayout__label_active}>
-                  Email
-                </div>
+                <div className={styles.SignupPageLayout__label}>Email</div>
                 <Field
                   className={styles.SignupPageLayout__inputField_selected}
                   name="email"
@@ -76,9 +74,7 @@ const SignupPageLayout = ({ handleActivateButton }) => {
               ) : null}
               <ReactTooltip />
               <label>
-                <div className={styles.SignupPageLayout__label_active}>
-                  Password
-                </div>
+                <div className={styles.SignupPageLayout__label}>Password</div>
                 <Field
                   className={styles.SignupPageLayout__inputField_selected}
                   name="password"
@@ -104,7 +100,7 @@ const SignupPageLayout = ({ handleActivateButton }) => {
                 </div>
               ) : null}
               <label>
-                <div className={styles.SignupPageLayout__label_active}>
+                <div className={styles.SignupPageLayout__label}>
                   Confirm Password
                 </div>
                 <Field
@@ -131,7 +127,7 @@ const SignupPageLayout = ({ handleActivateButton }) => {
                   {errors.confirmPassword}
                 </div>
               ) : null}
-              <div className={styles.SignupPageLayout__signupForm_active}>
+              <div className={styles.SignupPageLayout__signupForm}>
                 <div className={styles.SignupPageLayout__checkboxContainer}>
                   <input
                     type="checkbox"
@@ -140,11 +136,7 @@ const SignupPageLayout = ({ handleActivateButton }) => {
                     onClick={handleActivateButton}
                   />
                 </div>
-                <div
-                  className={
-                    styles.SignupPageLayout__checkbox_description_active
-                  }
-                >
+                <div className={styles.SignupPageLayout__checkbox_description}>
                   By creating an account you agree to the terms and conditions
                   applicable to our service and acknowledge that your personal
                   data will be used in accordance with our privacy policy and

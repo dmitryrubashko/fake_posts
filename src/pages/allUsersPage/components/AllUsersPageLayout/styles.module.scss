@@ -15,7 +15,7 @@ h1 {
   margin: 20px;
 }
 
-.AllUsersPageLayout__usersContainer_active {
+.AllUsersPageLayout__usersContainer {
   font-weight: bold;
   font-size: 20px;
   font-family: "Texturina", serif;
@@ -26,7 +26,7 @@ h1 {
   text-align: center;
 }
 
-.AllUsersPageLayout__userContainer_active {
+.AllUsersPageLayout__userContainer {
   border: 5px solid var(--border);
   margin: 15px auto 30px auto;
   border-radius: 10px;
@@ -34,6 +34,6 @@ h1 {
   width: 25%;
 }
 
-.AllUsersPageLayout__userName_active {
+.AllUsersPageLayout__userName {
   color: var(--header);
 }

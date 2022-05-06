@@ -10,18 +10,16 @@ const AllUsersPageLayout = ({ users, handleGoToDetails, isLoading, error }) => {
       {!isLoading && !error && (
         <>
           <h1>Users Page</h1>
-          <div className={styles.AllUsersPageLayout__usersContainer_active}>
+          <div className={styles.AllUsersPageLayout__usersContainer}>
             {users.map((user) => {
               const { id, name, username } = user;
               return (
                 <div
-                  className={styles.AllUsersPageLayout__userContainer_active}
+                  className={styles.AllUsersPageLayout__userContainer}
                   key={id}
                 >
                   <div>
-                    <span
-                      className={styles.AllUsersPageLayout__userName_active}
-                    >
+                    <span className={styles.AllUsersPageLayout__userName}>
                       Name :{" "}
                     </span>
                     {name}

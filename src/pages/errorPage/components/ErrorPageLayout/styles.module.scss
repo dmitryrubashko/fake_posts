@@ -1,4 +1,4 @@
-.ErrorPageContainer__container_active {
+.ErrorPageContainer__container {
   text-align: center;
   font-family: "Texturina", serif;
   color: var(--main-text);
@@ -13,8 +13,4 @@
 .ErrorPageLayout__errorMessage {
   font-size: 32px;
   padding-bottom: 10px;
-}
-
-.ErrorPageLayout__button_active {
-  text-decoration:none;
 }

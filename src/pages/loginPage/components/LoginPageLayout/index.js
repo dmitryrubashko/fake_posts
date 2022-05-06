@@ -17,9 +17,7 @@ const LoginPageLayout = ({ handleSubmit, goToSignupPage }) => {
 
   return (
     <>
-      <div className={styles.LoginPageLayout__loginContainer_active}>
-        Login Page
-      </div>
+      <div className={styles.LoginPageLayout__loginContainer}>Login Page</div>
       <div>
         <Formik
           initialValues={{
@@ -39,11 +37,9 @@ const LoginPageLayout = ({ handleSubmit, goToSignupPage }) => {
             >
               <div>
                 <label>
-                  <div className={styles.LoginPageLayout__userEmail_active}>
-                    Email
-                  </div>
+                  <div className={styles.LoginPageLayout__userEmail}>Email</div>
                   <Field
-                    className={styles.LoginPageLayout__inputContainer_active}
+                    className={styles.LoginPageLayout__inputContainer}
                     name="email"
                     type="email"
                     placeholder="Enter your email"
@@ -57,11 +53,11 @@ const LoginPageLayout = ({ handleSubmit, goToSignupPage }) => {
               ) : null}
               <div>
                 <label>
-                  <div className={styles.LoginPageLayout__userPassword_active}>
+                  <div className={styles.LoginPageLayout__userPassword}>
                     Password
                   </div>
                   <Field
-                    className={styles.LoginPageLayout__inputContainer_active}
+                    className={styles.LoginPageLayout__inputContainer}
                     name="password"
                     type="password"
                     placeholder="Enter your password"
@@ -74,7 +70,7 @@ const LoginPageLayout = ({ handleSubmit, goToSignupPage }) => {
                 </div>
               ) : null}
               <FPButton type="submit">Sign in</FPButton>
-              <div className={styles.LoginPageLayout__registrationField_active}>
+              <div className={styles.LoginPageLayout__registrationField}>
                 Don't have an account?
               </div>
               <FPButton onClick={() => goToSignupPage()}>

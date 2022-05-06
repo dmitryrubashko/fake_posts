@@ -3,7 +3,7 @@ h1 {
   margin-top: 0;
 }
 
-.LoginPageLayout__loginContainer_active {
+.LoginPageLayout__loginContainer {
   text-align: center;
   font-size: 64px;
   margin-bottom: 20px;
@@ -24,12 +24,12 @@ h1 {
   font-family: "Texturina", serif;
 }
 
-.LoginPageLayout__userEmail_active,
-.LoginPageLayout__userPassword_active {
+.LoginPageLayout__userEmail,
+.LoginPageLayout__userPassword {
   font-size: 24px;
 }
 
-.LoginPageLayout__inputContainer_active {
+.LoginPageLayout__inputContainer {
   background-color: var(--input-field);
   border: 3px solid var(--border);
   border-radius: 5px;
@@ -45,6 +45,6 @@ h1 {
   color: var(--error-message);
 }
 
-.LoginPageLayout__registrationField_active {
+.LoginPageLayout__registrationField {
   padding: 10px 0;
 }
