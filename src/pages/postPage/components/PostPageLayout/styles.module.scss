@@ -1,8 +1,10 @@
+@import "../../../../app/variables";
+
 h1 {
   text-align: center;
   font-size: 64px;
   margin-bottom: 20px;
-  color: var(--main-text);
+  color: $main-text;
   font-family: "Texturina", serif;
   margin-top: 0;
 }
@@ -10,14 +12,14 @@ h1 {
 h2 {
   text-align: center;
   font-size: 48px;
-  color: var(--main-text);
+  color: $main-text;
   font-family: "Texturina", serif;
   margin: 0;
 }
 
 .PostPageLayout__errorMessage_hidden {
   text-align: center;
-  color: var(--error-message);
+  color: $error-message;
   font-family: "Original Surfer", cursive;
   font-size: 96px;
   margin: 20px;
@@ -28,14 +30,14 @@ h2 {
   text-align: center;
   font-size: 20px;
   font-family: "Texturina", serif;
-  color: var(--main-text);
+  color: $main-text;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
 .PostPageLayout__article {
-  border: 3px solid var(--border);
+  border: 3px solid $border;
   margin: 15px 30px;
   border-radius: 10px;
   padding: 5px;
@@ -43,7 +45,7 @@ h2 {
 }
 
 .PostPageLayout__title {
-  color: var(--posts-title);
+  color: $posts-title;
 }
 
 .PostPageLayout__commentMessage {

@@ -1,11 +1,13 @@
+@import "../../../../app/variables";
+
 .ErrorPageContainer__container {
   text-align: center;
   font-family: "Texturina", serif;
-  color: var(--main-text);
+  color: $main-text;
 }
 
 .ErrorPageLayout__error {
-  color: var(--error-message);
+  color: $error-message;
   font-weight: 700;
   font-size: 200px;
 }

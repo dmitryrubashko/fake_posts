@@ -1,7 +1,9 @@
+@import "../../../../app/variables";
+
 h1 {
   font-size: 64px;
   margin-bottom: 20px;
-  color: var(--main-text);
+  color: $main-text;
   font-family: "Texturina", serif;
   margin-top: 0;
   text-align: center;
@@ -9,7 +11,7 @@ h1 {
 
 .AllUsersPageLayout__errorMessage_hidden {
   text-align: center;
-  color: var(--error-message);
+  color: $error-message;
   font-family: "Original Surfer", cursive;
   font-size: 96px;
   margin: 20px;
@@ -19,7 +21,7 @@ h1 {
   font-weight: bold;
   font-size: 20px;
   font-family: "Texturina", serif;
-  color: var(--main-text);
+  color: $main-text;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -27,7 +29,7 @@ h1 {
 }
 
 .AllUsersPageLayout__userContainer {
-  border: 5px solid var(--border);
+  border: 5px solid $border;
   margin: 15px auto 30px auto;
   border-radius: 10px;
   padding: 5px;
@@ -35,5 +37,5 @@ h1 {
 }
 
 .AllUsersPageLayout__userName {
-  color: var(--header);
+  color: $header;
 }

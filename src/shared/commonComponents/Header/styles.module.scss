@@ -1,6 +1,8 @@
+@import "../../../app/variables";
+
 header {
   font-size: 36px;
-  color: var(--header);
+  color: $header;
   font-family: "Original Surfer", cursive;
   display: inline-block;
   margin-bottom: 20px;
