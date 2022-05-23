@@ -10,9 +10,9 @@ const LoginPageLayout = ({ handleSubmit, goToSignupPage }) => {
     email: Yup.string().email("Invalid email").required("Required"),
     password: Yup.string()
       .required("No password provided.")
-      .min(8, "Password is too short - should be 8 chars minimum.")
-      .max(30, "Password is too long - should be 30 chars maximum.")
-      .matches(/[0-9a-zA-Z]/, "Password can only contain Latin letters."),
+      .min(8, "Password is too short - should be 8 chars minimum."),
+    // .max(30, "Password is too long - should be 30 chars maximum.")
+    // .matches(/[0-9a-zA-Z]/, "Password can only contain Latin letters."),
   });
 
   return (
@@ -26,7 +26,7 @@ const LoginPageLayout = ({ handleSubmit, goToSignupPage }) => {
           }}
           validationSchema={loginSchema}
           onSubmit={(values) => {
-            console.log(values);
+            console.log(123123);
           }}
         >
           {({ errors, touched }) => (

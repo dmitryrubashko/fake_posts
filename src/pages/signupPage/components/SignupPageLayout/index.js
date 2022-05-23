@@ -25,17 +25,19 @@ const SignupPageLayout = ({ handleActivateButton }) => {
       .matches(/[0-9]/, "Phone can only contain numbers.")
       .required("Required"),
     website: Yup.string().required("Required").max(50),
-    companies: Yup.string().required("Required"),
+    companies: Yup.string().required(
+      'For example: [{"name": "Romaguera", "catchPhrase": "Multi-layered", "bs": "harness" }, { "name": "Deckow", "catchPhrase": "Proactive", "bs": "synergize scalable" }]'
+    ),
     password: Yup.string()
       .required("No password provided.")
-      .min(8, "Password is too short - should be 8 chars minimum.")
-      .max(50, "Password is too long - should be 50 chars maximum.")
-      .matches(/[0-9a-zA-Z]/, "Password can only contain Latin letters."),
+      .min(8, "Password is too short - should be 8 chars minimum."),
+    // .max(50, "Password is too long - should be 50 chars maximum.")
+    // .matches(/[0-9a-zA-Z]/, "Password can only contain Latin letters."),
     confirmPassword: Yup.string()
       .required("No password provided.")
       .min(8, "Password is too short - should be 8 chars minimum.")
-      .max(30, "Password is too long - should be 30 chars maximum.")
-      .matches(/[0-9a-zA-Z]/, "Password can only contain Latin letters.")
+      // .max(30, "Password is too long - should be 30 chars maximum.")
+      // .matches(/[0-9a-zA-Z]/, "Password can only contain Latin letters.")
       .oneOf([Yup.ref("password"), null], "Passwords must match"),
   });
 
