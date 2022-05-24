@@ -9,10 +9,8 @@ const LoginPageLayout = ({ handleSubmit, goToSignupPage }) => {
   const loginSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Required"),
     password: Yup.string()
-      .required("No password provided.")
-      .min(8, "Password is too short - should be 8 chars minimum."),
-    // .max(30, "Password is too long - should be 30 chars maximum.")
-    // .matches(/[0-9a-zA-Z]/, "Password can only contain Latin letters."),
+      .required("No password provided")
+      .min(8, "Password is too short - should be 8 chars minimum"),
   });
 
   return (
@@ -25,9 +23,6 @@ const LoginPageLayout = ({ handleSubmit, goToSignupPage }) => {
             password: "",
           }}
           validationSchema={loginSchema}
-          onSubmit={(values) => {
-            console.log(123123);
-          }}
         >
           {({ errors, touched }) => (
             <Form

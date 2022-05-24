@@ -11,10 +11,10 @@ import styles from "./styles.module.scss";
 const SignupPageLayout = ({ handleActivateButton }) => {
   const signupSchema = Yup.object().shape({
     name: Yup.string()
-      .max(50, "Name is too long - should be 50 chars maximum.")
+      .max(50, "Name is too long - should be 50 chars maximum")
       .required("Required"),
     username: Yup.string()
-      .max(50, "Username is too long - should be 50 chars maximum.")
+      .max(50, "Username is too long - should be 50 chars maximum")
       .required("Required"),
     email: Yup.string().email("Invalid email").required("Required").max(100),
     address: Yup.string().required(
@@ -22,7 +22,7 @@ const SignupPageLayout = ({ handleActivateButton }) => {
     ),
     phone: Yup.string()
       .max(50, "Phone number is too long - should be 50 chars maximum.")
-      .matches(/[0-9]/, "Phone can only contain numbers.")
+      .matches(/[0-9]/, "Phone can only contain numbers")
       .required("Required"),
     website: Yup.string().required("Required").max(50),
     companies: Yup.string().required(
@@ -31,13 +31,9 @@ const SignupPageLayout = ({ handleActivateButton }) => {
     password: Yup.string()
       .required("No password provided.")
       .min(8, "Password is too short - should be 8 chars minimum."),
-    // .max(50, "Password is too long - should be 50 chars maximum.")
-    // .matches(/[0-9a-zA-Z]/, "Password can only contain Latin letters."),
     confirmPassword: Yup.string()
       .required("No password provided.")
       .min(8, "Password is too short - should be 8 chars minimum.")
-      // .max(30, "Password is too long - should be 30 chars maximum.")
-      // .matches(/[0-9a-zA-Z]/, "Password can only contain Latin letters.")
       .oneOf([Yup.ref("password"), null], "Passwords must match"),
   });
 
@@ -64,7 +60,6 @@ const SignupPageLayout = ({ handleActivateButton }) => {
           }}
           validationSchema={signupSchema}
           onSubmit={(values) => {
-            console.log(values.email);
             fetch(`http://localhost:8080/users`, {
               method: "POST",
               headers: {
@@ -78,11 +73,11 @@ const SignupPageLayout = ({ handleActivateButton }) => {
                 phone: values.phone,
                 website: values.website,
                 address: JSON.parse(values.address),
-                password: bcrypt.hashSync(values.password),
+                password: bcrypt.hashSync(values.password, 12),
                 companies: JSON.parse(values.companies),
               }),
             }).then((response) => {
-              console.log("response", response); //
+              console.log("response", response);
               if (response.status === 204) {
                 return new Promise((resolve) => resolve(null));
               }
@@ -91,7 +86,7 @@ const SignupPageLayout = ({ handleActivateButton }) => {
               }
               return response.json();
             });
-            history.push("/");
+            history.push("/login");
           }}
         >
           {({ errors, touched }) => (

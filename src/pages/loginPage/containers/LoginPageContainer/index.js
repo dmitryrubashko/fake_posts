@@ -16,15 +16,38 @@ const LoginPageContainer = () => {
   const handleSubmit = useCallback((event) => {
     event.preventDefault();
     const { email, password } = event.target.elements;
-    if (email.value.includes("@") && password.value.length >= 8) {
-      localStorage.setItem("isAuth", true);
-      dispatch(getAuth(true));
-      history.push("/main");
-      console.log({ Email: email.value, Password: password.value });
-    } else {
-      localStorage.setItem("isAuth", false);
-      dispatch(getAuth(false));
-    }
+    fetch(`http://localhost:8080/users/login`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email.value,
+        password: password.value,
+      }),
+    })
+      .then((response) => {
+        console.log("response", response);
+        if (response.status === 204) {
+          return new Promise((resolve) => resolve(null));
+        }
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then((response) => {
+        localStorage.setItem("Auth", response); // saving a token to localStorage
+        if (response) {
+          localStorage.setItem("isAuth", true);
+          dispatch(getAuth(true));
+          history.push("/main");
+        } else {
+          localStorage.setItem("isAuth", false);
+          dispatch(getAuth(false));
+        }
+      });
     email.value = "";
     password.value = "";
   }, []);
