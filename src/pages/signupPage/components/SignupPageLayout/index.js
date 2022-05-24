@@ -26,7 +26,7 @@ const SignupPageLayout = ({ handleActivateButton }) => {
       .required("Required"),
     website: Yup.string().required("Required").max(50),
     companies: Yup.string().required(
-      'For example: [{"name": "Romaguera", "catchPhrase": "Multi-layered", "bs": "harness" }, { "name": "Deckow", "catchPhrase": "Proactive", "bs": "synergize scalable" }]'
+      'For example: [{"name": "Romaguera", "catchPhrase": "Multi", "bs": "harness" }, { "name": "Deckow", "catchPhrase": "Proactive", "bs": "synergize" }]'
     ),
     password: Yup.string()
       .required("No password provided.")
