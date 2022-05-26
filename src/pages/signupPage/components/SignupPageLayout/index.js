@@ -169,6 +169,18 @@ const SignupPageLayout = ({ handleActivateButton }) => {
                   placeholder="Address"
                 />
               </label>
+              <span
+                data-tip="Use the example below the input line"
+                className={styles.SignupPageLayout__exclamationText}
+              >
+                {
+                  <img
+                    src={exclamation}
+                    alt={"exclamation"}
+                    className={styles.SignupPageLayout__exclamationImage}
+                  />
+                }
+              </span>
               {errors.address && touched.address ? (
                 <div className={styles.SignupPageLayout__errorMessage_hidden}>
                   {errors.address}
@@ -215,6 +227,18 @@ const SignupPageLayout = ({ handleActivateButton }) => {
                   placeholder="Companies"
                 />
               </label>
+              <span
+                data-tip="Use the example below the input line (make company/ies as array of object/s)"
+                className={styles.SignupPageLayout__exclamationText}
+              >
+                {
+                  <img
+                    src={exclamation}
+                    alt={"exclamation"}
+                    className={styles.SignupPageLayout__exclamationImage}
+                  />
+                }
+              </span>
               {errors.companies && touched.companies ? (
                 <div className={styles.SignupPageLayout__errorMessage_hidden}>
                   {errors.companies}
