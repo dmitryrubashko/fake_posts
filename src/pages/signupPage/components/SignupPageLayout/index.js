@@ -228,7 +228,7 @@ const SignupPageLayout = ({ handleActivateButton }) => {
                 />
               </label>
               <span
-                data-tip="Use the example below the input line (make company/ies as array of object/s)"
+                data-tip="Use the example below the input line (make company/ies as array of object/s). You must use the same name, catchPhrase and bs for the same company if you enter it again"
                 className={styles.SignupPageLayout__exclamationText}
               >
                 {
