@@ -57,6 +57,13 @@ const UserPageContainer = () => {
           </div>
         );
       }
+      if (
+        attr[0] === "password" ||
+        attr[0].toLowerCase() === "createdat" ||
+        attr[0].toLowerCase() === "updatedat"
+      ) {
+        return null;
+      }
       if (typeof attr[1] === "string" || typeof attr[1] === "number") {
         return (
           <div key={uuidv4()}>

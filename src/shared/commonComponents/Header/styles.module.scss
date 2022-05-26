@@ -1,6 +1,8 @@
+@import "../../../app/variables";
+
 header {
   font-size: 36px;
-  color: var(--header);
+  color: $header;
   font-family: "Original Surfer", cursive;
   display: inline-block;
   margin-bottom: 20px;
@@ -11,14 +13,13 @@ header {
   margin-top: 15px;
 }
 
-.Header__logoutButton_active {
+.Header__logoutButton {
   margin-top: -20px;
   position: absolute;
   right: 1%;
 }
 
-.Header__linkButton_active {
+.Header__linkButton {
   text-decoration: none;
   padding: 0 10px;
 }
-

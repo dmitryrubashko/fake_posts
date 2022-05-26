@@ -1,24 +1,5 @@
-import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
 
-import MainLayout from "./shared/commonComponents/MainLayout";
-import store from "./shared/store";
-import Pages from "./pages";
+import App from "./app";
 
-import "./global.scss";
-import "./_variables.scss";
-
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <MainLayout>
-          <Pages />
-        </MainLayout>
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById("root"));

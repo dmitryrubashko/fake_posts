@@ -19,17 +19,14 @@ const MainPageLayout = ({
       {!isLoading && !error && (
         <>
           <h1>Main Page</h1>
-          <div className={styles.MainPageLayout__wrapper_active}>
+          <div className={styles.MainPageLayout__wrapper}>
             {posts.map((post) => {
               const { id, title, body } = post;
               return (
-                <div
-                  className={styles.MainPageLayout__postContainer_active}
-                  key={id}
-                >
+                <div className={styles.MainPageLayout__postContainer} key={id}>
                   <div>
                     <div>
-                      <span className={styles.MainPageLayout__title_active}>
+                      <span className={styles.MainPageLayout__title}>
                         Title :{" "}
                       </span>
                       {title}
@@ -43,7 +40,7 @@ const MainPageLayout = ({
               );
             })}
           </div>
-          <div className={styles.MainPageLayout__pagination_active}>
+          <div className={styles.MainPageLayout__pagination}>
             <Pagination
               count={Math.ceil(allPosts.length / 10)}
               shape="rounded"

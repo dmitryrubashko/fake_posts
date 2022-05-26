@@ -16,13 +16,13 @@ const PostPageLayout = ({
       {!isLoadingPosts && !isLoadingComments && !postsError && !commentsError && (
         <>
           <h1>Post</h1>
-          <div className={styles.PostPageLayout__sectionContainer_active}>
+          <div className={styles.PostPageLayout__sectionContainer}>
             {postsOfSelectedUser.map((post) => {
               const { title, body, id } = post;
               return (
-                <div className={styles.PostPageLayout__article_active} key={id}>
+                <div className={styles.PostPageLayout__article} key={id}>
                   <div>
-                    <span className={styles.PostPageLayout__title_active}>
+                    <span className={styles.PostPageLayout__title}>
                       Title :{" "}
                     </span>
                     {title}
@@ -33,15 +33,12 @@ const PostPageLayout = ({
             })}
           </div>
           <h2>Comments :</h2>
-          <div className={styles.PostPageLayout__sectionContainer_active}>
+          <div className={styles.PostPageLayout__sectionContainer}>
             {commentsOfSelectedUser.map((comment) => {
               const { name, email, body } = comment;
               return (
-                <div
-                  className={styles.PostPageLayout__article_active}
-                  key={name}
-                >
-                  <div className={styles.PostPageLayout__commentMessage_active}>
+                <div className={styles.PostPageLayout__article} key={name}>
+                  <div className={styles.PostPageLayout__commentMessage}>
                     Comment : {body}
                   </div>
                   <div>Name : {name}</div>

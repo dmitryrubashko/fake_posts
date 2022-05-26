@@ -9,17 +9,13 @@ const LoginPageLayout = ({ handleSubmit, goToSignupPage }) => {
   const loginSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Required"),
     password: Yup.string()
-      .required("No password provided.")
-      .min(8, "Password is too short - should be 8 chars minimum.")
-      .max(30, "Password is too long - should be 30 chars maximum.")
-      .matches(/[0-9a-zA-Z]/, "Password can only contain Latin letters."),
+      .required("No password provided")
+      .min(8, "Password is too short - should be 8 chars minimum"),
   });
 
   return (
     <>
-      <div className={styles.LoginPageLayout__loginContainer_active}>
-        Login Page
-      </div>
+      <div className={styles.LoginPageLayout__loginContainer}>Login Page</div>
       <div>
         <Formik
           initialValues={{
@@ -27,9 +23,6 @@ const LoginPageLayout = ({ handleSubmit, goToSignupPage }) => {
             password: "",
           }}
           validationSchema={loginSchema}
-          onSubmit={(values) => {
-            console.log(values);
-          }}
         >
           {({ errors, touched }) => (
             <Form
@@ -39,11 +32,9 @@ const LoginPageLayout = ({ handleSubmit, goToSignupPage }) => {
             >
               <div>
                 <label>
-                  <div className={styles.LoginPageLayout__userEmail_active}>
-                    Email
-                  </div>
+                  <div className={styles.LoginPageLayout__userEmail}>Email</div>
                   <Field
-                    className={styles.LoginPageLayout__inputContainer_active}
+                    className={styles.LoginPageLayout__inputContainer}
                     name="email"
                     type="email"
                     placeholder="Enter your email"
@@ -57,11 +48,11 @@ const LoginPageLayout = ({ handleSubmit, goToSignupPage }) => {
               ) : null}
               <div>
                 <label>
-                  <div className={styles.LoginPageLayout__userPassword_active}>
+                  <div className={styles.LoginPageLayout__userPassword}>
                     Password
                   </div>
                   <Field
-                    className={styles.LoginPageLayout__inputContainer_active}
+                    className={styles.LoginPageLayout__inputContainer}
                     name="password"
                     type="password"
                     placeholder="Enter your password"
@@ -74,7 +65,7 @@ const LoginPageLayout = ({ handleSubmit, goToSignupPage }) => {
                 </div>
               ) : null}
               <FPButton type="submit">Sign in</FPButton>
-              <div className={styles.LoginPageLayout__registrationField_active}>
+              <div className={styles.LoginPageLayout__registrationField}>
                 Don't have an account?
               </div>
               <FPButton onClick={() => goToSignupPage()}>

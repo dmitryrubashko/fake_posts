@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Original+Surfer&family=Texturina&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@700&family=Original+Surfer&family=Texturina&display=swap");
+@import "variables";
 
 * {
   cursor: pointer;
@@ -15,5 +16,5 @@ body {
     "Manrope", "Original Surfer", "Texturina", sans-serif, cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--bg-color);
+  background: $bg-color;
 }

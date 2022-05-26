@@ -24,7 +24,7 @@ const Header = () => {
           <header>This app was made with the help of JSONPlaceholder!</header>
           <div>
             <Link to={ROUTES.LOGIN_PAGE}>
-              <div className={styles.Header__logoutButton_active}>
+              <div className={styles.Header__logoutButton}>
                 <FPButton
                   onClick={() => {
                     dispatch(getAuth(false));
@@ -41,14 +41,11 @@ const Header = () => {
             <div>
               <Link
                 to={ROUTES.USERS_PAGE}
-                className={styles.Header__linkButton_active}
+                className={styles.Header__linkButton}
               >
                 <FPButton>Users Page</FPButton>
               </Link>
-              <Link
-                to={ROUTES.MAIN_PAGE}
-                className={styles.Header__linkButton_active}
-              >
+              <Link to={ROUTES.MAIN_PAGE} className={styles.Header__linkButton}>
                 <FPButton>Main Page</FPButton>
               </Link>
             </div>

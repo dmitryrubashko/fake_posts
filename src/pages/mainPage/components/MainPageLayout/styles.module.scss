@@ -1,44 +1,46 @@
+@import "../../../../app/variables";
+
 h1 {
   text-align: center;
   font-size: 64px;
   margin-bottom: 20px;
-  color: var(--main-text);
+  color: $main-text;
   font-family: "Texturina", serif;
   margin-top: 0;
 }
 
 .MainPageLayout__errorMessage_hidden {
   text-align: center;
-  color: var(--error-message);
+  color: $error-message;
   font-family: "Original Surfer", cursive;
   font-size: 96px;
   margin: 20px;
 }
 
-.MainPageLayout__wrapper_active {
+.MainPageLayout__wrapper {
   font-weight: bold;
   text-align: center;
   font-size: 20px;
   font-family: "Texturina", serif;
-  color: var(--main-text);
+  color: $main-text;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-.MainPageLayout__postContainer_active {
-  border: 6px solid var(--border);
+.MainPageLayout__postContainer {
+  border: 6px solid $border;
   margin: 15px 30px;
   border-radius: 10px;
   padding: 5px;
   width: 25%;
 }
 
-.MainPageLayout__title_active {
-  color: var(--posts-title);
+.MainPageLayout__title {
+  color: $posts-title;
 }
 
-.MainPageLayout__pagination_active {
+.MainPageLayout__pagination {
   display: flex;
   justify-content: center;
   margin: 20px;
