@@ -12,6 +12,9 @@ const MainPageContainer = () => {
 
   useEffect(() => {
     dispatch(getPosts());
+    if (error?.message === "Request failed with status code 403") {
+      history.push("./login");
+    }
     if (error) {
       history.push("./error");
     }

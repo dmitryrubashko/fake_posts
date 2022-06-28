@@ -18,6 +18,7 @@ const LoginPageContainer = () => {
     const { email, password } = event.target.elements;
     fetch(`http://localhost:8080/users/login`, {
       method: "POST",
+      credentials: "include",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

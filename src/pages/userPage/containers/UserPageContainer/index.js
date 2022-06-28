@@ -19,11 +19,15 @@ const UserPageContainer = () => {
     users,
     isLoadingUsers,
     usersError,
+    error,
   } = userPageList;
 
   useEffect(() => {
     dispatch(getPosts());
     dispatch(getUsers());
+    if (error?.message === "Request failed with status code 403") {
+      history.push("./login");
+    }
     if (postsError || usersError) {
       history.push("../../error");
     }

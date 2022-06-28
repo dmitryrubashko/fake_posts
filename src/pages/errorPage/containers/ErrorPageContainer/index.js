@@ -7,9 +7,16 @@ const ErrorPageContainer = () => {
   const handleBackToPreviousPage = () => {
     history.goBack();
   };
+  const handleBackToLoginPage = () => {
+    history.push("./login");
+  };
 
   return (
-    <ErrorPageLayout handleBackToPreviousPage={handleBackToPreviousPage} />
+    <ErrorPageLayout
+      handleBackToPreviousPage={handleBackToPreviousPage}
+      handleBackToLoginPage={handleBackToLoginPage}
+    />
   );
 };
+
 export default ErrorPageContainer;

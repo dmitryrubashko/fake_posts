@@ -2,7 +2,10 @@ import FPButton from "../../../../shared/commonComponents/Button";
 
 import styles from "./styles.module.scss";
 
-const ErrorPageLayout = ({ handleBackToPreviousPage }) => {
+const ErrorPageLayout = ({
+  handleBackToPreviousPage,
+  handleBackToLoginPage,
+}) => {
   return (
     <div className={styles.ErrorPageContainer__container}>
       <div className={styles.ErrorPageLayout__error}>404</div>
@@ -13,6 +16,9 @@ const ErrorPageLayout = ({ handleBackToPreviousPage }) => {
       <FPButton onClick={handleBackToPreviousPage}>
         Go Back To Previous Page
       </FPButton>
+      <div>
+        <FPButton onClick={handleBackToLoginPage}>Go To Login Page</FPButton>
+      </div>
     </div>
   );
 };

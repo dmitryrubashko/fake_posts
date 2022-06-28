@@ -5,13 +5,13 @@ const Api = axios.create({ baseURL });
 
 const GetData = {
   dataUsers() {
-    return Api.get(`/users`);
+    return Api.get(`/users`, { withCredentials: true });
   },
   dataPosts() {
-    return Api.get(`/posts`);
+    return Api.get(`/posts`, { withCredentials: true });
   },
   dataComments() {
-    return Api.get(`/comments`);
+    return Api.get(`/comments`, { withCredentials: true });
   },
 };
 

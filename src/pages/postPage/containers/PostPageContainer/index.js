@@ -16,11 +16,15 @@ const PostPageContainer = () => {
     comments,
     isLoadingComments,
     commentsError,
+    error,
   } = useSelector((state) => state.postPageList);
 
   useEffect(() => {
     dispatch(getPosts());
     dispatch(getComments());
+    if (error?.message === "Request failed with status code 403") {
+      history.push("./login");
+    }
     if (postsError || commentsError) {
       history.push("../../error");
     }
