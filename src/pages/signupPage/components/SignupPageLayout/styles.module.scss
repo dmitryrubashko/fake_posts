@@ -1,0 +1,122 @@
+@import "../../../../app/variables";
+
+h1 {
+  font-size: 48px;
+  margin-top: 0;
+}
+
+.SignupPageLayout__loginTitle {
+  text-align: center;
+  font-size: 64px;
+  margin-bottom: 20px;
+  color: $main-text;
+  font-family: "Texturina", serif;
+  font-weight: bold;
+}
+
+.SignupPageLayout__form {
+  border-radius: 8px;
+  width: 496px;
+  height: 1310px;
+  text-align: center;
+  background-color: $bg-signup;
+  margin: 0 auto 20px;
+  padding-bottom: 20px;
+  font-family: "Texturina", serif;
+}
+
+.SignupPageLayout__title {
+  margin: 0 auto 49px;
+  width: 200px;
+  color: $signup-main;
+  font-weight: 700;
+  font-size: 18px;
+  font-family: "Manrope", serif;
+  padding: 32px 0 16px;
+  border-bottom: 2px solid $signup-main;
+}
+
+.SignupPageLayout__label {
+  padding-left: 1%;
+  text-align: left;
+  margin: 0 auto;
+  width: 400px;
+  color: $signup-label;
+  font-family: "Manrope", serif;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.SignupPageLayout__inputField_selected {
+  margin-bottom: 10px;
+  width: 392px;
+  height: 46px;
+  border: 1px solid $signup-label;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  font-family: "Manrope", serif;
+  color: $input-value;
+  outline: none;
+  padding-left: 15px;
+}
+
+.SignupPageLayout__errorMessage_hidden {
+  font-family: "Manrope", serif;
+  font-size: 14px;
+  color: $error-message;
+}
+
+.SignupPageLayout__checkbox {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+
+.SignupPageLayout__checkboxContainer {
+  display: inline-block;
+  position: absolute;
+}
+
+.SignupPageLayout__checkbox_description {
+  display: inline-block;
+  width: 380px;
+  height: 144px;
+  font-family: "Manrope", serif;
+  color: $checkbox-text;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: left;
+  padding-left: 30px;
+  font-style: normal;
+  line-height: 24px;
+  font-feature-settings: "liga" off;
+}
+
+.SignupPageLayout__signupForm {
+  margin-top: 20px;
+}
+
+.SignupPageLayout__confirmButton_disabled {
+  margin-top: 40px;
+  background-color: $signup-main;
+  border: none;
+  color: $bg-signup;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-family: "Manrope", serif;
+  border-radius: 8px;
+  width: 400px;
+}
+
+.SignupPageLayout__exclamationText {
+  position: absolute;
+  margin: 12px 0 0 10px;
+}
+
+.SignupPageLayout__exclamationImage {
+  width: 24px;
+}

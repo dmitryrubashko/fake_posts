@@ -1,0 +1,25 @@
+@import "../../../app/variables";
+
+header {
+  font-size: 36px;
+  color: $header;
+  font-family: "Original Surfer", cursive;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.Header__wrapperContainer {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.Header__logoutButton {
+  margin-top: -20px;
+  position: absolute;
+  right: 1%;
+}
+
+.Header__linkButton {
+  text-decoration: none;
+  padding: 0 10px;
+}

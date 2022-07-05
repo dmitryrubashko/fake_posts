@@ -1,0 +1,71 @@
+@import "../../../../app/variables";
+
+h1 {
+  text-align: center;
+  font-size: 64px;
+  margin-bottom: 20px;
+  color: $main-text;
+  font-family: "Texturina", serif;
+  margin-top: 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 48px;
+  color: $main-text;
+  font-family: "Texturina", serif;
+  margin: 0;
+}
+
+.UserPageLayout__errorMessage_hidden {
+  text-align: center;
+  color: $error-message;
+  font-family: "Original Surfer", cursive;
+  font-size: 96px;
+  margin: 20px;
+}
+
+.UserPageLayout__userContainer {
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "Texturina", serif;
+  color: $main-text;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.UserPageLayout__userInfo {
+  border: 10px solid $border;
+  border-radius: 30px;
+  padding: 15px;
+  width: 25%;
+  text-align: center;
+}
+
+.UserPageLayout__postsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.UserPageLayout__post {
+  font-size: 20px;
+  font-family: "Texturina", serif;
+  border: 6px solid $border;
+  border-radius: 20px;
+  width: 30%;
+  margin: 15px;
+  font-weight: bold;
+  text-align: center;
+  color: $main-text;
+  padding-bottom: 10px;
+}
+
+.UserPageLayout__article {
+  padding: 5px;
+}
+
+.UserPageLayout__title {
+  color: $posts-title;
+}
